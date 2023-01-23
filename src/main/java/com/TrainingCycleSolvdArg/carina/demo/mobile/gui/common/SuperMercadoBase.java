@@ -8,6 +8,5 @@ public abstract class SuperMercadoBase extends AbstractPage implements IMobileUt
     public SuperMercadoBase(WebDriver driver) {
         super(driver);
     }
-
     public abstract String getSuperText();
 }

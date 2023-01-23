@@ -1,15 +1,9 @@
 package com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android;
 
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.HomeScreenBase;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.MenuCatalogBase;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.SuperMercadoBase;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.zebrunner.carina.utils.factory.DeviceType;
-import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AndroidBy;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -25,6 +19,15 @@ public class HomeScreen extends HomeScreenBase {
 
     @ExtendedFindBy(accessibilityId = "Atrás")
     private ExtendedWebElement backArrow;
+
+    @FindBy(id = "com.mercadolibre:id/ui_components_action_bar_title_toolbar")
+    private ExtendedWebElement searchBar;
+
+    @FindBy(id = "com.mercadolibre:id/vpp_action_bar_bookmark")
+    private ExtendedWebElement bookMark;
+
+    @FindBy(id = "com.mercadolibre:id/cart_icon")
+    private ExtendedWebElement cartIcon;
 
     public HomeScreen(WebDriver driver) {
         super(driver);
@@ -47,4 +50,26 @@ public class HomeScreen extends HomeScreenBase {
     public void clickArrowBackButton() {
         backArrow.click();
     }
+
+    @Override
+    public void TapOnSearchBar() {
+        searchBar.click();
+    }
+
+    @Override
+    public void swipeDown() {
+    swipe(bookMark,Direction.DOWN);
+    }
+
+    @Override
+    public CarritoScreenBase clickOnCarritoIcon() {
+        cartIcon.click();
+        return initPage(getDriver(), CarritoScreenBase.class);
+    }
+
+//    @Override
+//    public SearchPanelBarBase TapOnSearchBar() {
+//      searchBar.click();
+//        return initPage(getDriver(), SearchPanelBarBase.class);
+//    }
 }

@@ -1,8 +1,7 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.HomeScreenBase;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.MenuCatalogBase;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.SuperMercadoBase;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.SearchPanelBar;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
@@ -29,6 +28,33 @@ public class TestMercadoLibre implements IAbstractTest {
         String texto = superPage.getSuperText();
         homeScreen.clickArrowBackButton();
         Assert.assertEquals(texto, "Supermercado", "The text doesn't match");
+
+    }
+
+    @Test
+    @MethodOwner(owner = "BarreraGerman")
+    @TestLabel(name = "#1-testAddAndRemoveAProductFromCart", value = {"Mobile", "Practice"})
+    public void testAddAndRemoveAProductFromCart() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+
+        //SearchPanelBarBase panelSearch = homeScreen.TapOnSearchBar();
+        homeScreen.TapOnSearchBar();
+        SearchPanelBarBase panelSearch = new SearchPanelBar(getDriver());
+        panelSearch.typeTheProduct("cartera");
+        ProductScreenBase productScreen = panelSearch.clickOnProductsName();
+        productScreen.clickOnTheFirstProduct();
+        productScreen.swipeUp();
+        productScreen.clickOnAgregarAlCarrito();
+        homeScreen.clickArrowBackButton();
+        homeScreen.swipeDown();
+        CarritoScreenBase carrito = homeScreen.clickOnCarritoIcon();
+        carrito.clickOnEleminar();
+        String items = carrito.getCarritoItems();
+        MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
+        menu.clickOnInicio();
+
+        Assert.assertEquals(items, "Carrito (0)", "The product was not eliminated");
+
 
     }
 
