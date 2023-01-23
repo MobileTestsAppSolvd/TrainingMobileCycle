@@ -17,7 +17,7 @@ public class TestMercadoLibre implements IAbstractTest {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
         String miCuentatext = menu.getCuentaText();
-        Assert.assertEquals(miCuentatext,"Buscar en Mercado Libre","The text was not found");
+        Assert.assertEquals(miCuentatext, "Buscar en Mercado Libre", "The text was not found");
     }
 
     @Test
@@ -25,6 +25,11 @@ public class TestMercadoLibre implements IAbstractTest {
     @TestLabel(name = "othername", value = {"mobile", "practice"})
     public void testClickOnSupermercadoIcon() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-       SuperMercadoBase superPage =  homeScreen.clickOnSuper();
+        SuperMercadoBase superPage = homeScreen.clickOnSuper();
+        String texto = superPage.getSuperText();
+        homeScreen.clickArrowBackButton();
+        Assert.assertEquals(texto,"Supermercado","The text doesn't match");
+
+
     }
 }
