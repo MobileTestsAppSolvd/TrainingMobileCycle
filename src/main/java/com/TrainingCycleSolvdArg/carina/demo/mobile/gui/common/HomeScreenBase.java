@@ -16,7 +16,6 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
 
     public abstract void clickArrowBackButton();
 
-    // public abstract SearchPanelBarBase TapOnSearchBar();
     public abstract void TapOnSearchBar();
 
     public abstract void swipeDown();

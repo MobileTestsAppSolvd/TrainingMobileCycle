@@ -37,7 +37,6 @@ public class TestMercadoLibre implements IAbstractTest {
     public void testAddAndRemoveAProductFromCart() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
-        //SearchPanelBarBase panelSearch = homeScreen.TapOnSearchBar();
         homeScreen.TapOnSearchBar();
         SearchPanelBarBase panelSearch = new SearchPanelBar(getDriver());
         panelSearch.typeTheProduct("cartera");

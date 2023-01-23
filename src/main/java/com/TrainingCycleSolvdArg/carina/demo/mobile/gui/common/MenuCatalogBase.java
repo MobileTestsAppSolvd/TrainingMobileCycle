@@ -9,6 +9,7 @@ public abstract class MenuCatalogBase extends AbstractPage implements IMobileUti
     public MenuCatalogBase(WebDriver driver) {
         super(driver);
     }
+
     public abstract String getCuentaText();
 
     public abstract HomeScreenBase clickOnInicio();

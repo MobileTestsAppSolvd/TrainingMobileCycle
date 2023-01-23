@@ -5,7 +5,6 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = SuperMercadoBase.class)
 public class SuperMercadoPanel extends SuperMercadoBase {

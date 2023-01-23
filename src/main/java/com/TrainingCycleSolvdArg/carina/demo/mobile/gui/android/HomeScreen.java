@@ -67,9 +67,4 @@ public class HomeScreen extends HomeScreenBase {
         return initPage(getDriver(), CarritoScreenBase.class);
     }
 
-//    @Override
-//    public SearchPanelBarBase TapOnSearchBar() {
-//      searchBar.click();
-//        return initPage(getDriver(), SearchPanelBarBase.class);
-//    }
 }
