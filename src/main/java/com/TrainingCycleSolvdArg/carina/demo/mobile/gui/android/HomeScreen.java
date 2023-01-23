@@ -4,6 +4,10 @@ import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.HomeScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.MenuCatalogBase;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.utils.factory.DeviceType;
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -13,15 +17,24 @@ public class HomeScreen extends HomeScreenBase {
     @FindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Menú\"]")
     private ExtendedWebElement menuIcon;
 
+//    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.mercadolibre:id/im_button_row_universal_item']")
+    @FindBy(xpath = "//android.widget.LinearLayout[3]/android.widget.ImageView")
+    private ExtendedWebElement superIcon;
+
     public HomeScreen(WebDriver driver) {
         super(driver);
     }
-
 
 
     @Override
     public MenuCatalogBase clickOnMenuIcon() {
         menuIcon.click();
         return initPage(getDriver(), MenuCatalogBase.class);
+    }
+
+    @Override
+    public SuperMercadoPanel clickOnSuper() {
+        superIcon.click();
+        return initPage(getDriver(), SuperMercadoPanel.class);
     }
 }
