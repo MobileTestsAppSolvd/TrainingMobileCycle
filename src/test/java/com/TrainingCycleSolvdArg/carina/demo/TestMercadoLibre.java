@@ -11,20 +11,25 @@ import org.testng.annotations.Test;
 
 public class TestMercadoLibre implements IAbstractTest {
     @Test
-    @MethodOwner(owner = "MobileTrainingCycle")
-    @TestLabel(name = "othername", value = {"mobile", "practice"})
+    @MethodOwner(owner = "BarreraGerman")
+    @TestLabel(name = "TestingApk", value = {"mobile", "practice"})
     public void testClickOnMenuIcon() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
         String miCuentatext = menu.getCuentaText();
-        Assert.assertEquals(miCuentatext,"Buscar en Mercado Libre","The text was not found");
+        Assert.assertEquals(miCuentatext, "Buscar en Mercado Libre", "The text was not found");
     }
 
     @Test
-    @MethodOwner(owner = "MobileTrainingCycle")
-    @TestLabel(name = "othername", value = {"mobile", "practice"})
-    public void testClickOnSupermercadoIcon() {
+    @MethodOwner(owner = "BarreraGerman")
+    @TestLabel(name = "#12-testSuperButton", value = {"mobile", "practice"})
+    public void testSuperButton() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-       SuperMercadoBase superPage =  homeScreen.clickOnSuper();
+        SuperMercadoBase superPage = homeScreen.clickOnSuper();
+        String texto = superPage.getSuperText();
+        homeScreen.clickArrowBackButton();
+        Assert.assertEquals(texto, "Supermercado", "The text doesn't match");
+
     }
+
 }

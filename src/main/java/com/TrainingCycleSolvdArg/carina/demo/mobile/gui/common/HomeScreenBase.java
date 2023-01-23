@@ -12,5 +12,7 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
 
     public abstract MenuCatalogBase clickOnMenuIcon();
 
-    public abstract SuperMercadoPanel clickOnSuper();
+    public abstract SuperMercadoBase clickOnSuper();
+
+    public abstract void clickArrowBackButton();
 }
