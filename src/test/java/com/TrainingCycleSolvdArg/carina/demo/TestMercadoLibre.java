@@ -14,8 +14,11 @@ public class TestMercadoLibre implements IAbstractTest {
     @TestLabel(name = "TestingApk", value = {"mobile", "practice"})
     public void testClickOnMenuIcon() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        Assert.assertTrue(homeScreen.isPageOpened(), "The page was not opened");
+
         MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
         String miCuentatext = menu.getCuentaText();
+
         Assert.assertEquals(miCuentatext, "Buscar en Mercado Libre", "The text was not found");
     }
 
@@ -24,11 +27,13 @@ public class TestMercadoLibre implements IAbstractTest {
     @TestLabel(name = "#12-testSuperButton", value = {"Mobile", "TrainingCycle"})
     public void testSuperButton() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        Assert.assertTrue(homeScreen.isPageOpened(), "The page was not opened");
+
         SuperMercadoBase superPage = homeScreen.clickOnSuper();
         String texto = superPage.getSuperText();
         homeScreen.clickArrowBackButton();
-        Assert.assertEquals(texto, "Supermercado", "The text doesn't match");
 
+        Assert.assertEquals(texto, "Supermercado", "The text doesn't match");
     }
 
     @Test
@@ -36,6 +41,7 @@ public class TestMercadoLibre implements IAbstractTest {
     @TestLabel(name = "#1-testAddAndRemoveAProductFromCart", value = {"Mobile", "TrainingCycle"})
     public void testAddAndRemoveAProductFromCart() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        Assert.assertTrue(homeScreen.isPageOpened(), "The page was not opened");
 
         homeScreen.TapOnSearchBar();
         SearchPanelBarBase panelSearch = new SearchPanelBar(getDriver());
@@ -60,6 +66,7 @@ public class TestMercadoLibre implements IAbstractTest {
     @TestLabel(name = "#2-testAddProductToCart", value = {"Mobile", "TrainingCycle"})
     public void testAddProductToCart() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        Assert.assertTrue(homeScreen.isPageOpened(), "The page was not opened");
 
         homeScreen.TapOnSearchBar();
         SearchPanelBarBase panelSearch = new SearchPanelBar(getDriver());
@@ -75,7 +82,22 @@ public class TestMercadoLibre implements IAbstractTest {
         menu.clickOnInicio();
 
         Assert.assertEquals(message, "Agregaste a tu carrito", "The product was not added to cart");
-
     }
 
+    @Test
+    @MethodOwner(owner = "BarreraGerman")
+    @TestLabel(name = "#3-testEliminateProductFromCart", value = {"Mobile", "TrainingCycle"})
+    public void testEliminateProductFromCart() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        Assert.assertTrue(homeScreen.isPageOpened(), "The page was not opened");
+
+        CarritoScreenBase carrito = homeScreen.clickOnCarritoIcon();
+        carrito.clickOnEleminar();
+        String numberOfItems = carrito.getCarritoItems();
+        MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
+        menu.clickOnInicio();
+
+        Assert.assertEquals(numberOfItems, "Carrito (0)", "The product was not deleted from the cart");
+    }
 }
+

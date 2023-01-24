@@ -29,6 +29,9 @@ public class HomeScreen extends HomeScreenBase {
     @FindBy(id = "com.mercadolibre:id/cart_icon")
     private ExtendedWebElement cartIcon;
 
+    @FindBy(id = "com.mercadolibre:id/loy_offer_banner_cardview")
+    private ExtendedWebElement offerBanner;
+
     public HomeScreen(WebDriver driver) {
         super(driver);
     }
@@ -65,6 +68,11 @@ public class HomeScreen extends HomeScreenBase {
     public CarritoScreenBase clickOnCarritoIcon() {
         cartIcon.click();
         return initPage(getDriver(), CarritoScreenBase.class);
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return offerBanner.isElementPresent();
     }
 
 }
