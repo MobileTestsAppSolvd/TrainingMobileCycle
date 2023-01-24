@@ -21,7 +21,7 @@ public class TestMercadoLibre implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "BarreraGerman")
-    @TestLabel(name = "#12-testSuperButton", value = {"mobile", "practice"})
+    @TestLabel(name = "#12-testSuperButton", value = {"Mobile", "TrainingCycle"})
     public void testSuperButton() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         SuperMercadoBase superPage = homeScreen.clickOnSuper();
@@ -33,7 +33,7 @@ public class TestMercadoLibre implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "BarreraGerman")
-    @TestLabel(name = "#1-testAddAndRemoveAProductFromCart", value = {"Mobile", "Practice"})
+    @TestLabel(name = "#1-testAddAndRemoveAProductFromCart", value = {"Mobile", "TrainingCycle"})
     public void testAddAndRemoveAProductFromCart() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
@@ -53,7 +53,28 @@ public class TestMercadoLibre implements IAbstractTest {
         menu.clickOnInicio();
 
         Assert.assertEquals(items, "Carrito (0)", "The product was not eliminated");
+    }
 
+    @Test
+    @MethodOwner(owner = "BarreraGerman")
+    @TestLabel(name = "#2-testAddProductToCart", value = {"Mobile", "TrainingCycle"})
+    public void testAddProductToCart() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+
+        homeScreen.TapOnSearchBar();
+        SearchPanelBarBase panelSearch = new SearchPanelBar(getDriver());
+        panelSearch.typeTheProduct("cartera");
+        ProductScreenBase productScreen = panelSearch.clickOnProductsName();
+        productScreen.clickOnTheFirstProduct();
+        productScreen.swipeUp();
+        ProductoAgregadoScreenBase carritoScreen = productScreen.clickOnAgregarAlCarrito();
+        String message = carritoScreen.getAddedProductMessage();
+        homeScreen.clickArrowBackButton();
+        homeScreen.swipeDown();
+        MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
+        menu.clickOnInicio();
+
+        Assert.assertEquals(message, "Agregaste a tu carrito", "The product was not added to cart");
 
     }
 
