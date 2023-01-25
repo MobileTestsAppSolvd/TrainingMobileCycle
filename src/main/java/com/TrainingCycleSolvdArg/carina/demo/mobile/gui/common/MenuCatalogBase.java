@@ -10,7 +10,7 @@ public abstract class MenuCatalogBase extends AbstractPage implements IMobileUti
         super(driver);
     }
 
-    public abstract String getCuentaText();
+    public abstract String getBarTitle();
 
-    public abstract HomeScreenBase clickOnInicio();
+    public abstract HomeScreenBase clickOnHome();
 }

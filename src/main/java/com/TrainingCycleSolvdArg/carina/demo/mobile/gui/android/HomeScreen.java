@@ -44,9 +44,9 @@ public class HomeScreen extends HomeScreenBase {
     }
 
     @Override
-    public SuperMercadoBase clickOnSuper() {
+    public SuperMarketBase clickOnSuper() {
         superIcon.click();
-        return initPage(getDriver(), SuperMercadoBase.class);
+        return initPage(getDriver(), SuperMarketBase.class);
     }
 
     @Override
@@ -65,9 +65,9 @@ public class HomeScreen extends HomeScreenBase {
     }
 
     @Override
-    public CarritoScreenBase clickOnCarritoIcon() {
+    public CartScreenBase clickOnCartIcon() {
         cartIcon.click();
-        return initPage(getDriver(), CarritoScreenBase.class);
+        return initPage(getDriver(), CartScreenBase.class);
     }
 
     @Override

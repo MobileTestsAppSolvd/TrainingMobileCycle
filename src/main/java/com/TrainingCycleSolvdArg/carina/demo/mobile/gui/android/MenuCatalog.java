@@ -16,19 +16,19 @@ public class MenuCatalog extends MenuCatalogBase {
     }
 
     @FindBy(id = "com.mercadolibre:id/ui_components_action_bar_title_toolbar")
-    private ExtendedWebElement miCuentaText;
+    private ExtendedWebElement barTitle;
 
     @ExtendedFindBy(text = "Inicio")
-    private ExtendedWebElement inicioIcon;
+    private ExtendedWebElement homeIcon;
 
     @Override
-    public String getCuentaText() {
-        return miCuentaText.getText();
+    public String getBarTitle() {
+        return barTitle.getText();
     }
 
     @Override
-    public HomeScreenBase clickOnInicio() {
-        inicioIcon.click();
+    public HomeScreenBase clickOnHome() {
+        homeIcon.click();
         return initPage(getDriver(), HomeScreenBase.class);
     }
 
