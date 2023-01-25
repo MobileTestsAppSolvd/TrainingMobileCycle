@@ -1,5 +1,5 @@
 ### Mobile Testing Project
-Training cycle
+Training cycle project
 
 ### Getting started
 * Install and configure JDK 11
