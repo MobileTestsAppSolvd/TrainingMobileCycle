@@ -1,14 +1,29 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.HomeScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.SearchPanelBar;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class TestMercadoLibre implements IAbstractTest {
+
+    HomeScreen homeScreen = null;
+
+    @BeforeTest
+    @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
+    public void startCatalogScreen() {
+        homeScreen = new HomeScreen(getDriver());
+        //homeScreen.clickArrowBackButton();
+        MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
+        menu.clickOnHome();
+
+    }
+
     @Test
     @TestLabel(name = "TestingApk", value = {"mobile", "practice"})
     public void testClickOnMenuIcon() {
