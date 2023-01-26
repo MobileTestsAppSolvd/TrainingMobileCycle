@@ -5,15 +5,16 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = CartScreenBase.class)
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = CartScreenBase.class)
 public class CartScreen extends CartScreenBase {
 
-    @ExtendedFindBy(text = "Eliminar")
+    @FindBy(id = "com.mercadolibre:id/cart_item_first_secondary_action_text_view")
     private ExtendedWebElement eliminateButton;
 
-    @ExtendedFindBy(text = "Carrito (0)")
-    private ExtendedWebElement cartItems;
+    @FindBy(id = "com.mercadolibre:id/cart_empty_items_view_title")
+    private ExtendedWebElement emptyCard;
 
     public CartScreen(WebDriver driver) {
         super(driver);
@@ -25,7 +26,9 @@ public class CartScreen extends CartScreenBase {
     }
 
     @Override
-    public String getCartItems() {
-        return cartItems.getText();
+    public boolean getEmptyCard() {
+        return emptyCard.isElementPresent();
     }
+
+
 }
