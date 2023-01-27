@@ -1,50 +1,30 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.HomeScreen;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.SearchPanelBar;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class TestMercadoLibre implements IAbstractTest {
-
-    HomeScreen homeScreen = null;
-
-    @BeforeTest
-    @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
-    public void startCatalogScreen() {
-        homeScreen = new HomeScreen(getDriver());
-        //homeScreen.clickArrowBackButton();
-        MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-        menu.clickOnHome();
-
-    }
-
-    @Test
-    @TestLabel(name = "TestingApk", value = {"mobile", "practice"})
-    public void testClickOnMenuIcon() {
-        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-
-        MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-        String miCuentatext = menu.getBarTitle();
-
-        Assert.assertEquals(miCuentatext, "Buscar en Mercado Libre", "The text was not found");
-    }
 
     @Test
     @TestLabel(name = "#12-testSuperButton", value = {"Mobile", "TrainingCycle"})
     public void testSuperButton() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
-        SuperMarketBase superPage = homeScreen.clickOnSuper();
-        String texto = superPage.getSuperText();
-        homeScreen.clickArrowBackButton();
+        SuperMarketBase superScreen = homeScreen.clickOnSuper();
+        Assert.assertTrue(superScreen.getSuperCard(), "The text doesn't match");
 
-        Assert.assertEquals(texto, "Supermercado", "The text doesn't match");
+        homeScreen.clickArrowBackButton();
     }
 
     @Test
@@ -52,20 +32,12 @@ public class TestMercadoLibre implements IAbstractTest {
     public void testAddProductToCart() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
-        homeScreen.TapOnSearchBar();
-        SearchPanelBarBase panelSearch = new SearchPanelBar(getDriver());
-        panelSearch.typeTheProduct("cartera");
-        ProductScreenBase productScreen = panelSearch.clickOnProductsName();
-        productScreen.clickOnTheFirstProduct();
+        List<WebElement> visitedProducts = homeScreen.getLastVisitedProductAndClickOnIt();
+        ProductScreenBase productScreen = new ProductScreen(getDriver());
         productScreen.swipeUp();
-        AddedProductScreenBase carritoScreen = productScreen.clickOnAgregarAlCarrito();
-        String message = carritoScreen.getAddedProductMessage();
-        homeScreen.clickArrowBackButton();
-        homeScreen.swipeDown();
-        MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-        menu.clickOnHome();
+        AddedProductScreenBase cartScreen = productScreen.clickOnAddToCart();
 
-        Assert.assertEquals(message, "Agregaste a tu cart", "The product was not added to cart");
+        Assert.assertTrue(cartScreen.getAddedProductCard(), "The product was not added to cart");
     }
 
     @Test

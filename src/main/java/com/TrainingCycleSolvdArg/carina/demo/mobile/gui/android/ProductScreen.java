@@ -13,10 +13,10 @@ public class ProductScreen extends ProductScreenBase {
     private ExtendedWebElement firstProduct;
 
     @ExtendedFindBy(text = "Agregar al carrito")
-    private ExtendedWebElement agregarAlCarritoButton;
+    private ExtendedWebElement addToCartButton;
 
-    @ExtendedFindBy(text = "Comprar ahora")
-    private ExtendedWebElement productColor;
+    @ExtendedFindBy(accessibilityId = "Comprar ahora")
+    private ExtendedWebElement buyNow;
     public ProductScreen(WebDriver driver) {
         super(driver);
     }
@@ -28,12 +28,12 @@ public class ProductScreen extends ProductScreenBase {
 
     @Override
     public void swipeUp() {
-        swipe(productColor,Direction.UP);
+        swipe(buyNow,Direction.UP);
     }
 
     @Override
-    public AddedProductScreenBase clickOnAgregarAlCarrito() {
-        agregarAlCarritoButton.click();
+    public AddedProductScreenBase clickOnAddToCart() {
+        addToCartButton.click();
         return initPage(getDriver(), AddedProductScreenBase.class);
     }
 
