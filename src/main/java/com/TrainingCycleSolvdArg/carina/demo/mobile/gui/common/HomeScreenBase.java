@@ -10,6 +10,8 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
         super(driver);
     }
 
+    public abstract ProductScreenBase clickOnLastSeenProduct();
+
     public abstract MenuCatalogBase clickOnMenuIcon();
 
     public abstract SuperMarketBase clickOnSuper();

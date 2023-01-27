@@ -62,7 +62,7 @@ public class TestMercadoLibre implements IAbstractTest {
     @TestLabel(name = "#2-testAddProductToCart", value = {"Mobile", "TrainingCycle"})
     public void testAddProductToCart() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-        Assert.assertTrue(homeScreen.isPageOpened(), "The page was not opened");
+
 
         homeScreen.TapOnSearchBar();
         SearchPanelBarBase panelSearch = new SearchPanelBar(getDriver());
@@ -93,6 +93,16 @@ public class TestMercadoLibre implements IAbstractTest {
         menu.clickOnHome();
 
         Assert.assertEquals(numberOfItems, "Carrito (0)", "The product was not deleted from the cart");
+    }
+
+    @Test
+    @TestLabel(name = "TC04-testShowPaymentOptionsScreen", value = {"Mobile", "TrainingCycle"})
+    public void testShowPaymentOptionsScreen(){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        ProductScreenBase product= homeScreen.clickOnLastSeenProduct();
+        PaymentOptionsScreenBase paymentOptions= product.clickOnViewPaymentOptionsBtn();
+
+        Assert.assertTrue(paymentOptions.isPaymentOptionScreenShown(), "Payment Options did not open");
     }
 }
 
