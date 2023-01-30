@@ -13,6 +13,8 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
         super(driver);
     }
 
+    public abstract ProductScreenBase clickOnLastSeenProduct();
+
     public abstract MenuCatalogBase clickOnMenuIcon();
 
     public abstract SuperMarketBase clickOnSuper();
@@ -28,5 +30,9 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
     public abstract boolean isPageOpened();
 
     public abstract List<WebElement> getLastVisitedProductAndClickOnIt();
+
+    public abstract ProductScreenBase clickOnBackArrowIcon();
+
+    public abstract boolean backArrowPresent();
 
 }

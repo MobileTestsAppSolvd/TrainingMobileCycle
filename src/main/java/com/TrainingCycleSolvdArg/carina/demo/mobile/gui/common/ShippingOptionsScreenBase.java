@@ -4,15 +4,10 @@ import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
 
-public abstract class MenuCatalogBase extends AbstractPage implements IMobileUtils {
-
-    public MenuCatalogBase(WebDriver driver) {
+public abstract class ShippingOptionsScreenBase extends AbstractPage implements IMobileUtils {
+    public ShippingOptionsScreenBase(WebDriver driver) {
         super(driver);
     }
 
-    public abstract String getBarTitle();
-
-    public abstract HomeScreenBase clickOnHome();
-
-
+    public abstract boolean isShippingOptionsShown();
 }
