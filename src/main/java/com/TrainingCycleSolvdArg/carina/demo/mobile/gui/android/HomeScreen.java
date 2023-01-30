@@ -35,6 +35,9 @@ public class HomeScreen extends HomeScreenBase {
     @FindBy(id = "com.mercadolibre:id/loy_offer_banner_cardview")
     private ExtendedWebElement offerBanner;
 
+    @ExtendedFindBy(accessibilityId = "Atrás")
+    private ExtendedWebElement backArrowIcon;
+
 //    @FindBy(className = "androidx.recyclerview.widget.RecyclerView")
 //    private ExtendedWebElement lastVisitedProduct;
 
@@ -70,7 +73,7 @@ public class HomeScreen extends HomeScreenBase {
 
     @Override
     public void swipeDown() {
-        swipe(bookMark, Direction.DOWN);
+    swipe(bookMark,Direction.DOWN);
     }
 
     @Override
@@ -89,6 +92,17 @@ public class HomeScreen extends HomeScreenBase {
         List<WebElement> lastProducts = getDriver().findElements(lastVisitedProduct.getBy());
         lastProducts.get(0).click();
         return lastProducts;
+    }
+
+    @Override
+    public ProductScreenBase clickOnBackArrowIcon() {
+        backArrowIcon.click();
+        return initPage(getDriver(),ProductScreenBase.class);
+    }
+
+    @Override
+    public boolean backArrowPresent() {
+        return backArrowIcon.isElementPresent();
     }
 
 }
