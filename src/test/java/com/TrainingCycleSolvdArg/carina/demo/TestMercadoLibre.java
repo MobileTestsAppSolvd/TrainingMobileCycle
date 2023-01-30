@@ -76,5 +76,25 @@ public class TestMercadoLibre implements IAbstractTest {
 
         Assert.assertTrue(cart.getEmptyCard(), "The product was not deleted from the cart");
     }
+
+    @Test
+    @TestLabel(name = "TC04-testShowPaymentOptionsScreen", value = {"Mobile", "TrainingCycle"})
+    public void testShowPaymentOptionsScreen(){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        ProductScreenBase product= homeScreen.clickOnLastSeenProduct();
+        PaymentOptionsScreenBase paymentOptions= product.clickOnViewPaymentOptionsBtn();
+
+        Assert.assertTrue(paymentOptions.isPaymentOptionScreenShown(), "Payment Options did not open");
+    }
+
+    @Test
+    @TestLabel(name = "TC05-testShippingOptionsScreen", value = {"Mobile", "TrainingCycle"})
+    public void testShippingOptionsScreen(){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        ProductScreenBase product= homeScreen.clickOnLastSeenProduct();
+        ShippingOptionsScreenBase shippingOptions=product.clickOnViewShippingOptionsBtn();
+        Assert.assertTrue(shippingOptions.isShippingOptionsShown(),"Shipping Options is not displayed");
+
+    }
 }
 

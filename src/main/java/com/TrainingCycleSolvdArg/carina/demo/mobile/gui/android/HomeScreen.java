@@ -12,6 +12,8 @@ import java.util.List;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = HomeScreenBase.class)
 public class HomeScreen extends HomeScreenBase {
+    @FindBy(id = "com.mercadolibre:id/card_view_static_item")
+    private ExtendedWebElement lastSeenProduct;
 
     @FindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Menú\"]")
     private ExtendedWebElement menuIcon;
@@ -46,6 +48,12 @@ public class HomeScreen extends HomeScreenBase {
 
     public HomeScreen(WebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    public ProductScreenBase clickOnLastSeenProduct() {
+        lastSeenProduct.click();
+        return initPage(getDriver(), ProductScreenBase.class);
     }
 
 
