@@ -32,6 +32,9 @@ public class HomeScreen extends HomeScreenBase {
     @FindBy(id = "com.mercadolibre:id/loy_offer_banner_cardview")
     private ExtendedWebElement offerBanner;
 
+    @ExtendedFindBy(accessibilityId = "Atrás")
+    private ExtendedWebElement backArrowIcon;
+
     public HomeScreen(WebDriver driver) {
         super(driver);
     }
@@ -73,6 +76,17 @@ public class HomeScreen extends HomeScreenBase {
     @Override
     public boolean isPageOpened() {
         return offerBanner.isElementPresent();
+    }
+
+    @Override
+    public ProductScreenBase clickOnBackArrowIcon() {
+        backArrowIcon.click();
+        return initPage(getDriver(),ProductScreenBase.class);
+    }
+
+    @Override
+    public boolean backArrowPresent() {
+        return backArrowIcon.isElementPresent();
     }
 
 }

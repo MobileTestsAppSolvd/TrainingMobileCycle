@@ -18,9 +18,12 @@ public class TestMercadoLibre implements IAbstractTest {
     @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
     public void startCatalogScreen() {
         homeScreen = new HomeScreen(getDriver());
-        //homeScreen.clickArrowBackButton();
-        MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-        menu.clickOnHome();
+        if (homeScreen.backArrowPresent()) {
+            homeScreen.clickOnBackArrowIcon();
+        } else {
+            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
+            menu.clickOnHome();
+        }
 
     }
 

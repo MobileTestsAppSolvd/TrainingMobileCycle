@@ -21,6 +21,11 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
     public abstract void swipeDown();
 
     public abstract CartScreenBase clickOnCartIcon();
+
     public abstract boolean isPageOpened();
+
+    public abstract ProductScreenBase clickOnBackArrowIcon();
+
+    public abstract boolean backArrowPresent();
 
 }
