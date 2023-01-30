@@ -1,7 +1,7 @@
 package com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android;
 
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.ProductScreenBase;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.ProductoAgregadoScreenBase;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.AddedProductScreenBase;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.zebrunner.carina.utils.factory.DeviceType;
@@ -32,9 +32,9 @@ public class ProductScreen extends ProductScreenBase {
     }
 
     @Override
-    public ProductoAgregadoScreenBase clickOnAgregarAlCarrito() {
+    public AddedProductScreenBase clickOnAgregarAlCarrito() {
         agregarAlCarritoButton.click();
-        return initPage(getDriver(), ProductoAgregadoScreenBase.class);
+        return initPage(getDriver(), AddedProductScreenBase.class);
     }
 
 

@@ -3,8 +3,8 @@ package com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 
-public abstract class ProductoAgregadoScreenBase extends AbstractPage {
-    public ProductoAgregadoScreenBase(WebDriver driver) {
+public abstract class AddedProductScreenBase extends AbstractPage {
+    public AddedProductScreenBase(WebDriver driver) {
         super(driver);
     }
 
