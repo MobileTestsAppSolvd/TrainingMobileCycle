@@ -8,18 +8,22 @@ import org.openqa.selenium.WebDriver;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = SuperMarketBase.class)
 public class SuperMarketPanel extends SuperMarketBase {
+
+    @ExtendedFindBy(text = "Supermercado")
+    //or we can type the following wich is the same
+    // @FindBy(xpath = "//android.widget.TextView[@text = 'Supermercado']")
+    private ExtendedWebElement textSuper;
     public SuperMarketPanel(WebDriver driver) {
         super(driver);
     }
 
-    @ExtendedFindBy(text = "Supermercado")
-    //or we can type the following wich is the same
-  // @FindBy(xpath = "//android.widget.TextView[@text = 'Supermercado']")
-    private ExtendedWebElement textSuper;
-
     @Override
-    public String getSuperText() {
-      return textSuper.getText();
+    public boolean getSuperCard() {
+        return textSuper.isElementPresent();
     }
+
+
+
+
 
 }
