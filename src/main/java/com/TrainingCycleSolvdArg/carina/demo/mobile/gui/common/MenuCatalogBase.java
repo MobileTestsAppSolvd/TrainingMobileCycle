@@ -13,4 +13,6 @@ public abstract class MenuCatalogBase extends AbstractPage implements IMobileUti
     public abstract String getBarTitle();
 
     public abstract HomeScreenBase clickOnHome();
+
+
 }

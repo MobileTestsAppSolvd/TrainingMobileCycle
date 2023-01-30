@@ -31,4 +31,8 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
 
     public abstract List<WebElement> getLastVisitedProductAndClickOnIt();
 
+    public abstract ProductScreenBase clickOnBackArrowIcon();
+
+    public abstract boolean backArrowPresent();
+
 }
