@@ -10,6 +10,6 @@ public abstract class CartScreenBase extends AbstractPage {
 
     public abstract void clickOnEleminate();
 
-    public abstract String getCartItems();
+    public abstract boolean getEmptyCard();
 
 }
