@@ -1,5 +1,6 @@
 package com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android;
 
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.BuyNowScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.ProductScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.AddedProductScreenBase;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
@@ -17,6 +18,9 @@ public class ProductScreen extends ProductScreenBase {
 
     @ExtendedFindBy(text = "Comprar ahora")
     private ExtendedWebElement productColor;
+
+    @ExtendedFindBy(text = "Comprar ahora")
+    private ExtendedWebElement buyNowBtn;
     public ProductScreen(WebDriver driver) {
         super(driver);
     }
@@ -35,6 +39,13 @@ public class ProductScreen extends ProductScreenBase {
     public AddedProductScreenBase clickOnAgregarAlCarrito() {
         agregarAlCarritoButton.click();
         return initPage(getDriver(), AddedProductScreenBase.class);
+    }
+
+    @Override
+    public BuyNowScreenBase clickOnBuyNow() {
+        swipe(buyNowBtn, Direction.UP);
+        buyNowBtn.click();
+        return initPage(getDriver(), BuyNowScreenBase.class);
     }
 
 

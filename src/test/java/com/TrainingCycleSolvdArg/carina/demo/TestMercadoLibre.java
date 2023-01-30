@@ -94,5 +94,18 @@ public class TestMercadoLibre implements IAbstractTest {
 
         Assert.assertEquals(numberOfItems, "Carrito (0)", "The product was not deleted from the cart");
     }
+
+    @Test
+    @TestLabel(name = "TC07-testBuyNowScreen", value = {"Mobile", "TrainingCycle"})
+    public void testBuyNowScreen(){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+
+        ProductScreenBase product=homeScreen.clickOnLastSeenProduct();
+        BuyNowScreenBase buyNowScreen=product.clickOnBuyNow();
+
+        Assert.assertTrue(buyNowScreen.isPageOpened(),"Buy Now product Screen is not opened");
+
+    }
+
 }
 
