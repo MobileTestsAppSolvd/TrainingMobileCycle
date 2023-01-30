@@ -37,6 +37,9 @@ public class ProductScreen extends ProductScreenBase {
     @ExtendedFindBy(text = "Ver más formas de entrega")
     private ExtendedWebElement viewShippingOptionsBtn;
 
+    @FindBy(id = "com.mercadolibre:id/andes_button_text")
+    private ExtendedWebElement buyNowButton;
+
 
 
     public ProductScreen(WebDriver driver) {
@@ -62,6 +65,11 @@ public class ProductScreen extends ProductScreenBase {
     @Override
     public boolean isKnowMoreButtonPresent() {
         return KnowMoreButton.isElementPresent();
+    }
+
+    @Override
+    public boolean isBuyNowButtonPresent() {
+        return buyNowButton.isElementPresent();
     }
 
     @Override

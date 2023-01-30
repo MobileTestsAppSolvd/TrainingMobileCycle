@@ -1,33 +1,29 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.HomeScreen;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.SearchPanelBar;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.List;
 
 public class TestMercadoLibre implements IAbstractTest {
 
-    HomeScreen homeScreen = null;
+//    HomeScreen homeScreen = null;
 
-    @BeforeTest
-    @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
-    public void startCatalogScreen() {
-        homeScreen = new HomeScreen(getDriver());
-        if (homeScreen.backArrowPresent()) {
-            homeScreen.clickOnBackArrowIcon();
-        } else {
-            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-            menu.clickOnHome();
-        }
-
-    }
+//    @BeforeTest
+//    @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
+//    public void startCatalogScreen() {
+//        homeScreen = new HomeScreen(getDriver());
+//        if (homeScreen.backArrowPresent()) {
+//            homeScreen.clickOnBackArrowIcon();
+//        } else {
+//            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
+//            menu.clickOnHome();
+//        }
+//
+//    }
 
     @Test
     @TestLabel(name = "TestingApk", value = {"mobile", "practice"})
@@ -93,40 +89,38 @@ public class TestMercadoLibre implements IAbstractTest {
     }
 
     @Test
-    @TestLabel(name = "TC06-testKnowMoreScreenOnAProduct", value = {"Mobile", "TrainingCycle"})
-    public void testKnowMoreScreenOnAProduct() {
-        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-
-        homeScreen.getLastVisitedProductAndClickOnIt();
-        ProductScreenBase productScreen = new ProductScreen(getDriver());
-
-       if (productScreen.isKnowMoreButtonPresent()){
-           productScreen.clickOnKnowMoreButton();
-       }
-
-
-    }
-
-
-
-    @Test
     @TestLabel(name = "TC04-testShowPaymentOptionsScreen", value = {"Mobile", "TrainingCycle"})
-    public void testShowPaymentOptionsScreen(){
+    public void testShowPaymentOptionsScreen() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-        ProductScreenBase product= homeScreen.clickOnLastSeenProduct();
-        PaymentOptionsScreenBase paymentOptions= product.clickOnViewPaymentOptionsBtn();
+        ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
+        PaymentOptionsScreenBase paymentOptions = product.clickOnViewPaymentOptionsBtn();
 
         Assert.assertTrue(paymentOptions.isPaymentOptionScreenShown(), "Payment Options did not open");
     }
 
     @Test
     @TestLabel(name = "TC05-testShippingOptionsScreen", value = {"Mobile", "TrainingCycle"})
-    public void testShippingOptionsScreen(){
+    public void testShippingOptionsScreen() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-        ProductScreenBase product= homeScreen.clickOnLastSeenProduct();
-        ShippingOptionsScreenBase shippingOptions=product.clickOnViewShippingOptionsBtn();
-        Assert.assertTrue(shippingOptions.isShippingOptionsShown(),"Shipping Options is not displayed");
+        ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
+        ShippingOptionsScreenBase shippingOptions = product.clickOnViewShippingOptionsBtn();
+        Assert.assertTrue(shippingOptions.isShippingOptionsShown(), "Shipping Options is not displayed");
+    }
 
+    @Test
+    @TestLabel(name = "TC06-testKnowMoreScreenOnAProduct", value = {"Mobile", "TrainingCycle"})
+    public void testKnowMoreScreenOnAProduct() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+
+        homeScreen.getLastVisitedProductAndClickOnIt();
+        ProductScreenBase productScreen = new ProductScreen(getDriver());
+        productScreen.swipeUp();
+        if (productScreen.isKnowMoreButtonPresent()) {
+            KnowMoreScreenBase refundScreen = productScreen.clickOnKnowMoreButton();
+            Assert.assertTrue(refundScreen.isRefundScreenOpened(), "The refund Screen was not opened");
+        } else if (productScreen.isBuyNowButtonPresent() && !productScreen.isKnowMoreButtonPresent()) {
+            Assert.assertFalse(productScreen.isKnowMoreButtonPresent(), "The refund Screen was opened");
+        }
     }
 }
 
