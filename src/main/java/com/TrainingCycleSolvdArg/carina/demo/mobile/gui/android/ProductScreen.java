@@ -3,6 +3,7 @@ package com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.PaymentOptionsScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.ProductScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.AddedProductScreenBase;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.ShippingOptionsScreenBase;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.zebrunner.carina.utils.factory.DeviceType;
@@ -25,6 +26,9 @@ public class ProductScreen extends ProductScreenBase {
     //@ExtendedFindBy(text = "Ver los medios de pago")
     //@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView")
     private ExtendedWebElement viewPaymentOptionsBtn;
+
+    @ExtendedFindBy(text = "Ver más formas de entrega")
+    private ExtendedWebElement viewShippingOptionsBtn;
 
 
 
@@ -54,6 +58,13 @@ public class ProductScreen extends ProductScreenBase {
         swipe(viewPaymentOptionsBtn, Direction.UP);
         viewPaymentOptionsBtn.click();
         return initPage(getDriver(), PaymentOptionsScreenBase.class);
+    }
+
+    @Override
+    public ShippingOptionsScreenBase clickOnViewShippingOptionsBtn() {
+        swipe(viewShippingOptionsBtn,Direction.UP);
+        viewShippingOptionsBtn.click();
+        return initPage(getDriver(), ShippingOptionsScreenBase.class);
     }
 
 

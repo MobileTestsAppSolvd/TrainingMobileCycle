@@ -5,6 +5,7 @@ import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -103,6 +104,17 @@ public class TestMercadoLibre implements IAbstractTest {
         PaymentOptionsScreenBase paymentOptions= product.clickOnViewPaymentOptionsBtn();
 
         Assert.assertTrue(paymentOptions.isPaymentOptionScreenShown(), "Payment Options did not open");
+    }
+
+    @Test
+    @TestLabel(name = "TC05-testShippingOptionsScreen", value = {"Mobile", "TrainingCycle"})
+    public void testShippingOptionsScreen(){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        ProductScreenBase product= homeScreen.clickOnLastSeenProduct();
+        ShippingOptionsScreenBase shippingOptions=product.clickOnViewShippingOptionsBtn();
+
+        Assert.assertTrue(shippingOptions.isShippingOptionsShown(),"Shipping Options is not displayed");
+
     }
 }
 
