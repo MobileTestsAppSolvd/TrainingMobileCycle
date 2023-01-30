@@ -12,7 +12,7 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
 
     public abstract MenuCatalogBase clickOnMenuIcon();
 
-    public abstract SuperMercadoBase clickOnSuper();
+    public abstract SuperMarketBase clickOnSuper();
 
     public abstract void clickArrowBackButton();
 
@@ -20,7 +20,12 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
 
     public abstract void swipeDown();
 
-    public abstract CarritoScreenBase clickOnCarritoIcon();
+    public abstract CartScreenBase clickOnCartIcon();
+
     public abstract boolean isPageOpened();
+
+    public abstract ProductScreenBase clickOnBackArrowIcon();
+
+    public abstract boolean backArrowPresent();
 
 }

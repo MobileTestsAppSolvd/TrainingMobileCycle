@@ -1,14 +1,14 @@
 package com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android;
 
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.SuperMercadoBase;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.SuperMarketBase;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = SuperMercadoBase.class)
-public class SuperMercadoPanel extends SuperMercadoBase {
-    public SuperMercadoPanel(WebDriver driver) {
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = SuperMarketBase.class)
+public class SuperMarketPanel extends SuperMarketBase {
+    public SuperMarketPanel(WebDriver driver) {
         super(driver);
     }
 

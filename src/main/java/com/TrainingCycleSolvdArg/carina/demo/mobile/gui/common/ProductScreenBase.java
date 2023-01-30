@@ -14,5 +14,5 @@ public  abstract class ProductScreenBase extends AbstractPage implements IMobile
 
    public abstract void swipeUp();
 
-   public abstract ProductoAgregadoScreenBase clickOnAgregarAlCarrito();
+   public abstract AddedProductScreenBase clickOnAgregarAlCarrito();
 }

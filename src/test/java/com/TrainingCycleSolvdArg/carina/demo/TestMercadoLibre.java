@@ -1,35 +1,51 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.HomeScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.SearchPanelBar;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class TestMercadoLibre implements IAbstractTest {
+
+    HomeScreen homeScreen = null;
+
+    @BeforeTest
+    @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
+    public void startCatalogScreen() {
+        homeScreen = new HomeScreen(getDriver());
+        if (homeScreen.backArrowPresent()) {
+            homeScreen.clickOnBackArrowIcon();
+        } else {
+            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
+            menu.clickOnHome();
+        }
+
+    }
+
     @Test
-    @MethodOwner(owner = "BarreraGerman")
     @TestLabel(name = "TestingApk", value = {"mobile", "practice"})
     public void testClickOnMenuIcon() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         Assert.assertTrue(homeScreen.isPageOpened(), "The page was not opened");
 
         MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-        String miCuentatext = menu.getCuentaText();
+        String miCuentatext = menu.getBarTitle();
 
         Assert.assertEquals(miCuentatext, "Buscar en Mercado Libre", "The text was not found");
     }
 
     @Test
-    @MethodOwner(owner = "BarreraGerman")
     @TestLabel(name = "#12-testSuperButton", value = {"Mobile", "TrainingCycle"})
     public void testSuperButton() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         Assert.assertTrue(homeScreen.isPageOpened(), "The page was not opened");
 
-        SuperMercadoBase superPage = homeScreen.clickOnSuper();
+        SuperMarketBase superPage = homeScreen.clickOnSuper();
         String texto = superPage.getSuperText();
         homeScreen.clickArrowBackButton();
 
@@ -37,8 +53,7 @@ public class TestMercadoLibre implements IAbstractTest {
     }
 
     @Test
-    @MethodOwner(owner = "BarreraGerman")
-    @TestLabel(name = "#1-testAddAndRemoveAProductFromCart", value = {"Mobile", "TrainingCycle"})
+    @TestLabel(name = "TC01-testAddAndRemoveAProductFromCart", value = {"Mobile", "TrainingCycle"})
     public void testAddAndRemoveAProductFromCart() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         Assert.assertTrue(homeScreen.isPageOpened(), "The page was not opened");
@@ -52,17 +67,16 @@ public class TestMercadoLibre implements IAbstractTest {
         productScreen.clickOnAgregarAlCarrito();
         homeScreen.clickArrowBackButton();
         homeScreen.swipeDown();
-        CarritoScreenBase carrito = homeScreen.clickOnCarritoIcon();
-        carrito.clickOnEleminar();
-        String items = carrito.getCarritoItems();
+        CartScreenBase cart = homeScreen.clickOnCartIcon();
+        cart.clickOnEleminate();
+        String items = cart.getCartItems();
         MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-        menu.clickOnInicio();
+        menu.clickOnHome();
 
         Assert.assertEquals(items, "Carrito (0)", "The product was not eliminated");
     }
 
     @Test
-    @MethodOwner(owner = "BarreraGerman")
     @TestLabel(name = "#2-testAddProductToCart", value = {"Mobile", "TrainingCycle"})
     public void testAddProductToCart() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
@@ -74,28 +88,27 @@ public class TestMercadoLibre implements IAbstractTest {
         ProductScreenBase productScreen = panelSearch.clickOnProductsName();
         productScreen.clickOnTheFirstProduct();
         productScreen.swipeUp();
-        ProductoAgregadoScreenBase carritoScreen = productScreen.clickOnAgregarAlCarrito();
+        AddedProductScreenBase carritoScreen = productScreen.clickOnAgregarAlCarrito();
         String message = carritoScreen.getAddedProductMessage();
         homeScreen.clickArrowBackButton();
         homeScreen.swipeDown();
         MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-        menu.clickOnInicio();
+        menu.clickOnHome();
 
-        Assert.assertEquals(message, "Agregaste a tu carrito", "The product was not added to cart");
+        Assert.assertEquals(message, "Agregaste a tu cart", "The product was not added to cart");
     }
 
     @Test
-    @MethodOwner(owner = "BarreraGerman")
     @TestLabel(name = "#3-testEliminateProductFromCart", value = {"Mobile", "TrainingCycle"})
     public void testEliminateProductFromCart() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         Assert.assertTrue(homeScreen.isPageOpened(), "The page was not opened");
 
-        CarritoScreenBase carrito = homeScreen.clickOnCarritoIcon();
-        carrito.clickOnEleminar();
-        String numberOfItems = carrito.getCarritoItems();
+        CartScreenBase cart = homeScreen.clickOnCartIcon();
+        cart.clickOnEleminate();
+        String numberOfItems = cart.getCartItems();
         MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-        menu.clickOnInicio();
+        menu.clickOnHome();
 
         Assert.assertEquals(numberOfItems, "Carrito (0)", "The product was not deleted from the cart");
     }
