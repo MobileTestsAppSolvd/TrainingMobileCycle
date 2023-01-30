@@ -46,5 +46,22 @@ public class TestMercadoLibre implements IAbstractTest {
 
         Assert.assertTrue(cart.getEmptyCard(), "The product was not deleted from the cart");
     }
+
+    @Test
+    @TestLabel(name = "TC06-testKnowMoreScreenOnAProduct", value = {"Mobile", "TrainingCycle"})
+    public void testKnowMoreScreenOnAProduct() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+
+        homeScreen.getLastVisitedProductAndClickOnIt();
+        ProductScreenBase productScreen = new ProductScreen(getDriver());
+
+       if (productScreen.isKnowMoreButtonPresent()){
+           productScreen.clickOnKnowMoreButton();
+       }
+
+
+    }
+
+
 }
 

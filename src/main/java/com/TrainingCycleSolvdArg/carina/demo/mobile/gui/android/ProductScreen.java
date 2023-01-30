@@ -1,11 +1,14 @@
 package com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android;
 
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.KnowMoreScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.ProductScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.AddedProductScreenBase;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
+
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = ProductScreenBase.class)
 public class ProductScreen extends ProductScreenBase {
 
@@ -17,6 +20,12 @@ public class ProductScreen extends ProductScreenBase {
 
     @ExtendedFindBy(text = "Comprar ahora")
     private ExtendedWebElement productColor;
+
+    @FindBy(id = "com.mercadolibre:id/generic_summary_subtitle")
+    private ExtendedWebElement KnowMoreButton;
+
+    @ExtendedFindBy(text = "Conocer más")
+    private ExtendedWebElement KnowMore;
     public ProductScreen(WebDriver driver) {
         super(driver);
     }
@@ -35,6 +44,17 @@ public class ProductScreen extends ProductScreenBase {
     public AddedProductScreenBase clickOnAddToCart() {
         addToCartButton.click();
         return initPage(getDriver(), AddedProductScreenBase.class);
+    }
+
+    @Override
+    public boolean isKnowMoreButtonPresent() {
+        return KnowMoreButton.isElementPresent();
+    }
+
+    @Override
+    public KnowMoreScreenBase clickOnKnowMoreButton() {
+        KnowMore.click();
+        return initPage(getDriver(), KnowMoreScreenBase.class);
     }
 
 
