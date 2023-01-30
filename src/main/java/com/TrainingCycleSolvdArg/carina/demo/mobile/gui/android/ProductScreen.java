@@ -15,8 +15,8 @@ public class ProductScreen extends ProductScreenBase {
     @ExtendedFindBy(text = "Agregar al carrito")
     private ExtendedWebElement addToCartButton;
 
-    @ExtendedFindBy(accessibilityId = "Comprar ahora")
-    private ExtendedWebElement buyNow;
+    @ExtendedFindBy(text = "Comprar ahora")
+    private ExtendedWebElement productColor;
     public ProductScreen(WebDriver driver) {
         super(driver);
     }
@@ -28,7 +28,7 @@ public class ProductScreen extends ProductScreenBase {
 
     @Override
     public void swipeUp() {
-        swipe(buyNow,Direction.UP);
+        swipe(productColor,Direction.UP);
     }
 
     @Override
