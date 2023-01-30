@@ -17,7 +17,7 @@ public class ProductScreen extends ProductScreenBase {
     private ExtendedWebElement firstProduct;
 
     @ExtendedFindBy(text = "Agregar al carrito")
-    private ExtendedWebElement agregarAlCarritoButton;
+    private ExtendedWebElement addToCartButton;
 
     @ExtendedFindBy(text = "Comprar ahora")
     private ExtendedWebElement productColor;
@@ -47,8 +47,8 @@ public class ProductScreen extends ProductScreenBase {
     }
 
     @Override
-    public AddedProductScreenBase clickOnAgregarAlCarrito() {
-        agregarAlCarritoButton.click();
+    public AddedProductScreenBase clickOnAddToCart() {
+        addToCartButton.click();
         return initPage(getDriver(), AddedProductScreenBase.class);
     }
 

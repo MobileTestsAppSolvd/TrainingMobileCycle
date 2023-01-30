@@ -5,7 +5,10 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = HomeScreenBase.class)
 public class HomeScreen extends HomeScreenBase {
@@ -33,6 +36,12 @@ public class HomeScreen extends HomeScreenBase {
 
     @FindBy(id = "com.mercadolibre:id/loy_offer_banner_cardview")
     private ExtendedWebElement offerBanner;
+
+//    @FindBy(className = "androidx.recyclerview.widget.RecyclerView")
+//    private ExtendedWebElement lastVisitedProduct;
+
+    @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/rcm_portrait_card_thumbnail']")
+    private ExtendedWebElement lastVisitedProduct;
 
     public HomeScreen(WebDriver driver) {
         super(driver);
@@ -69,7 +78,7 @@ public class HomeScreen extends HomeScreenBase {
 
     @Override
     public void swipeDown() {
-    swipe(bookMark,Direction.DOWN);
+        swipe(bookMark, Direction.DOWN);
     }
 
     @Override
@@ -81,6 +90,13 @@ public class HomeScreen extends HomeScreenBase {
     @Override
     public boolean isPageOpened() {
         return offerBanner.isElementPresent();
+    }
+
+    @Override
+    public List<WebElement> getLastVisitedProductAndClickOnIt() {
+        List<WebElement> lastProducts = getDriver().findElements(lastVisitedProduct.getBy());
+        lastProducts.get(0).click();
+        return lastProducts;
     }
 
 }
