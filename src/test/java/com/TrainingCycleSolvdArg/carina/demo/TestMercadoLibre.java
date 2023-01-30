@@ -112,7 +112,6 @@ public class TestMercadoLibre implements IAbstractTest {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product= homeScreen.clickOnLastSeenProduct();
         ShippingOptionsScreenBase shippingOptions=product.clickOnViewShippingOptionsBtn();
-
         Assert.assertTrue(shippingOptions.isShippingOptionsShown(),"Shipping Options is not displayed");
 
     }
