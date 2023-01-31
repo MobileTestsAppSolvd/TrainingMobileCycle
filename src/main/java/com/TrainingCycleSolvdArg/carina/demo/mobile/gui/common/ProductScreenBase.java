@@ -16,7 +16,7 @@ public  abstract class ProductScreenBase extends AbstractPage implements IMobile
 
    public abstract AddedProductScreenBase clickOnAgregarAlCarrito();
 
-   public abstract BuyNowScreenBase clickOnBuyNow();
+   public abstract ShippingOptionsScreenBase clickOnBuyNow();
    public abstract AddedProductScreenBase clickOnAddToCart();
 
     public abstract PaymentOptionsScreenBase clickOnViewPaymentOptionsBtn();

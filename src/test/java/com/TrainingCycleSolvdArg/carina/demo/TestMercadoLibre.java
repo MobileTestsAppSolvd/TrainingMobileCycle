@@ -103,9 +103,10 @@ public class TestMercadoLibre implements IAbstractTest {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         ProductScreenBase product=homeScreen.clickOnLastSeenProduct();
-        BuyNowScreenBase buyNowScreen=product.clickOnBuyNow();
+        ShippingOptionsScreenBase shippingScreen=product.clickOnBuyNow();
 
-        Assert.assertTrue(buyNowScreen.isPageOpened(),"Buy Now product Screen is not opened");
+
+        Assert.assertTrue(shippingScreen.selectAShippingOption().contains("Selecciona un método de entrega"),"Buy Now product Screen is not opened");
 
     }
 

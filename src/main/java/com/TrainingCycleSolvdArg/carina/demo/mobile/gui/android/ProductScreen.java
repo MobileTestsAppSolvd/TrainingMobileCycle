@@ -1,6 +1,5 @@
 package com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android;
 
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.BuyNowScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.PaymentOptionsScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.ProductScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.AddedProductScreenBase;
@@ -51,16 +50,21 @@ public class ProductScreen extends ProductScreenBase {
     }
 
     @Override
+    public AddedProductScreenBase clickOnAgregarAlCarrito() {
+        return null;
+    }
+
+    @Override
     public AddedProductScreenBase clickOnAddToCart() {
         addToCartButton.click();
         return initPage(getDriver(), AddedProductScreenBase.class);
     }
 
     @Override
-    public BuyNowScreenBase clickOnBuyNow() {
+    public ShippingOptionsScreenBase clickOnBuyNow() {
         swipe(buyNowBtn, Direction.UP);
         buyNowBtn.click();
-        return initPage(getDriver(), BuyNowScreenBase.class);
+        return initPage(getDriver(), ShippingOptionsScreenBase.class);
     }
 
     @Override
