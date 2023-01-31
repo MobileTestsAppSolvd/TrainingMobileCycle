@@ -46,6 +46,9 @@ public class HomeScreen extends HomeScreenBase {
     @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/rcm_portrait_card_thumbnail']")
     private ExtendedWebElement lastVisitedProduct;
 
+    @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/ll_button_row_parent']")
+    private ExtendedWebElement linearLayout;
+
     public HomeScreen(WebDriver driver) {
         super(driver);
     }
@@ -104,8 +107,8 @@ public class HomeScreen extends HomeScreenBase {
 
     @Override
     public List<WebElement> clickOnCellPhoneSales() {
-        List<WebElement> salesProducts = getDriver().findElements(.getBy());
-       salesProducts.get(2).click();
+        List<WebElement> salesProducts = getDriver().findElements(linearLayout.getBy());
+       salesProducts.get(3).click();
         return salesProducts;
     }
 

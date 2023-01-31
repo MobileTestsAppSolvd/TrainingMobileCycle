@@ -6,7 +6,6 @@ import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.HomeScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.agent.core.annotation.TestLabel;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -15,20 +14,20 @@ import java.util.List;
 
 public class TestMercadoLibre implements IAbstractTest {
 
-//    HomeScreen homeScreen = null;
+    HomeScreen homeScreen = null;
 
-//    @BeforeTest
-//    @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
-//    public void startCatalogScreen() {
-//        homeScreen = new HomeScreen(getDriver());
-//        if (homeScreen.backArrowPresent()) {
-//            homeScreen.clickOnBackArrowIcon();
-//        } else {
-//            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-//            menu.clickOnHome();
-//        }
-//
-//    }
+    @BeforeTest
+    @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
+    public void startCatalogScreen() {
+        homeScreen = new HomeScreen(getDriver());
+        if (homeScreen.backArrowPresent()) {
+            homeScreen.clickOnBackArrowIcon();
+        } else {
+            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
+            menu.clickOnHome();
+        }
+
+    }
 
     @Test
     @TestLabel(name = "TestingApk", value = {"mobile", "practice"})
