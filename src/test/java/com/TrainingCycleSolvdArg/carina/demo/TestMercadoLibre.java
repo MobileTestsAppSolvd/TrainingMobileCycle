@@ -97,8 +97,7 @@ public class TestMercadoLibre implements IAbstractTest {
 
     }
 
-    @Test
-    @TestLabel(name = "TC14-testVehiclesScreen", value = {"Mobile", "TrainingCycle"})
+    @Test(description = "[TC14] - testVehiclesScreen")
     public void testVehiclesScreen(){
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         VehiclesScreenBase vehicles=homeScreen.clickOnVehiclesBtn();
