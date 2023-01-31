@@ -46,6 +46,15 @@ public class HomeScreen extends HomeScreenBase {
     @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/rcm_portrait_card_thumbnail']")
     private ExtendedWebElement lastVisitedProduct;
 
+    @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/ll_button_row_parent']")
+    private ExtendedWebElement linearLayout;
+
+    @ExtendedFindBy(text = "Televisores")
+    private ExtendedWebElement fashionBtn;
+
+    @ExtendedFindBy(text = "Videos")
+    private ExtendedWebElement videosBtn;
+
     public HomeScreen(WebDriver driver) {
         super(driver);
     }
@@ -81,7 +90,18 @@ public class HomeScreen extends HomeScreenBase {
 
     @Override
     public void swipeDown() {
-    swipe(bookMark,Direction.DOWN);
+        swipe(bookMark, Direction.DOWN);
+    }
+
+    @Override
+    public void swipeFashionButtonLeft() {
+        swipe(fashionBtn,Direction.LEFT);
+    }
+
+    @Override
+    public VideosScreenBase tapOnVideoBtn() {
+       videosBtn.click();
+        return initPage(getDriver(), VideosScreenBase.class);
     }
 
     @Override
@@ -105,7 +125,7 @@ public class HomeScreen extends HomeScreenBase {
     @Override
     public ProductScreenBase clickOnBackArrowIcon() {
         backArrowIcon.click();
-        return initPage(getDriver(),ProductScreenBase.class);
+        return initPage(getDriver(), ProductScreenBase.class);
     }
 
     @Override
