@@ -1,8 +1,8 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.HomeScreen;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.SearchPanelBar;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.SalesScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.agent.core.annotation.TestLabel;
@@ -10,7 +10,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.List;
 
 public class TestMercadoLibre implements IAbstractTest {
 
@@ -95,6 +94,14 @@ public class TestMercadoLibre implements IAbstractTest {
         ShippingOptionsScreenBase shippingOptions=product.clickOnViewShippingOptionsBtn();
         Assert.assertTrue(shippingOptions.isShippingOptionsShown(),"Shipping Options is not displayed");
 
+    }
+    @Test
+    @TestLabel(name = "TC09-testSalesScreen", value = {"Mobile", "TrainingCycle"})
+    public void testSalesScreen(){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        homeScreen.getSalesIconClick();
+        SalesScreenBase salesScreen = new SalesScreen(getDriver());
+        Assert.assertTrue(salesScreen.isSalesScreenOpened(),"The sales Screen is not opened");
     }
 }
 
