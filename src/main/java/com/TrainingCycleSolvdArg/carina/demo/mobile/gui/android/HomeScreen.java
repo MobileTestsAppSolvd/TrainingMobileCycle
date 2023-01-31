@@ -113,6 +113,13 @@ public class HomeScreen extends HomeScreenBase {
     }
 
     @Override
+    public List<WebElement> clickOnFashionSales() {
+        List<WebElement> salesProducts = getDriver().findElements(linearLayout.getBy());
+        salesProducts.get(4).click();
+        return salesProducts;
+    }
+
+    @Override
     public ProductScreenBase clickOnBackArrowIcon() {
         backArrowIcon.click();
         return initPage(getDriver(),ProductScreenBase.class);
