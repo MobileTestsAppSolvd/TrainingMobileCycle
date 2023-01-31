@@ -96,5 +96,14 @@ public class TestMercadoLibre implements IAbstractTest {
         Assert.assertTrue(shippingOptions.isShippingOptionsShown(),"Shipping Options is not displayed");
 
     }
+
+    @Test
+    @TestLabel(name = "TC14-testVehiclesScreen", value = {"Mobile", "TrainingCycle"})
+    public void testVehiclesScreen(){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        VehiclesScreenBase vehicles=homeScreen.clickOnVehiclesBtn();
+
+        Assert.assertTrue(vehicles.isVehiclesScreenShown(),"Vehicles screen is not shown.");
+    }
 }
 

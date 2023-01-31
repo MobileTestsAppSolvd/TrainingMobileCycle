@@ -46,6 +46,9 @@ public class HomeScreen extends HomeScreenBase {
     @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/rcm_portrait_card_thumbnail']")
     private ExtendedWebElement lastVisitedProduct;
 
+    @ExtendedFindBy(text = "Vehículos")
+    private ExtendedWebElement vehiclesBtn;
+
     public HomeScreen(WebDriver driver) {
         super(driver);
     }
@@ -112,5 +115,13 @@ public class HomeScreen extends HomeScreenBase {
     public boolean backArrowPresent() {
         return backArrowIcon.isElementPresent();
     }
+
+    @Override
+    public VehiclesScreenBase clickOnVehiclesBtn() {
+        swipe(vehiclesBtn, Direction.LEFT);
+        vehiclesBtn.click();
+        return initPage(getDriver(),VehiclesScreenBase.class);
+    }
+
 
 }
