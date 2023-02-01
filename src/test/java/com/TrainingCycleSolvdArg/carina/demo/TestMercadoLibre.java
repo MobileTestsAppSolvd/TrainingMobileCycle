@@ -3,6 +3,8 @@ package com.TrainingCycleSolvdArg.carina.demo;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.CellPhoneSalesScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.HomeScreen;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.SalesScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.agent.core.annotation.TestLabel;
@@ -94,7 +96,30 @@ public class TestMercadoLibre implements IAbstractTest {
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
         ShippingOptionsScreenBase shippingOptions = product.clickOnViewShippingOptionsBtn();
         Assert.assertTrue(shippingOptions.isShippingOptionsShown(), "Shipping Options is not displayed");
+    }
 
+    @Test
+    @TestLabel(name = "TC06-testKnowMoreScreenOnAProduct", value = {"Mobile", "TrainingCycle"})
+    public void testKnowMoreScreenOnAProduct() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+
+        homeScreen.getLastVisitedProductAndClickOnIt();
+        ProductScreenBase productScreen = new ProductScreen(getDriver());
+        productScreen.swipeUp();
+        if (productScreen.isKnowMoreButtonPresent()) {
+            KnowMoreScreenBase refundScreen = productScreen.clickOnKnowMoreButton();
+            Assert.assertTrue(refundScreen.isRefundScreenOpened(), "The refund Screen was not opened");
+        } else if (productScreen.isBuyNowButtonPresent() && !productScreen.isKnowMoreButtonPresent()) {
+            Assert.assertFalse(productScreen.isKnowMoreButtonPresent(), "The refund Screen was opened");
+        }
+    }
+    @Test
+    @TestLabel(name = "TC09-testSalesScreen", value = {"Mobile", "TrainingCycle"})
+    public void testSalesScreen(){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        homeScreen.getSalesIconClick();
+        SalesScreenBase salesScreen = new SalesScreen(getDriver());
+        Assert.assertTrue(salesScreen.isSalesScreenOpened(),"The sales Screen is not opened");
     }
 
     @Test

@@ -84,7 +84,7 @@ public class HomeScreen extends HomeScreenBase {
 
     @Override
     public void swipeDown() {
-    swipe(bookMark,Direction.DOWN);
+        swipe(bookMark, Direction.DOWN);
     }
 
     @Override
@@ -106,6 +106,13 @@ public class HomeScreen extends HomeScreenBase {
     }
 
     @Override
+    public List<WebElement> getSalesIconClick() {
+        List<WebElement> salesList = getDriver().findElements(linearLayout.getBy());
+        salesList.get(1).click();
+        return salesList;
+    }
+
+    @Override
     public List<WebElement> clickOnCellPhoneSales() {
         List<WebElement> salesProducts = getDriver().findElements(linearLayout.getBy());
        salesProducts.get(3).click();
@@ -115,7 +122,7 @@ public class HomeScreen extends HomeScreenBase {
     @Override
     public ProductScreenBase clickOnBackArrowIcon() {
         backArrowIcon.click();
-        return initPage(getDriver(),ProductScreenBase.class);
+        return initPage(getDriver(), ProductScreenBase.class);
     }
 
     @Override
