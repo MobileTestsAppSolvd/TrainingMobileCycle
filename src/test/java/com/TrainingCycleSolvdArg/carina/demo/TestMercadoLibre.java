@@ -1,33 +1,36 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
+import Base.BaseTests;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.HomeScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.SalesScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.agent.core.annotation.TestLabel;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class TestMercadoLibre implements IAbstractTest {
+public class TestMercadoLibre extends BaseTests implements IAbstractTest {
 
-    HomeScreen homeScreen = null;
 
-    @BeforeTest
-    @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
-    public void startCatalogScreen() {
-        homeScreen = new HomeScreen(getDriver());
-        if (homeScreen.backArrowPresent()) {
-            homeScreen.clickOnBackArrowIcon();
-        } else {
-            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-            menu.clickOnHome();
-        }
-
-    }
+//    HomeScreen homeScreen = null;
+//
+//    @BeforeTest
+//    @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
+//    public void startCatalogScreen() {
+//        homeScreen = new HomeScreen(getDriver());
+//        if (homeScreen.backArrowPresent()) {
+//            homeScreen.clickOnBackArrowIcon();
+//        } else {
+//            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
+//            menu.clickOnHome();
+//        }
+//
+//    }
 
     @Test
     @TestLabel(name = "TestingApk", value = {"mobile", "practice"})
@@ -91,6 +94,7 @@ public class TestMercadoLibre implements IAbstractTest {
     @Test
     @TestLabel(name = "TC05-testShippingOptionsScreen", value = {"Mobile", "TrainingCycle"})
     public void testShippingOptionsScreen() {
+        TestcaseID = "49";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
         ShippingOptionsScreenBase shippingOptions = product.clickOnViewShippingOptionsBtn();
@@ -115,6 +119,7 @@ public class TestMercadoLibre implements IAbstractTest {
     @Test
     @TestLabel(name = "TC09-testSalesScreen", value = {"Mobile", "TrainingCycle"})
     public void testSalesScreen(){
+        TestcaseID = "48";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         homeScreen.getSalesIconClick();
         SalesScreenBase salesScreen = new SalesScreen(getDriver());
