@@ -1,5 +1,7 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.CellPhoneSalesScreen;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.HomeScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.SalesScreen;
@@ -40,7 +42,6 @@ public class TestMercadoLibre implements IAbstractTest {
 
         Assert.assertEquals(miCuentatext, "Buscar en Mercado Libre", "The text was not found");
     }
-
 
     @Test
     @TestLabel(name = "TC12-testSuperButton", value = {"Mobile", "TrainingCycle"})
@@ -119,6 +120,15 @@ public class TestMercadoLibre implements IAbstractTest {
         homeScreen.getSalesIconClick();
         SalesScreenBase salesScreen = new SalesScreen(getDriver());
         Assert.assertTrue(salesScreen.isSalesScreenOpened(),"The sales Screen is not opened");
+    }
+
+    @Test
+    @TestLabel(name = "TC11-testCelPhoneScreen", value = {"Mobile", "TrainingCycle"})
+    public void testCelPhoneScreen() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        homeScreen.clickOnCellPhoneSales();
+        CellPhoneSalesBase cellScreen = new CellPhoneSalesScreen(getDriver());
+        Assert.assertTrue(cellScreen.isCellPhoneScreenOpened(), "The cellphone screen was not opened");
     }
 }
 
