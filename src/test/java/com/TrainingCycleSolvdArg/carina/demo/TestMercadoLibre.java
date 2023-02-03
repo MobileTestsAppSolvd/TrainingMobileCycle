@@ -44,7 +44,6 @@ public class TestMercadoLibre extends BaseTests implements IAbstractTest {
         Assert.assertEquals(miCuentatext, "Buscar en Mercado Libre", "The text was not found");
     }
 
-
     @Test
     @TestLabel(name = "TC12-testSuperButton", value = {"Mobile", "TrainingCycle"})
     public void testSuperButton() {
@@ -94,11 +93,11 @@ public class TestMercadoLibre extends BaseTests implements IAbstractTest {
     @Test
     @TestLabel(name = "TC05-testShippingOptionsScreen", value = {"Mobile", "TrainingCycle"})
     public void testShippingOptionsScreen() {
-        TestcaseID = "49";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
         ShippingOptionsScreenBase shippingOptions = product.clickOnViewShippingOptionsBtn();
         Assert.assertTrue(shippingOptions.isShippingOptionsShown(), "Shipping Options is not displayed");
+
     }
 
     @Test
@@ -119,7 +118,23 @@ public class TestMercadoLibre extends BaseTests implements IAbstractTest {
     @Test
     @TestLabel(name = "TC09-testSalesScreen", value = {"Mobile", "TrainingCycle"})
     public void testSalesScreen(){
-        TestcaseID = "48";
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        homeScreen.getSalesIconClick();
+        SalesScreenBase salesScreen = new SalesScreen(getDriver());
+        Assert.assertTrue(salesScreen.isSalesScreenOpened(),"The sales Screen is not opened");
+        homeScreen.getLastVisitedProductAndClickOnIt();
+        ProductScreenBase productScreen = new ProductScreen(getDriver());
+        productScreen.swipeUp();
+        if (productScreen.isKnowMoreButtonPresent()) {
+            KnowMoreScreenBase refundScreen = productScreen.clickOnKnowMoreButton();
+            Assert.assertTrue(refundScreen.isRefundScreenOpened(), "The refund Screen was not opened");
+        } else if (productScreen.isBuyNowButtonPresent() && !productScreen.isKnowMoreButtonPresent()) {
+            Assert.assertFalse(productScreen.isKnowMoreButtonPresent(), "The refund Screen was opened");
+        }
+    }
+    @Test
+    @TestLabel(name = "TC09-testSalesScreen", value = {"Mobile", "TrainingCycle"})
+    public void testSalesScreen(){
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         homeScreen.getSalesIconClick();
         SalesScreenBase salesScreen = new SalesScreen(getDriver());
