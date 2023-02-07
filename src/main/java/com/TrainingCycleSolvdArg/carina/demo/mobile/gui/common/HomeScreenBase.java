@@ -1,5 +1,6 @@
 package com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common;
 
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +25,10 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
     public abstract void TapOnSearchBar();
 
     public abstract void swipeDown();
+
+    public abstract void swipeFashionButtonLeft();
+
+    public abstract VideosScreenBase tapOnVideoBtn();
 
     public abstract CartScreenBase clickOnCartIcon();
 

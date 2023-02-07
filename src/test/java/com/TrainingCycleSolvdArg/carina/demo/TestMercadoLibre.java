@@ -8,7 +8,9 @@ import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.SalesScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.agent.core.annotation.TestLabel;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -131,6 +133,15 @@ public class TestMercadoLibre implements IAbstractTest {
         CellPhoneSalesBase cellScreen = new CellPhoneSalesScreen(getDriver());
         Assert.assertTrue(cellScreen.isCellPhoneScreenOpened(), "The cellphone screen was not opened");
     }
+
+    @Test
+    @TestLabel(name = "TC13-testVideosScreen", value = {"Mobile", "TrainingCycle"})
+    public void testVideosScreen() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+            homeScreen.swipeFashionButtonLeft();
+            VideosScreenBase videoScreen =  homeScreen.tapOnVideoBtn();
+            Assert.assertTrue(videoScreen.isVideosScreenOpened(),"The video screen was not opened");
+
     @Test
     @TestLabel(name = "TC12-testFashionScreen", value = {"Mobile", "TrainingCycle"})
     public void testFashionScreen() {
