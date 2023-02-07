@@ -1,6 +1,7 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.CellPhoneSalesScreen;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.FashionScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.HomeScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
@@ -141,6 +142,13 @@ public class TestMercadoLibre implements IAbstractTest {
             VideosScreenBase videoScreen =  homeScreen.tapOnVideoBtn();
             Assert.assertTrue(videoScreen.isVideosScreenOpened(),"The video screen was not opened");
 
+    @Test
+    @TestLabel(name = "TC12-testFashionScreen", value = {"Mobile", "TrainingCycle"})
+    public void testFashionScreen() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        homeScreen.clickOnFashionSales();
+        FashionScreenBase fashionScreen = new FashionScreen(getDriver());
+        Assert.assertTrue(fashionScreen.isFashionScreenOpened(), "The cellphone screen was not opened");
     }
 }
 
