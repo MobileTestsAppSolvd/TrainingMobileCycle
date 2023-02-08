@@ -49,6 +49,12 @@ public class HomeScreen extends HomeScreenBase {
     @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/ll_button_row_parent']")
     private ExtendedWebElement linearLayout;
 
+    @ExtendedFindBy(text = "Televisores")
+    private ExtendedWebElement tvBtn;
+
+    @ExtendedFindBy(text = "Videos")
+    private ExtendedWebElement videosBtn;
+
     public HomeScreen(WebDriver driver) {
         super(driver);
     }
@@ -58,7 +64,6 @@ public class HomeScreen extends HomeScreenBase {
         lastSeenProduct.click();
         return initPage(getDriver(), ProductScreenBase.class);
     }
-
 
     @Override
     public MenuCatalogBase clickOnMenuIcon() {
@@ -88,6 +93,12 @@ public class HomeScreen extends HomeScreenBase {
     }
 
     @Override
+    public VideosScreenBase tapOnVideoBtn() {
+        videosBtn.click();
+        return initPage(getDriver(), VideosScreenBase.class);
+    }
+
+    @Override
     public CartScreenBase clickOnCartIcon() {
         cartIcon.click();
         return initPage(getDriver(), CartScreenBase.class);
@@ -110,6 +121,20 @@ public class HomeScreen extends HomeScreenBase {
         List<WebElement> salesList = getDriver().findElements(linearLayout.getBy());
         salesList.get(1).click();
         return salesList;
+    }
+
+    @Override
+    public List<WebElement> clickOnCellPhoneSales() {
+        List<WebElement> salesProducts = getDriver().findElements(linearLayout.getBy());
+        salesProducts.get(3).click();
+        return salesProducts;
+    }
+
+    @Override
+    public List<WebElement> clickOnFashionSales() {
+        List<WebElement> salesProducts = getDriver().findElements(linearLayout.getBy());
+        salesProducts.get(4).click();
+        return salesProducts;
     }
 
     @Override
