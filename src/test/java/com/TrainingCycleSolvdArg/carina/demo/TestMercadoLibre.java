@@ -135,6 +135,13 @@ public class TestMercadoLibre implements IAbstractTest {
     }
 
     @Test
+    @TestLabel(name = "TC13-testVideosScreen", value = {"Mobile", "TrainingCycle"})
+    public void testVideosScreen() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        VideosScreenBase videoScreen = homeScreen.tapOnVideoBtn();
+        Assert.assertTrue(videoScreen.isVideosScreenOpened(), "The video screen was not opened");
+    }
+    @Test
     @TestLabel(name = "TC12-testFashionScreen", value = {"Mobile", "TrainingCycle"})
     public void testFashionScreen() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);

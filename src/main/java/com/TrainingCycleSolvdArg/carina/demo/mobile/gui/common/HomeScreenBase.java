@@ -26,8 +26,6 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
 
     public abstract void swipeDown();
 
-    public abstract void swipeFashionButtonLeft();
-
     public abstract VideosScreenBase tapOnVideoBtn();
 
     public abstract CartScreenBase clickOnCartIcon();
