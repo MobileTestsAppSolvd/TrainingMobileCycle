@@ -21,18 +21,18 @@ public class TestMercadoLibre implements IAbstractTest {
 
     HomeScreen homeScreen = null;
 
-//    @BeforeTest
-//    @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
-//    public void startCatalogScreen() {
-//        homeScreen = new HomeScreen(getDriver());
-//        if (homeScreen.backArrowPresent()) {
-//            homeScreen.clickOnBackArrowIcon();
-//        } else {
-//            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-//            menu.clickOnHome();
-//        }
-//
-//    }
+    @BeforeTest
+    @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
+    public void startCatalogScreen() {
+        homeScreen = new HomeScreen(getDriver());
+        if (homeScreen.backArrowPresent()) {
+            homeScreen.clickOnBackArrowIcon();
+        } else {
+            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
+            menu.clickOnHome();
+        }
+
+    }
 
     @Test
     @TestLabel(name = "TestingApk", value = {"mobile", "practice"})
