@@ -50,7 +50,7 @@ public class HomeScreen extends HomeScreenBase {
     private ExtendedWebElement linearLayout;
 
     @ExtendedFindBy(text = "Televisores")
-    private ExtendedWebElement fashionBtn;
+    private ExtendedWebElement tvBtn;
 
     @ExtendedFindBy(text = "Videos")
     private ExtendedWebElement videosBtn;
@@ -93,13 +93,8 @@ public class HomeScreen extends HomeScreenBase {
     }
 
     @Override
-    public void swipeFashionButtonLeft() {
-
-    }
-
-    @Override
     public VideosScreenBase tapOnVideoBtn() {
-       videosBtn.click();
+        videosBtn.click();
         return initPage(getDriver(), VideosScreenBase.class);
     }
 
@@ -131,7 +126,7 @@ public class HomeScreen extends HomeScreenBase {
     @Override
     public List<WebElement> clickOnCellPhoneSales() {
         List<WebElement> salesProducts = getDriver().findElements(linearLayout.getBy());
-       salesProducts.get(3).click();
+        salesProducts.get(3).click();
         return salesProducts;
     }
 
