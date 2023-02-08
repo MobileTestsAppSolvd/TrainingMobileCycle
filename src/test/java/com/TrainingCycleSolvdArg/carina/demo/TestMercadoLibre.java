@@ -133,7 +133,7 @@ public class TestMercadoLibre implements IAbstractTest {
         CellPhoneSalesBase cellScreen = new CellPhoneSalesScreen(getDriver());
         Assert.assertTrue(cellScreen.isCellPhoneScreenOpened(), "The cellphone screen was not opened");
     }
- 
+
     @Test
     @TestLabel(name = "TC12-testFashionScreen", value = {"Mobile", "TrainingCycle"})
     public void testFashionScreen() {
