@@ -1,16 +1,9 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.CellPhoneSalesScreen;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.FashionScreen;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.HomeScreen;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.SalesScreen;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.*;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.agent.core.annotation.TestLabel;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -45,6 +38,7 @@ public class TestMercadoLibre implements IAbstractTest {
 
         Assert.assertEquals(miCuentatext, "Buscar en Mercado Libre", "The text was not found");
     }
+
 
     @Test
     @TestLabel(name = "TC12-testSuperButton", value = {"Mobile", "TrainingCycle"})
