@@ -49,9 +49,6 @@ public class HomeScreen extends HomeScreenBase {
     @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/ll_button_row_parent']")
     private ExtendedWebElement linearLayout;
 
-    @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/ll_button_row_parent']")
-    private ExtendedWebElement linearLayout;
-
     @ExtendedFindBy(text = "Televisores")
     private ExtendedWebElement fashionBtn;
 
@@ -94,6 +91,17 @@ public class HomeScreen extends HomeScreenBase {
     @Override
     public void swipeDown() {
         swipe(bookMark, Direction.DOWN);
+    }
+
+    @Override
+    public void swipeFashionButtonLeft() {
+
+    }
+
+    @Override
+    public VideosScreenBase tapOnVideoBtn() {
+       videosBtn.click();
+        return initPage(getDriver(), VideosScreenBase.class);
     }
 
     @Override

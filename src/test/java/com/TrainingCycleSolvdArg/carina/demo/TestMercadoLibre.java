@@ -21,18 +21,18 @@ public class TestMercadoLibre implements IAbstractTest {
 
     HomeScreen homeScreen = null;
 
-    @BeforeTest
-    @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
-    public void startCatalogScreen() {
-        homeScreen = new HomeScreen(getDriver());
-        if (homeScreen.backArrowPresent()) {
-            homeScreen.clickOnBackArrowIcon();
-        } else {
-            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-            menu.clickOnHome();
-        }
-
-    }
+//    @BeforeTest
+//    @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
+//    public void startCatalogScreen() {
+//        homeScreen = new HomeScreen(getDriver());
+//        if (homeScreen.backArrowPresent()) {
+//            homeScreen.clickOnBackArrowIcon();
+//        } else {
+//            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
+//            menu.clickOnHome();
+//        }
+//
+//    }
 
     @Test
     @TestLabel(name = "TestingApk", value = {"mobile", "practice"})
@@ -138,9 +138,10 @@ public class TestMercadoLibre implements IAbstractTest {
     @TestLabel(name = "TC13-testVideosScreen", value = {"Mobile", "TrainingCycle"})
     public void testVideosScreen() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-            homeScreen.swipeFashionButtonLeft();
-            VideosScreenBase videoScreen =  homeScreen.tapOnVideoBtn();
-            Assert.assertTrue(videoScreen.isVideosScreenOpened(),"The video screen was not opened");
+        homeScreen.swipeFashionButtonLeft();
+        VideosScreenBase videoScreen = homeScreen.tapOnVideoBtn();
+        Assert.assertTrue(videoScreen.isVideosScreenOpened(), "The video screen was not opened");
+    }
 
     @Test
     @TestLabel(name = "TC12-testFashionScreen", value = {"Mobile", "TrainingCycle"})
