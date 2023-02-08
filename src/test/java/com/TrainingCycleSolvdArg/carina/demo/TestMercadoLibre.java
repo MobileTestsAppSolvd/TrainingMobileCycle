@@ -133,15 +133,7 @@ public class TestMercadoLibre implements IAbstractTest {
         CellPhoneSalesBase cellScreen = new CellPhoneSalesScreen(getDriver());
         Assert.assertTrue(cellScreen.isCellPhoneScreenOpened(), "The cellphone screen was not opened");
     }
-
-    @Test
-    @TestLabel(name = "TC13-testVideosScreen", value = {"Mobile", "TrainingCycle"})
-    public void testVideosScreen() {
-        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-            homeScreen.swipeFashionButtonLeft();
-            VideosScreenBase videoScreen =  homeScreen.tapOnVideoBtn();
-            Assert.assertTrue(videoScreen.isVideosScreenOpened(),"The video screen was not opened");
-
+ 
     @Test
     @TestLabel(name = "TC12-testFashionScreen", value = {"Mobile", "TrainingCycle"})
     public void testFashionScreen() {

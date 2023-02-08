@@ -49,9 +49,6 @@ public class HomeScreen extends HomeScreenBase {
     @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/ll_button_row_parent']")
     private ExtendedWebElement linearLayout;
 
-    @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/ll_button_row_parent']")
-    private ExtendedWebElement linearLayout;
-
     @ExtendedFindBy(text = "Televisores")
     private ExtendedWebElement fashionBtn;
 
@@ -67,7 +64,6 @@ public class HomeScreen extends HomeScreenBase {
         lastSeenProduct.click();
         return initPage(getDriver(), ProductScreenBase.class);
     }
-
 
     @Override
     public MenuCatalogBase clickOnMenuIcon() {
