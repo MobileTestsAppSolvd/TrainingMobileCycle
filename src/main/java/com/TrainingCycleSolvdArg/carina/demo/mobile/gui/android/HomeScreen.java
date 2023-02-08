@@ -65,7 +65,6 @@ public class HomeScreen extends HomeScreenBase {
         return initPage(getDriver(), ProductScreenBase.class);
     }
 
-
     @Override
     public MenuCatalogBase clickOnMenuIcon() {
         menuIcon.click();
