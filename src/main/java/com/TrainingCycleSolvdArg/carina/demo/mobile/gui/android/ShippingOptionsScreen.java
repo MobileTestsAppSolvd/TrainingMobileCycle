@@ -22,11 +22,13 @@ public class ShippingOptionsScreen extends ShippingOptionsScreenBase{
 
     @Override
     public boolean isShippingOptionsShown() {
+
         return shippingOptionsTxt.isElementPresent();
     }
 
     @Override
     public String selectAShippingOption() {
+
         return selectShippingMethodTxt.getText();
     }
 
