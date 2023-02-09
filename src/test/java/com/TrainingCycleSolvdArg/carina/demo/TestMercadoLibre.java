@@ -3,19 +3,17 @@ package com.TrainingCycleSolvdArg.carina.demo;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.*;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.zebrunner.agent.core.annotation.TestLabel;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.List;
+
 
 public class TestMercadoLibre implements IAbstractTest {
 
     HomeScreen homeScreen = null;
 
-    @BeforeTest
-    @TestLabel(name = "BeforeTest", value = {"mobile", "practice"})
+    @BeforeTest(description = "BeforeTest")
     public void startCatalogScreen() {
         homeScreen = new HomeScreen(getDriver());
         if (homeScreen.backArrowPresent()) {
@@ -27,8 +25,7 @@ public class TestMercadoLibre implements IAbstractTest {
 
     }
 
-    @Test
-    @TestLabel(name = "TestingApk", value = {"mobile", "practice"})
+    @Test(description = "TestingApk")
     public void testClickOnMenuIcon() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         Assert.assertTrue(homeScreen.isPageOpened(), "The page was not opened");
@@ -40,8 +37,7 @@ public class TestMercadoLibre implements IAbstractTest {
     }
 
 
-    @Test
-    @TestLabel(name = "TC12-testSuperButton", value = {"Mobile", "TrainingCycle"})
+    @Test(description = "[TC12]-testSuperButton")
     public void testSuperButton() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
@@ -51,8 +47,7 @@ public class TestMercadoLibre implements IAbstractTest {
         homeScreen.clickArrowBackButton();
     }
 
-    @Test
-    @TestLabel(name = "TC02-testAddProductToCart", value = {"Mobile", "TrainingCycle"})
+    @Test(description = "[TC02]-testAddProductToCart")
     public void testAddProductToCart() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
@@ -64,8 +59,7 @@ public class TestMercadoLibre implements IAbstractTest {
         Assert.assertTrue(cartScreen.getAddedProductCard(), "The product was not added to cart");
     }
 
-    @Test
-    @TestLabel(name = "TC03-testEliminateProductFromCart", value = {"Mobile", "TrainingCycle"})
+    @Test(description = "[TC03]-testEliminateProductFromCart")
     public void testEliminateProductFromCart() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
@@ -76,8 +70,7 @@ public class TestMercadoLibre implements IAbstractTest {
         Assert.assertTrue(cart.getEmptyCard(), "The product was not deleted from the cart");
     }
 
-    @Test
-    @TestLabel(name = "TC04-testShowPaymentOptionsScreen", value = {"Mobile", "TrainingCycle"})
+    @Test(description = "[TC04]-testShowPaymentOptionsScreen")
     public void testShowPaymentOptionsScreen() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
@@ -86,8 +79,7 @@ public class TestMercadoLibre implements IAbstractTest {
         Assert.assertTrue(paymentOptions.isPaymentOptionScreenShown(), "Payment Options did not open");
     }
 
-    @Test
-    @TestLabel(name = "TC05-testShippingOptionsScreen", value = {"Mobile", "TrainingCycle"})
+    @Test(description = "[TC05]-testShippingOptionsScreen")
     public void testShippingOptionsScreen() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
@@ -95,8 +87,7 @@ public class TestMercadoLibre implements IAbstractTest {
         Assert.assertTrue(shippingOptions.isShippingOptionsShown(), "Shipping Options is not displayed");
     }
 
-    @Test
-    @TestLabel(name = "TC06-testKnowMoreScreenOnAProduct", value = {"Mobile", "TrainingCycle"})
+    @Test(description = "[TC06]-testKnowMoreScreenOnAProduct")
     public void testKnowMoreScreenOnAProduct() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
@@ -110,8 +101,7 @@ public class TestMercadoLibre implements IAbstractTest {
             Assert.assertFalse(productScreen.isKnowMoreButtonPresent(), "The refund Screen was opened");
         }
     }
-    @Test
-    @TestLabel(name = "TC09-testSalesScreen", value = {"Mobile", "TrainingCycle"})
+    @Test(description = "[TC09]-testSalesScreen")
     public void testSalesScreen(){
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         homeScreen.getSalesIconClick();
@@ -119,8 +109,7 @@ public class TestMercadoLibre implements IAbstractTest {
         Assert.assertTrue(salesScreen.isSalesScreenOpened(),"The sales Screen is not opened");
     }
 
-    @Test
-    @TestLabel(name = "TC11-testCelPhoneScreen", value = {"Mobile", "TrainingCycle"})
+    @Test(description = "[TC11]-testCelPhoneScreen")
     public void testCelPhoneScreen() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         homeScreen.clickOnCellPhoneSales();
@@ -128,15 +117,13 @@ public class TestMercadoLibre implements IAbstractTest {
         Assert.assertTrue(cellScreen.isCellPhoneScreenOpened(), "The cellphone screen was not opened");
     }
 
-    @Test
-    @TestLabel(name = "TC13-testVideosScreen", value = {"Mobile", "TrainingCycle"})
+    @Test(description = "[TC13]-testVideosScreen")
     public void testVideosScreen() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         VideosScreenBase videoScreen = homeScreen.tapOnVideoBtn();
         Assert.assertTrue(videoScreen.isVideosScreenOpened(), "The video screen was not opened");
     }
-    @Test
-    @TestLabel(name = "TC12-testFashionScreen", value = {"Mobile", "TrainingCycle"})
+    @Test(description = "[TC12]-testFashionScreen")
     public void testFashionScreen() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         homeScreen.clickOnFashionSales();
