@@ -147,7 +147,7 @@ public class HomeScreen extends HomeScreenBase {
     }
 
     @Override
-    public boolean backArrowPresent() {
+    public boolean isBackArrowPresent() {
         return backArrowIcon.isElementPresent();
     }
 

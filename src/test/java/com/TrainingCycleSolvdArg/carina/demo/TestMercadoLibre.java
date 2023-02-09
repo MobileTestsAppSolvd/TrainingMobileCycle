@@ -16,7 +16,7 @@ public class TestMercadoLibre implements IAbstractTest {
     @BeforeTest(description = "BeforeTest")
     public void startCatalogScreen() {
         homeScreen = new HomeScreen(getDriver());
-        if (homeScreen.backArrowPresent()) {
+        if (homeScreen.isBackArrowPresent()) {
             homeScreen.clickOnBackArrowIcon();
         } else {
             MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
@@ -42,7 +42,7 @@ public class TestMercadoLibre implements IAbstractTest {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         SuperMarketBase superScreen = homeScreen.clickOnSuper();
-        Assert.assertTrue(superScreen.getSuperCard(), "The text doesn't match");
+        Assert.assertTrue(superScreen.isSuperCardPresent(), "The text doesn't match");
 
         homeScreen.clickArrowBackButton();
     }
@@ -56,7 +56,7 @@ public class TestMercadoLibre implements IAbstractTest {
         productScreen.swipeUp();
         AddedProductScreenBase cartScreen = productScreen.clickOnAddToCart();
 
-        Assert.assertTrue(cartScreen.getAddedProductCard(), "The product was not added to cart");
+        Assert.assertTrue(cartScreen.isAddedProductCard(), "The product was not added to cart");
     }
 
     @Test(description = "[TC03]-testEliminateProductFromCart")
@@ -67,7 +67,7 @@ public class TestMercadoLibre implements IAbstractTest {
         cart.clickOnEleminate();
         homeScreen.clickOnCartIcon();
 
-        Assert.assertTrue(cart.getEmptyCard(), "The product was not deleted from the cart");
+        Assert.assertTrue(cart.isEmptyCard(), "The product was not deleted from the cart");
     }
 
     @Test(description = "[TC04]-testShowPaymentOptionsScreen")

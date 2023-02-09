@@ -8,5 +8,5 @@ public abstract class SuperMarketBase extends AbstractPage implements IMobileUti
     public SuperMarketBase(WebDriver driver) {
         super(driver);
     }
-    public abstract boolean getSuperCard();
+    public abstract boolean isSuperCardPresent();
 }
