@@ -142,6 +142,13 @@ public class TestMercadoLibre implements IAbstractTest {
     }
 
 
+    @Test(description = "[TC14] - testVehiclesScreen")
+    public void testVehiclesScreen(){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        VehiclesScreenBase vehicles=homeScreen.clickOnVehiclesBtn();
+
+        Assert.assertTrue(vehicles.isVehiclesScreenShown(),"Vehicles screen is not shown.");
+    }
 
 }
 

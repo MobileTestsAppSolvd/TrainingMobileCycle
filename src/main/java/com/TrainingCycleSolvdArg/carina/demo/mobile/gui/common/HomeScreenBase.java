@@ -44,4 +44,6 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
 
     public abstract boolean backArrowPresent();
 
+    public abstract VehiclesScreenBase clickOnVehiclesBtn();
+
 }
