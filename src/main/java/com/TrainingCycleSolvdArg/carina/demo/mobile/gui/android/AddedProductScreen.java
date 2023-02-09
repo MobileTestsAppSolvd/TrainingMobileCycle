@@ -17,7 +17,7 @@ public class AddedProductScreen extends AddedProductScreenBase {
     }
 
     @Override
-    public boolean getAddedProductCard() {
+    public boolean isAddedProductCard() {
         return congratsTitle.isElementPresent();
     }
 
