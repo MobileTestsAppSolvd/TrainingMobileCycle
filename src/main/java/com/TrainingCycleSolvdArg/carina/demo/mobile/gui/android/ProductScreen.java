@@ -23,6 +23,9 @@ public class ProductScreen extends ProductScreenBase {
     @ExtendedFindBy(text = "Comprar ahora")
     private ExtendedWebElement productColor;
 
+    @ExtendedFindBy(text = "Comprar ahora")
+    private ExtendedWebElement buyNowBtn;
+
     @FindBy(id = "com.mercadolibre:id/generic_summary_subtitle")
     private ExtendedWebElement KnowMoreButton;
 
@@ -57,9 +60,21 @@ public class ProductScreen extends ProductScreenBase {
     }
 
     @Override
+    public AddedProductScreenBase clickOnAgregarAlCarrito() {
+        return null;
+    }
+
+    @Override
     public AddedProductScreenBase clickOnAddToCart() {
         addToCartButton.click();
         return initPage(getDriver(), AddedProductScreenBase.class);
+    }
+
+    @Override
+    public ShippingOptionsScreenBase clickOnBuyNow() {
+        swipe(buyNowBtn, Direction.UP);
+        buyNowBtn.click();
+        return initPage(getDriver(), ShippingOptionsScreenBase.class);
     }
 
     @Override

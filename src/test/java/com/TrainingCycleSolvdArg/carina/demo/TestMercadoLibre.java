@@ -101,6 +101,16 @@ public class TestMercadoLibre implements IAbstractTest {
             Assert.assertFalse(productScreen.isKnowMoreButtonPresent(), "The refund Screen was opened");
         }
     }
+
+    @Test(description = "[TC07]-testBuyNowBtn")
+    public void testBuyNowBtn(){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+
+        ProductScreenBase product=homeScreen.clickOnLastSeenProduct();
+        ShippingOptionsScreenBase shippingScreen=product.clickOnBuyNow();
+
+        Assert.assertTrue(shippingScreen.selectAShippingOption().contains("Selecciona un método de entrega"),"Buy Now button is not working");
+    }
     @Test(description = "[TC09]-testSalesScreen")
     public void testSalesScreen(){
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
@@ -131,6 +141,7 @@ public class TestMercadoLibre implements IAbstractTest {
         Assert.assertTrue(fashionScreen.isFashionScreenOpened(), "The cellphone screen was not opened");
     }
 
+
     @Test(description = "[TC14] - testVehiclesScreen")
     public void testVehiclesScreen(){
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
@@ -138,5 +149,6 @@ public class TestMercadoLibre implements IAbstractTest {
 
         Assert.assertTrue(vehicles.isVehiclesScreenShown(),"Vehicles screen is not shown.");
     }
+
 }
 
