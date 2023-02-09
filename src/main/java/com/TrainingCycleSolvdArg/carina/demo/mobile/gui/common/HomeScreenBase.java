@@ -42,7 +42,7 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
 
     public abstract ProductScreenBase clickOnBackArrowIcon();
 
-    public abstract boolean backArrowPresent();
+    public abstract boolean isBackArrowPresent();
 
     public abstract VehiclesScreenBase clickOnVehiclesBtn();
 

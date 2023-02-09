@@ -25,7 +25,7 @@ public class CartScreen extends CartScreenBase {
     }
 
     @Override
-    public boolean getEmptyCard() {
+    public boolean isEmptyCard() {
         return emptyCard.isElementPresent();
     }
 
