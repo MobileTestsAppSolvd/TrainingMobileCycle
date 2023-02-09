@@ -10,4 +10,6 @@ public abstract class ShippingOptionsScreenBase extends AbstractPage implements 
     }
 
     public abstract boolean isShippingOptionsShown();
+
+    public abstract String selectAShippingOption();
 }
