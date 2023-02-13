@@ -8,21 +8,24 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
+
 public class TestMercadoLibre implements IAbstractTest {
+
 
     HomeScreen homeScreen = null;
 
-//    @BeforeTest(description = "BeforeTest")
-//    public void startCatalogScreen() {
-//        homeScreen = new HomeScreen(getDriver());
-//        if (homeScreen.isBackArrowPresent()) {
-//            homeScreen.clickOnBackArrowIcon();
-//        } else {
-//            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-//            menu.clickOnHome();
-//        }
-//
-//    }
+    @BeforeTest(description = "BeforeTest")
+    public void startCatalogScreen() {
+        homeScreen = new HomeScreen(getDriver());
+        if (homeScreen.isBackArrowPresent()) {
+            homeScreen.clickOnBackArrowIcon();
+        } else {
+            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
+            menu.clickOnHome();
+        }
+
+    }
+
 
     @Test(description = "TestingApk")
     public void testClickOnMenuIcon() {
@@ -148,14 +151,17 @@ public class TestMercadoLibre implements IAbstractTest {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         VehiclesScreenBase vehicles = homeScreen.clickOnVehiclesBtn();
 
-        Assert.assertTrue(vehicles.isVehiclesScreenShown(), "Vehicles screen is not shown.");
+        homeScreen.swipeLeftFashionBtn();
+        VehiclesScreenBase vehicleScreen = homeScreen.clickOnVehiclesBtn();
+
+        Assert.assertTrue(vehicleScreen.isVehiclesScreenShown(), "Vehicles screen is not shown.");
     }
 
     @Test(description = "TC15-testMoreSoldScreen")
     public void testMoreSoldScreen() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
-        homeScreen.dragAndDropFashionBtn();
+        homeScreen.swipeLeftFashionBtn();
         MoreSoldScreenBase moreSoldScreen = homeScreen.clickOnMoreSoldBtn();
 
         Assert.assertTrue(moreSoldScreen.isMoreSoldScreenShown(),"More sold screen is not open");
