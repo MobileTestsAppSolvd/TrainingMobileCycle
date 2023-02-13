@@ -5,11 +5,13 @@ import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import Base.BaseTests;
 
-public class TestProducts implements IAbstractTest {
+public class TestProducts extends BaseTests implements IAbstractTest {
 
     @Test(description = "[TC04]-testShowPaymentOptionsScreen")
     public void testShowPaymentOptionsScreen() {
+        TestcaseID = "121";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
         PaymentOptionsScreenBase paymentOptions = product.clickOnViewPaymentOptionsBtn();
@@ -17,8 +19,18 @@ public class TestProducts implements IAbstractTest {
         Assert.assertTrue(paymentOptions.isPaymentOptionScreenShown(), "Payment Options did not open");
     }
 
+    @Test(description = "[TC05]-testShippingOptionsScreen")
+    public void testShippingOptionsScreen() {
+        TestcaseID = "122";
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
+        ShippingOptionsScreenBase shippingOptions = product.clickOnViewShippingOptionsBtn();
+        Assert.assertTrue(shippingOptions.isShippingOptionsShown(), "Shipping Options is not displayed");
+    }
+
     @Test(description = "[TC06]-testKnowMoreScreenOnAProduct")
     public void testKnowMoreScreenOnAProduct() {
+        TestcaseID = "123";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         homeScreen.getLastVisitedProductAndClickOnIt();
@@ -32,16 +44,9 @@ public class TestProducts implements IAbstractTest {
         }
     }
 
-    @Test(description = "[TC05]-testShippingOptionsScreen")
-    public void testShippingOptionsScreen() {
-        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-        ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
-        ShippingOptionsScreenBase shippingOptions = product.clickOnViewShippingOptionsBtn();
-        Assert.assertTrue(shippingOptions.isShippingOptionsShown(), "Shipping Options is not displayed");
-    }
-
     @Test(description = "[TC07]-testBuyNowBtn")
     public void testBuyNowBtn() {
+        TestcaseID = "124";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
