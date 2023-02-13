@@ -8,11 +8,13 @@ import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.ProductScreenBase
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import Base.BaseTests;
 
-public class TestCart implements IAbstractTest {
+public class TestCart extends BaseTests implements IAbstractTest {
 
     @Test(description = "[TC02]-testAddProductToCart")
     public void testAddProductToCart() {
+        TestcaseID = "119";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         homeScreen.getLastVisitedProductAndClickOnIt();
@@ -25,6 +27,7 @@ public class TestCart implements IAbstractTest {
 
     @Test(description = "[TC03]-testEliminateProductFromCart")
     public void testEliminateProductFromCart() {
+        TestcaseID = "120";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         CartScreenBase cart = homeScreen.clickOnCartIcon();
