@@ -48,5 +48,8 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
     public abstract List<ExtendedWebElement> findExtendedWebElements(By by);
 
     public abstract VehiclesScreenBase clickOnVehiclesBtn();
+
     public abstract void swipeLeftFashionBtn();
+
+    public abstract MoreSoldScreenBase clickOnMoreSoldBtn();
 }
