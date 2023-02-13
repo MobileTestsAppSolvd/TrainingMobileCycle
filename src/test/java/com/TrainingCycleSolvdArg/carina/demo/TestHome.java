@@ -22,6 +22,7 @@ public class TestHome extends BaseTests implements IAbstractTest {
 
     @Test(description = "[TC12]-testSuperButton")
     public void testSuperButton() {
+
         TestcaseID = "126";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
@@ -62,7 +63,6 @@ public class TestHome extends BaseTests implements IAbstractTest {
     public void testVehiclesScreen() {
         TestcaseID = "130";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-//        VehiclesScreenBase vehicles = homeScreen.clickOnVehiclesBtn();
 
         homeScreen.swipeLeftFashionBtn();
         VehiclesScreenBase vehicleScreen = homeScreen.clickOnVehiclesBtn();
