@@ -55,8 +55,17 @@ public class HomeScreen extends HomeScreenBase {
     @ExtendedFindBy(text = "Televisores")
     private ExtendedWebElement tvBtn;
 
+    @ExtendedFindBy(text = "Pagos QR")
+    private ExtendedWebElement pagoQr;
+
     @ExtendedFindBy(text = "Videos")
     private ExtendedWebElement videosBtn;
+
+    @ExtendedFindBy(text = "Más vendidos")
+    private ExtendedWebElement moreSold;
+
+    @ExtendedFindBy(text = "Moda")
+    private ExtendedWebElement fashionBtn;
 
     public HomeScreen(WebDriver driver) {
         super(driver);
@@ -156,6 +165,17 @@ public class HomeScreen extends HomeScreenBase {
         swipe(vehiclesBtn, Direction.LEFT);
         vehiclesBtn.click();
         return initPage(getDriver(),VehiclesScreenBase.class);
+    }
+
+    @Override
+    public void dragAndDropFashionBtn() {
+        dragAndDrop(fashionBtn,pagoQr);
+    }
+
+    @Override
+    public MoreSoldScreenBase clickOnMoreSoldBtn() {
+        moreSold.click();
+        return initPage(getDriver(), MoreSoldScreenBase.class);
     }
 
 

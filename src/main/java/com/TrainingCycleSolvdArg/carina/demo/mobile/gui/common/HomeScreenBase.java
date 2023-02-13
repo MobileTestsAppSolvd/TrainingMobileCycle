@@ -46,4 +46,7 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
 
     public abstract VehiclesScreenBase clickOnVehiclesBtn();
 
+    public abstract void dragAndDropFashionBtn();
+
+    public abstract MoreSoldScreenBase clickOnMoreSoldBtn();
 }

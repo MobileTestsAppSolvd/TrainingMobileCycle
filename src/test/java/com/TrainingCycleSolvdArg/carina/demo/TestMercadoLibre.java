@@ -8,22 +8,21 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
-
 public class TestMercadoLibre implements IAbstractTest {
 
     HomeScreen homeScreen = null;
 
-    @BeforeTest(description = "BeforeTest")
-    public void startCatalogScreen() {
-        homeScreen = new HomeScreen(getDriver());
-        if (homeScreen.isBackArrowPresent()) {
-            homeScreen.clickOnBackArrowIcon();
-        } else {
-            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-            menu.clickOnHome();
-        }
-
-    }
+//    @BeforeTest(description = "BeforeTest")
+//    public void startCatalogScreen() {
+//        homeScreen = new HomeScreen(getDriver());
+//        if (homeScreen.isBackArrowPresent()) {
+//            homeScreen.clickOnBackArrowIcon();
+//        } else {
+//            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
+//            menu.clickOnHome();
+//        }
+//
+//    }
 
     @Test(description = "TestingApk")
     public void testClickOnMenuIcon() {
@@ -103,20 +102,21 @@ public class TestMercadoLibre implements IAbstractTest {
     }
 
     @Test(description = "[TC07]-testBuyNowBtn")
-    public void testBuyNowBtn(){
+    public void testBuyNowBtn() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
-        ProductScreenBase product=homeScreen.clickOnLastSeenProduct();
-        ShippingOptionsScreenBase shippingScreen=product.clickOnBuyNow();
+        ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
+        ShippingOptionsScreenBase shippingScreen = product.clickOnBuyNow();
 
-        Assert.assertTrue(shippingScreen.selectAShippingOption().contains("Selecciona un método de entrega"),"Buy Now button is not working");
+        Assert.assertTrue(shippingScreen.selectAShippingOption().contains("Selecciona un método de entrega"), "Buy Now button is not working");
     }
+
     @Test(description = "[TC09]-testSalesScreen")
-    public void testSalesScreen(){
+    public void testSalesScreen() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         homeScreen.getSalesIconClick();
         SalesScreenBase salesScreen = new SalesScreen(getDriver());
-        Assert.assertTrue(salesScreen.isSalesScreenOpened(),"The sales Screen is not opened");
+        Assert.assertTrue(salesScreen.isSalesScreenOpened(), "The sales Screen is not opened");
     }
 
     @Test(description = "[TC11]-testCelPhoneScreen")
@@ -133,6 +133,7 @@ public class TestMercadoLibre implements IAbstractTest {
         VideosScreenBase videoScreen = homeScreen.tapOnVideoBtn();
         Assert.assertTrue(videoScreen.isVideosScreenOpened(), "The video screen was not opened");
     }
+
     @Test(description = "[TC12]-testFashionScreen")
     public void testFashionScreen() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
@@ -143,12 +144,23 @@ public class TestMercadoLibre implements IAbstractTest {
 
 
     @Test(description = "[TC14] - testVehiclesScreen")
-    public void testVehiclesScreen(){
+    public void testVehiclesScreen() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-        VehiclesScreenBase vehicles=homeScreen.clickOnVehiclesBtn();
+        VehiclesScreenBase vehicles = homeScreen.clickOnVehiclesBtn();
 
-        Assert.assertTrue(vehicles.isVehiclesScreenShown(),"Vehicles screen is not shown.");
+        Assert.assertTrue(vehicles.isVehiclesScreenShown(), "Vehicles screen is not shown.");
     }
+
+    @Test(description = "TC15-testMoreSoldScreen")
+    public void testMoreSoldScreen() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+
+        homeScreen.dragAndDropFashionBtn();
+        MoreSoldScreenBase moreSoldScreen = homeScreen.clickOnMoreSoldBtn();
+
+        Assert.assertTrue(moreSoldScreen.isMoreSoldScreenShown(),"More sold screen is not open");
+    }
+
 
 }
 
