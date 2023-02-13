@@ -8,22 +8,21 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
-
 public class TestMercadoLibre implements IAbstractTest {
 
-    HomeScreen homeScreen = null;
-
-    @BeforeTest(description = "BeforeTest")
-    public void startCatalogScreen() {
-        homeScreen = new HomeScreen(getDriver());
-        if (homeScreen.backArrowPresent()) {
-            homeScreen.clickOnBackArrowIcon();
-        } else {
-            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-            menu.clickOnHome();
-        }
-
-    }
+//    HomeScreen homeScreen = null;
+//
+//    @BeforeTest(description = "BeforeTest")
+//    public void startCatalogScreen() {
+//        homeScreen = new HomeScreen(getDriver());
+//        if (homeScreen.backArrowPresent()) {
+//            homeScreen.clickOnBackArrowIcon();
+//        } else {
+//            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
+//            menu.clickOnHome();
+//        }
+//
+//    }
 
     @Test(description = "TestingApk")
     public void testClickOnMenuIcon() {
@@ -145,9 +144,11 @@ public class TestMercadoLibre implements IAbstractTest {
     @Test(description = "[TC14] - testVehiclesScreen")
     public void testVehiclesScreen(){
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-        VehiclesScreenBase vehicles=homeScreen.clickOnVehiclesBtn();
 
-        Assert.assertTrue(vehicles.isVehiclesScreenShown(),"Vehicles screen is not shown.");
+        homeScreen.swipeLeftFashionBtn();
+        VehiclesScreenBase vehicleScreen = homeScreen.clickOnVehiclesBtn();
+
+        Assert.assertTrue(vehicleScreen.isVehiclesScreenShown(),"Vehicles screen is not shown.");
     }
 
 }

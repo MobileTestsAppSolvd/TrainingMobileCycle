@@ -4,11 +4,14 @@ import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.zebrunner.carina.utils.factory.DeviceType;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+
+import static com.zebrunner.carina.utils.mobile.IMobileUtils.Direction.LEFT;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = HomeScreenBase.class)
 public class HomeScreen extends HomeScreenBase {
@@ -55,8 +58,14 @@ public class HomeScreen extends HomeScreenBase {
     @ExtendedFindBy(text = "Televisores")
     private ExtendedWebElement tvBtn;
 
+    @ExtendedFindBy(text = "Moda")
+    private ExtendedWebElement fashionBtn;
+
     @ExtendedFindBy(text = "Videos")
     private ExtendedWebElement videosBtn;
+
+    @ExtendedFindBy(text = "Pagos QR")
+    private ExtendedWebElement pagoQR;
 
     public HomeScreen(WebDriver driver) {
         super(driver);
@@ -133,6 +142,7 @@ public class HomeScreen extends HomeScreenBase {
         return salesProducts;
     }
 
+
     @Override
     public List<WebElement> clickOnFashionSales() {
         List<WebElement> salesProducts = getDriver().findElements(linearLayout.getBy());
@@ -152,11 +162,19 @@ public class HomeScreen extends HomeScreenBase {
     }
 
     @Override
-    public VehiclesScreenBase clickOnVehiclesBtn() {
-        swipe(vehiclesBtn, Direction.LEFT);
-        vehiclesBtn.click();
-        return initPage(getDriver(),VehiclesScreenBase.class);
+    public List<ExtendedWebElement> findExtendedWebElements(By by) {
+        List<ExtendedWebElement> extendedWebElements = findExtendedWebElements(linearLayout.getBy(), 5000);
+        return extendedWebElements;
     }
 
+    @Override
+    public VehiclesScreenBase clickOnVehiclesBtn() {
+        vehiclesBtn.click();
+        return initPage(getDriver(), VehiclesScreenBase.class);
+    }
 
+    @Override
+    public void swipeLeftFashionBtn() {
+        dragAndDrop(fashionBtn, pagoQR);
+    }
 }
