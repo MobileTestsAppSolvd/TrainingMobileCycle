@@ -1,5 +1,6 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
+import binding_TestRail.TestRailManager;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.AddedProductScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.CartScreenBase;
