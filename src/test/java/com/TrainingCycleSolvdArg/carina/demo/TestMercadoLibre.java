@@ -4,28 +4,10 @@ import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.*;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
-
 public class TestMercadoLibre implements IAbstractTest {
-
-
-    HomeScreen homeScreen = null;
-
-    @BeforeTest(description = "BeforeTest")
-    public void startCatalogScreen() {
-        homeScreen = new HomeScreen(getDriver());
-        if (homeScreen.isBackArrowPresent()) {
-            homeScreen.clickOnBackArrowIcon();
-        } else {
-            MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
-            menu.clickOnHome();
-        }
-
-    }
-
 
     @Test(description = "TestingApk")
     public void testClickOnMenuIcon() {
