@@ -3,6 +3,7 @@ package com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -44,6 +45,8 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
 
     public abstract boolean isBackArrowPresent();
 
-    public abstract VehiclesScreenBase clickOnVehiclesBtn();
+    public abstract List<ExtendedWebElement> findExtendedWebElements(By by);
 
+    public abstract VehiclesScreenBase clickOnVehiclesBtn();
+    public abstract void swipeLeftFashionBtn();
 }
