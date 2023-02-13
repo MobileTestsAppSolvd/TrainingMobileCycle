@@ -18,7 +18,7 @@ public class SuperMarketPanel extends SuperMarketBase {
     }
 
     @Override
-    public boolean getSuperCard() {
+    public boolean isSuperCardPresent() {
         return textSuper.isElementPresent();
     }
 
