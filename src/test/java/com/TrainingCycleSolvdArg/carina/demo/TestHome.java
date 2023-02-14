@@ -19,16 +19,13 @@ public class TestHome extends BaseTests implements IAbstractTest {
         Assert.assertTrue(salesScreen.isSalesScreenOpened(), "The sales Screen is not opened");
     }
 
-    @Test(description = "[TC12]-testSuperButton")
-    public void testSuperButton() {
-
+    @Test(description = "[TC12]-testSuperBtn")
+    public void testSuperBtn() {
         TestcaseID = "126";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         SuperMarketBase superScreen = homeScreen.clickOnSuper();
         Assert.assertTrue(superScreen.isSuperCardPresent(), "The text doesn't match");
-
-        homeScreen.clickArrowBackButton();
     }
 
 
