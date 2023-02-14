@@ -52,4 +52,6 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
     public abstract void swipeLeftFashionBtn();
 
     public abstract MoreSoldScreenBase clickOnMoreSoldBtn();
+
+    public abstract SalesScreenBase clickOnSales();
 }

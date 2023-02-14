@@ -15,8 +15,7 @@ public class TestHome extends BaseTests implements IAbstractTest {
     public void testSalesScreen() {
         TestcaseID = "125";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-        homeScreen.getSalesIconClick();
-        SalesScreenBase salesScreen = new SalesScreen(getDriver());
+        SalesScreenBase salesScreen = homeScreen.clickOnSales();
         Assert.assertTrue(salesScreen.isSalesScreenOpened(), "The sales Screen is not opened");
     }
 

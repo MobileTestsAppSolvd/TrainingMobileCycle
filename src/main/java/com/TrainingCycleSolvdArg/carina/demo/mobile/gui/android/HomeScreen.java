@@ -70,6 +70,9 @@ public class HomeScreen extends HomeScreenBase {
     @ExtendedFindBy(text = "Moda")
     private ExtendedWebElement fashionBtn;
 
+    @ExtendedFindBy(text = "Ofertas")
+    private ExtendedWebElement salesBtn;
+
     public HomeScreen(WebDriver driver) {
         super(driver);
     }
@@ -185,6 +188,12 @@ public class HomeScreen extends HomeScreenBase {
     public MoreSoldScreenBase clickOnMoreSoldBtn() {
         moreSold.click();
         return initPage(getDriver(), MoreSoldScreenBase.class);
+    }
+
+    @Override
+    public SalesScreenBase clickOnSales() {
+       salesBtn.click();
+        return initPage(getDriver(), SalesScreenBase.class);
     }
 
 
