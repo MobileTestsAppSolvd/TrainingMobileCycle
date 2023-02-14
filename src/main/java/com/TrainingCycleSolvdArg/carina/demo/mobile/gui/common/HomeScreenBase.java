@@ -37,7 +37,7 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
 
     public abstract CellPhoneSalesBase clickOnCellPhoneSales();
 
-    public abstract List<WebElement> clickOnFashionSales();
+    public abstract FashionScreenBase clickOnFashionSales();
 
     public abstract List<WebElement> getSalesIconClick();
 

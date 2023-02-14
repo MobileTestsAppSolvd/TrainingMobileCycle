@@ -41,8 +41,7 @@ public class TestHome extends BaseTests implements IAbstractTest {
     public void testFashionScreen() {
         TestcaseID = "128";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-        homeScreen.clickOnFashionSales();
-        FashionScreenBase fashionScreen = new FashionScreen(getDriver());
+        FashionScreenBase fashionScreen=homeScreen.clickOnFashionSales();
         Assert.assertTrue(fashionScreen.isFashionScreenOpened(), "The cellphone screen was not opened");
     }
 
