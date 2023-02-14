@@ -35,7 +35,7 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
 
     public abstract List<WebElement> getLastVisitedProductAndClickOnIt();
 
-    public abstract List<WebElement> clickOnCellPhoneSales();
+    public abstract CellPhoneSalesBase clickOnCellPhoneSales();
 
     public abstract List<WebElement> clickOnFashionSales();
 

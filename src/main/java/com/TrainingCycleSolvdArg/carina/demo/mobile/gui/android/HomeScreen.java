@@ -70,8 +70,12 @@ public class HomeScreen extends HomeScreenBase {
     @ExtendedFindBy(text = "Moda")
     private ExtendedWebElement fashionBtn;
 
+
     @ExtendedFindBy(text = "Ofertas")
     private ExtendedWebElement salesBtn;
+
+    @ExtendedFindBy(text = "Celulares")
+    private ExtendedWebElement cellPhoneBtn;
 
     public HomeScreen(WebDriver driver) {
         super(driver);
@@ -142,10 +146,9 @@ public class HomeScreen extends HomeScreenBase {
     }
 
     @Override
-    public List<WebElement> clickOnCellPhoneSales() {
-        List<WebElement> salesProducts = getDriver().findElements(linearLayout.getBy());
-        salesProducts.get(3).click();
-        return salesProducts;
+    public CellPhoneSalesBase clickOnCellPhoneSales() {
+        cellPhoneBtn.click();
+        return initPage(getDriver(), CellPhoneSalesBase.class);
     }
 
 
@@ -181,7 +184,7 @@ public class HomeScreen extends HomeScreenBase {
 
     @Override
     public void swipeLeftFashionBtn() {
-        dragAndDrop(fashionBtn,pagoQr);
+        dragAndDrop(fashionBtn, pagoQr);
     }
 
     @Override
