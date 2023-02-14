@@ -44,7 +44,7 @@ public class TestProducts extends BaseTests implements IAbstractTest {
         }
     }
 
-    @Test(description = "[TC07]-testBuyNowBtnBtn")
+    @Test(description = "[TC07]-testBuyNowBtn")
     public void testBuyNowBtn() {
         TestcaseID = "124";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);

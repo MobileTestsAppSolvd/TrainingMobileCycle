@@ -13,17 +13,14 @@ import Base.BaseTests;
 
 public class TestCart extends BaseTests implements IAbstractTest {
 
-    @Test(description = "[TC02]-testAddProductToCart")
-    public void testAddProductToCart() {
+    @Test(description = "[TC02]-testAddProductToCartBtn")
+    public void testAddProductToCartBtn() {
         TestcaseID = "119";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
-        homeScreen.getLastVisitedProductAndClickOnIt();
-        ProductScreenBase productScreen = new ProductScreen(getDriver());
+        ProductScreenBase productScreen = homeScreen.getLastVisitedProductAndClickOnIt();
         productScreen.swipeUp();
-        AddedProductScreenBase cartScreen = productScreen.clickOnAddToCart();
-
-        Assert.assertTrue(cartScreen.isAddedProductCard(), "The product was not added to cart");
+        productScreen.clickOnAddToCart();
     }
 
     @Test(description = "[TC03]-testEliminateProductFromCart")

@@ -132,10 +132,10 @@ public class HomeScreen extends HomeScreenBase {
     }
 
     @Override
-    public List<WebElement> getLastVisitedProductAndClickOnIt() {
-        List<WebElement> lastProducts = getDriver().findElements(lastVisitedProduct.getBy());
-        lastProducts.get(0).click();
-        return lastProducts;
+    public ProductScreenBase getLastVisitedProductAndClickOnIt() {
+        List<ExtendedWebElement> extendedWebElements = findExtendedWebElements(lastSeenProduct.getBy(), 5000);
+        extendedWebElements.get(0).click();
+        return initPage(getDriver(), ProductScreenBase.class);
     }
 
     @Override
