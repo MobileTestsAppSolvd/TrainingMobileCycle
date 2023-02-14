@@ -11,7 +11,9 @@ import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = ProductScreenBase.class)
+import static org.testng.Assert.fail;
+
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ProductScreenBase.class)
 public class ProductScreen extends ProductScreenBase {
 
     @ExtendedFindBy(text = "Cartera shopper Kalton Bags 9025 diseño liso de cuero sintético  negra asas color negro")
@@ -44,19 +46,18 @@ public class ProductScreen extends ProductScreenBase {
     private ExtendedWebElement buyNowButton;
 
 
-
     public ProductScreen(WebDriver driver) {
         super(driver);
     }
 
     @Override
     public void clickOnTheFirstProduct() {
-    firstProduct.click();
+        firstProduct.click();
     }
 
     @Override
     public void swipeUp() {
-        swipe(productColor,Direction.UP);
+        swipe(productColor, Direction.UP);
     }
 
     @Override
@@ -82,6 +83,12 @@ public class ProductScreen extends ProductScreenBase {
     }
 
     @Override
+    public boolean isKnowMoreButtonNOTPresent() {
+        KnowMoreButton.isElementNotPresent(5);
+        return true;
+    }
+
+    @Override
     public boolean isBuyNowButtonPresent() {
         return buyNowButton.isElementPresent();
     }
@@ -102,9 +109,14 @@ public class ProductScreen extends ProductScreenBase {
 
     @Override
     public ShippingOptionsScreenBase clickOnViewShippingOptionsBtn() {
-        swipe(viewShippingOptionsBtn,Direction.UP);
+        swipe(viewShippingOptionsBtn, Direction.UP);
         viewShippingOptionsBtn.click();
         return initPage(getDriver(), ShippingOptionsScreenBase.class);
+    }
+
+    @Override
+    public void KnowMoreButtonError(String message) {
+        throw new AssertionError(message);
     }
 
 

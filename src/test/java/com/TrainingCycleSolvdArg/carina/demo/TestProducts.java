@@ -36,11 +36,11 @@ public class TestProducts extends BaseTests implements IAbstractTest {
         homeScreen.getLastVisitedProductAndClickOnIt();
         ProductScreenBase productScreen = new ProductScreen(getDriver());
         productScreen.swipeUp();
-        if (productScreen.isKnowMoreButtonPresent()) {
+        if (productScreen.isKnowMoreButtonNOTPresent() && productScreen.isBuyNowButtonPresent()) {
+            productScreen.KnowMoreButtonError("This Product has no KnowMoreButton");
+        } else if (productScreen.isKnowMoreButtonNOTPresent()) {
             KnowMoreScreenBase refundScreen = productScreen.clickOnKnowMoreButton();
             Assert.assertTrue(refundScreen.isRefundScreenOpened(), "The refund Screen was not opened");
-        } else if (productScreen.isBuyNowButtonPresent() && !productScreen.isKnowMoreButtonPresent()) {
-            Assert.assertFalse(productScreen.isKnowMoreButtonPresent(), "The refund Screen was opened");
         }
     }
 
