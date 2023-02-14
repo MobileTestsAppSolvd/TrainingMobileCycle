@@ -71,10 +71,9 @@ public class ProductScreen extends ProductScreenBase {
     }
 
     @Override
-    public ShippingOptionsScreenBase clickOnBuyNow() {
+    public void clickOnBuyNow() {
         swipe(buyNowBtn, Direction.UP);
         buyNowBtn.click();
-        return initPage(getDriver(), ShippingOptionsScreenBase.class);
     }
 
     @Override
