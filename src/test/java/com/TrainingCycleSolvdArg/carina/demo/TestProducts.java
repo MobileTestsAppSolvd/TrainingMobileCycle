@@ -53,4 +53,15 @@ public class TestProducts extends BaseTests implements IAbstractTest {
         product.clickOnBuyNow();
 
     }
+
+    @Test(description = "createSmokeProductTest")
+    public void createSmokeProductTest() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
+
+        Assert.assertTrue(product.areElementsPresent(),"The product elements are not present");
+
+    }
+
+
 }
