@@ -77,6 +77,9 @@ public class HomeScreen extends HomeScreenBase {
     @ExtendedFindBy(text = "Celulares")
     private ExtendedWebElement cellPhoneBtn;
 
+    @FindBy(id = "com.mercadolibre:id/ui_components_toolbar_actionbar")
+    private ExtendedWebElement parentHome;
+
     public HomeScreen(WebDriver driver) {
         super(driver);
     }
@@ -196,6 +199,17 @@ public class HomeScreen extends HomeScreenBase {
     public SalesScreenBase clickOnSales() {
        salesBtn.click();
         return initPage(getDriver(), SalesScreenBase.class);
+    }
+
+    @Override
+    public boolean smokeHomeTestList(){
+        boolean res=false;
+
+        List<ExtendedWebElement> list=findExtendedWebElements(parentHome.getBy(), 5000);
+        if (list.get(0).isElementPresent()&&list.get(1).isElementPresent()&&list.get(2).isElementPresent()){
+            res =true;
+        }
+        return res;
     }
 
 

@@ -74,4 +74,23 @@ public class TestHome extends BaseTests implements IAbstractTest {
 
         Assert.assertTrue(moreSoldScreen.isMoreSoldScreenShown(), "More sold screen is not open");
     }
+
+    @Test(description = "SmokeHomeTest", priority = 0)
+    public void smokeHomeTest(){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+
+        Assert.assertTrue(homeScreen.smokeHomeTestList(),"bla bla bla");
+//
+//        System.out.println(homeScreen.smokeHomeTestList().size());
+//
+//        System.out.println((homeScreen.smokeHomeTestList().get(0).getAttribute("resource-id")));
+//        System.out.println((homeScreen.smokeHomeTestList().get(1).getText()));
+//        System.out.println((homeScreen.smokeHomeTestList().get(2).getAttribute("resource-id")));
+//
+//        Assert.assertTrue(homeScreen.smokeHomeTestList().get(0).isElementPresent(),"Cart icon is not present");
+//        Assert.assertTrue(homeScreen.smokeHomeTestList().get(1).isElementPresent(),"Menu icon is not present");
+//        Assert.assertTrue(homeScreen.smokeHomeTestList().get(2).isElementPresent(),"Searchbar is not present");
+
+
+    }
 }
