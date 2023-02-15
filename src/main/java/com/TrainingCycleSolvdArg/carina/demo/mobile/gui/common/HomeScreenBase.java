@@ -55,5 +55,5 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
 
     public abstract SalesScreenBase clickOnSales();
 
-    public abstract boolean smokeHomeTestList();
+    public abstract boolean areHomeElementPresent();
 }

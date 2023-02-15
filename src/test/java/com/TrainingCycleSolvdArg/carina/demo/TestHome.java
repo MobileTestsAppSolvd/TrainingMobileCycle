@@ -41,7 +41,7 @@ public class TestHome extends BaseTests implements IAbstractTest {
     public void testFashionScreen() {
         TestcaseID = "128";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-        FashionScreenBase fashionScreen=homeScreen.clickOnFashionSales();
+        FashionScreenBase fashionScreen = homeScreen.clickOnFashionSales();
         Assert.assertTrue(fashionScreen.isFashionScreenOpened(), "The cellphone screen was not opened");
     }
 
@@ -76,21 +76,9 @@ public class TestHome extends BaseTests implements IAbstractTest {
     }
 
     @Test(description = "SmokeHomeTest", priority = 0)
-    public void smokeHomeTest(){
+    public void smokeHomeTest() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
-        Assert.assertTrue(homeScreen.smokeHomeTestList(),"bla bla bla");
-//
-//        System.out.println(homeScreen.smokeHomeTestList().size());
-//
-//        System.out.println((homeScreen.smokeHomeTestList().get(0).getAttribute("resource-id")));
-//        System.out.println((homeScreen.smokeHomeTestList().get(1).getText()));
-//        System.out.println((homeScreen.smokeHomeTestList().get(2).getAttribute("resource-id")));
-//
-//        Assert.assertTrue(homeScreen.smokeHomeTestList().get(0).isElementPresent(),"Cart icon is not present");
-//        Assert.assertTrue(homeScreen.smokeHomeTestList().get(1).isElementPresent(),"Menu icon is not present");
-//        Assert.assertTrue(homeScreen.smokeHomeTestList().get(2).isElementPresent(),"Searchbar is not present");
-
-
+        Assert.assertTrue(homeScreen.areHomeElementPresent(), "The elements are not present.");
     }
 }
