@@ -73,6 +73,14 @@ public class TestHome extends BaseTests implements IAbstractTest {
     }
 
 
+    @Test(description = "smokeMenuTest", priority = 0)
+    public void smokeMenuTest() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        MenuCatalogBase menu= homeScreen.clickOnMenuIcon();
+
+        Assert.assertTrue(menu.areMenuElementsPresent(),"Menu elements are not present");
+
+
     @Test(description = "smokeCartTest", priority = 0)
     public void smokeCartTest() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
@@ -87,6 +95,7 @@ public class TestHome extends BaseTests implements IAbstractTest {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         Assert.assertTrue(homeScreen.areHomeElementPresent(), "The elements are not present.");
+
     }
 
 }

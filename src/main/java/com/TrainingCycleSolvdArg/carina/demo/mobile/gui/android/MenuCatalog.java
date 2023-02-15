@@ -8,6 +8,8 @@ import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = MenuCatalogBase.class)
 public class MenuCatalog extends MenuCatalogBase {
 
@@ -21,6 +23,10 @@ public class MenuCatalog extends MenuCatalogBase {
     @ExtendedFindBy(text = "Inicio")
     private ExtendedWebElement homeIcon;
 
+    @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/drawer_navigation_tag_text']")
+   // @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/drawer_navigation_tag_icon']")
+    private ExtendedWebElement menuElements;
+
     @Override
     public String getBarTitle() {
         return barTitle.getText();
@@ -30,6 +36,16 @@ public class MenuCatalog extends MenuCatalogBase {
     public HomeScreenBase clickOnHome() {
         homeIcon.click();
         return initPage(getDriver(), HomeScreenBase.class);
+    }
+
+    @Override
+    public boolean areMenuElementsPresent(){
+        List<ExtendedWebElement> list=findExtendedWebElements(menuElements.getBy(),5000);
+
+        if (list.get(0).isElementPresent()&&list.get(1).isElementPresent()&&list.get(2).isElementPresent()){
+            return true;
+        }
+        return false;
     }
 
 
