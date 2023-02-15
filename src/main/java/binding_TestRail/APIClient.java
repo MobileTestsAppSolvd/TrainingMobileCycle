@@ -25,6 +25,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 
@@ -37,7 +38,7 @@ public class APIClient
 {
 	private String m_user;
 	private String m_password;
-	private String m_url;
+	private final String m_url;
 
 	public APIClient(String base_url)
 	{
@@ -98,13 +99,13 @@ public class APIClient
 	 * If 'get_attachment/:attachment_id', returns a String
 	 */
 	public Object sendGet(String uri, String data)
-		throws MalformedURLException, IOException, APIException
+		throws IOException, APIException
 	{
 		return this.sendRequest("GET", uri, data);
 	}
 	
 	public Object sendGet(String uri)
-			throws MalformedURLException, IOException, APIException
+			throws IOException, APIException
 	{
 		return this.sendRequest("GET", uri, null);
 	}
@@ -130,13 +131,13 @@ public class APIClient
 	 * is basically the same as java.util.Map.
 	 */
 	public Object sendPost(String uri, Object data)
-		throws MalformedURLException, IOException, APIException
+		throws IOException, APIException
 	{
 		return this.sendRequest("POST", uri, data);
 	}
 	
 	private Object sendRequest(String method, String uri, Object data)
-		throws MalformedURLException, IOException, APIException
+		throws IOException, APIException
 	{
 		URL url = new URL(this.m_url + uri);
 		// Create the connection object and set the required HTTP method
@@ -195,7 +196,7 @@ public class APIClient
 				{
 					conn.addRequestProperty("Content-Type", "application/json");
 					byte[] block = JSONValue.toJSONString(data).
-						getBytes("UTF-8");
+						getBytes(StandardCharsets.UTF_8);
 	
 					conn.setDoOutput(true);
 					OutputStream ostream = conn.getOutputStream();
@@ -246,7 +247,7 @@ public class APIClient
  
             outputStream.close();
             istream.close();
-            return (String) data;
+            return data;
         }
         	
         // Not an attachment received
@@ -257,7 +258,7 @@ public class APIClient
 			BufferedReader reader = new BufferedReader(
 				new InputStreamReader(
 					istream,
-					"UTF-8"
+						StandardCharsets.UTF_8
 				)
 			);
 		

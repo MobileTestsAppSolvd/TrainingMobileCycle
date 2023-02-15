@@ -1,8 +1,6 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
-import binding_TestRail.TestRailManager;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.AddedProductScreenBase;
+
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.CartScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.HomeScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.ProductScreenBase;
@@ -32,6 +30,6 @@ public class TestCart extends BaseTests implements IAbstractTest {
         cart.clickOnEleminate();
         homeScreen.clickOnCartIcon();
 
-        Assert.assertTrue(cart.isEmptyCard(), "The product was not deleted from the cart");
+        Assert.assertTrue(cart.isEmptyCart(), "The product was not deleted from the cart");
     }
 }
