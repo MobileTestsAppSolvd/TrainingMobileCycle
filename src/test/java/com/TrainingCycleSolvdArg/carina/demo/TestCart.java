@@ -32,4 +32,12 @@ public class TestCart extends BaseTests implements IAbstractTest {
 
         Assert.assertTrue(cart.isEmptyCart(), "The product was not deleted from the cart");
     }
+
+    @Test(description = "smokeCartTest", priority = 0)
+    public void smokeCartTest() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        CartScreenBase cartScreen= homeScreen.clickOnCartIcon();
+
+        Assert.assertTrue(cartScreen.areCartElementsPresent(),"Cart elements are not present");
+    }
 }
