@@ -1,9 +1,6 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
 import Base.BaseTests;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.CellPhoneSalesScreen;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.FashionScreen;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.SalesScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import org.testng.Assert;
@@ -74,4 +71,13 @@ public class TestHome extends BaseTests implements IAbstractTest {
 
         Assert.assertTrue(moreSoldScreen.isMoreSoldScreenShown(), "More sold screen is not open");
     }
+
+    @Test(description = "smokeMenuTest", priority = 0)
+    public void smokeMenuTest() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        MenuCatalogBase menu= homeScreen.clickOnMenuIcon();
+
+        Assert.assertTrue(menu.areMenuElementsPresent(),"Menu elements are not present");
+    }
+
 }

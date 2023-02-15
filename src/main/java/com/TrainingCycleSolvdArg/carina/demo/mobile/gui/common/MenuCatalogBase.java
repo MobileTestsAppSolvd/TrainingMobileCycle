@@ -14,5 +14,5 @@ public abstract class MenuCatalogBase extends AbstractPage implements IMobileUti
 
     public abstract HomeScreenBase clickOnHome();
 
-
+    public abstract boolean areMenuElementsPresent();
 }
