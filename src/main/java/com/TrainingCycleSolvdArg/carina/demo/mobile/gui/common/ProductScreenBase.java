@@ -30,4 +30,6 @@ public  abstract class ProductScreenBase extends AbstractPage implements IMobile
     public abstract ShippingOptionsScreenBase clickOnViewShippingOptionsBtn();
 
     public abstract void KnowMoreButtonError(String message);
+
+    public abstract boolean areElementsPresent();
 }

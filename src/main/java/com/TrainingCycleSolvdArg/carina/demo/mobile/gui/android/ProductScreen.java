@@ -11,6 +11,9 @@ import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.testng.Assert.fail;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ProductScreenBase.class)
@@ -44,6 +47,15 @@ public class ProductScreen extends ProductScreenBase {
 
     @FindBy(id = "com.mercadolibre:id/andes_button_text")
     private ExtendedWebElement buyNowButton;
+
+    @FindBy(id = "com.mercadolibre:id/header_component_title")
+    private ExtendedWebElement productTitle;
+
+    @FindBy(id = "com.mercadolibre:id/gallery_image")
+    private ExtendedWebElement productImage;
+
+    @FindBy(id = "com.mercadolibre:id/andes_money_amount")
+    private ExtendedWebElement productPrice;
 
 
     public ProductScreen(WebDriver driver) {
@@ -119,5 +131,18 @@ public class ProductScreen extends ProductScreenBase {
         throw new AssertionError(message);
     }
 
+    @Override
+    public boolean areElementsPresent() {
+        List<ExtendedWebElement> list = new ArrayList<>();
+        list.add(productImage);
+        list.add(productTitle);
+        list.add(productPrice);
 
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) == null) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
