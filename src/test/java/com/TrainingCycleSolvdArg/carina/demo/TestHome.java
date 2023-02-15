@@ -41,7 +41,7 @@ public class TestHome extends BaseTests implements IAbstractTest {
     public void testFashionScreen() {
         TestcaseID = "128";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-        FashionScreenBase fashionScreen=homeScreen.clickOnFashionSales();
+        FashionScreenBase fashionScreen = homeScreen.clickOnFashionSales();
         Assert.assertTrue(fashionScreen.isFashionScreenOpened(), "The cellphone screen was not opened");
     }
 
@@ -73,5 +73,12 @@ public class TestHome extends BaseTests implements IAbstractTest {
         MoreSoldScreenBase moreSoldScreen = homeScreen.clickOnMoreSoldBtn();
 
         Assert.assertTrue(moreSoldScreen.isMoreSoldScreenShown(), "More sold screen is not open");
+    }
+
+    @Test(description = "SmokeHomeTest", priority = 0)
+    public void smokeHomeTest() {
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+
+        Assert.assertTrue(homeScreen.areHomeElementPresent(), "The elements are not present.");
     }
 }

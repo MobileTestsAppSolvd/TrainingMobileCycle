@@ -54,4 +54,6 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
     public abstract MoreSoldScreenBase clickOnMoreSoldBtn();
 
     public abstract SalesScreenBase clickOnSales();
+
+    public abstract boolean areHomeElementPresent();
 }

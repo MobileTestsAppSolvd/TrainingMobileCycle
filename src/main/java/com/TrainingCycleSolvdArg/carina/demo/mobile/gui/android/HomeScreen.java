@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.zebrunner.carina.utils.mobile.IMobileUtils.Direction.LEFT;
@@ -76,6 +77,9 @@ public class HomeScreen extends HomeScreenBase {
 
     @ExtendedFindBy(text = "Celulares")
     private ExtendedWebElement cellPhoneBtn;
+
+    @ExtendedFindBy(accessibilityId = "com.mercadolibre:id/ui_components_toolbar_actionbar")
+    private ExtendedWebElement parentHome;
 
     public HomeScreen(WebDriver driver) {
         super(driver);
@@ -194,9 +198,20 @@ public class HomeScreen extends HomeScreenBase {
 
     @Override
     public SalesScreenBase clickOnSales() {
-       salesBtn.click();
+        salesBtn.click();
         return initPage(getDriver(), SalesScreenBase.class);
     }
 
+    @Override
+    public boolean areHomeElementPresent() {
+        List<ExtendedWebElement> list = new ArrayList<>();
+        list.add(menuIcon);
+        list.add(cartIcon);
+        list.add(searchBar);
+        if (list.get(0).isElementPresent() && list.get(1).isElementPresent() && list.get(2).isElementPresent()) {
+            return true;
+        }
+        return false;
+    }
 
 }
