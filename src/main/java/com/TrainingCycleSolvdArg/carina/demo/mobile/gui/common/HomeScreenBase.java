@@ -10,7 +10,6 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public abstract class HomeScreenBase extends AbstractPage implements IMobileUtils {
-
     public HomeScreenBase(WebDriver driver) {
         super(driver);
     }

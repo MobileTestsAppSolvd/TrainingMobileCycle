@@ -8,13 +8,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ShippingOptionsScreenBase.class)
-public class ShippingOptionsScreen extends ShippingOptionsScreenBase{
-
+public class ShippingOptionsScreen extends ShippingOptionsScreenBase {
     @ExtendedFindBy(text = "Opciones de envío y retiro")
     private ExtendedWebElement shippingOptionsTxt;
     @FindBy(id = "com.mercadolibre:id/cho_toolbar_title")
     private ExtendedWebElement selectShippingMethodTxt;
-
 
     public ShippingOptionsScreen(WebDriver driver) {
         super(driver);

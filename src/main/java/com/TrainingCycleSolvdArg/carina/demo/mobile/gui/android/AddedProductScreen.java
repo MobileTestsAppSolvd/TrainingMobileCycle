@@ -6,7 +6,7 @@ import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = AddedProductScreenBase.class)
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = AddedProductScreenBase.class)
 public class AddedProductScreen extends AddedProductScreenBase {
 
     @FindBy(id = "com.mercadolibre:id/cart_congrats_title")
@@ -20,6 +20,4 @@ public class AddedProductScreen extends AddedProductScreenBase {
     public boolean isAddedProductCard() {
         return congratsTitle.isElementPresent();
     }
-
-
 }

@@ -25,6 +25,7 @@ public class TestProducts extends BaseTests implements IAbstractTest {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
         ShippingOptionsScreenBase shippingOptions = product.clickOnViewShippingOptionsBtn();
+
         Assert.assertTrue(shippingOptions.isShippingOptionsShown(), "Shipping Options is not displayed");
     }
 
@@ -32,10 +33,10 @@ public class TestProducts extends BaseTests implements IAbstractTest {
     public void testKnowMoreScreenOnAProduct() {
         TestcaseID = "123";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-
         homeScreen.getLastVisitedProductAndClickOnIt();
         ProductScreenBase productScreen = new ProductScreen(getDriver());
         productScreen.swipeUp();
+
         if (productScreen.isKnowMoreButtonNOTPresent() && productScreen.isBuyNowButtonPresent()) {
             productScreen.KnowMoreButtonError("This Product has no KnowMoreButton");
         } else if (productScreen.isKnowMoreButtonNOTPresent()) {
@@ -48,10 +49,8 @@ public class TestProducts extends BaseTests implements IAbstractTest {
     public void testBuyNowBtn() {
         TestcaseID = "124";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
         product.clickOnBuyNow();
-
     }
 
     @Test(description = "createSmokeProductTest")
@@ -60,8 +59,5 @@ public class TestProducts extends BaseTests implements IAbstractTest {
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
 
         Assert.assertTrue(product.areElementsPresent(),"The product elements are not present");
-
     }
-
-
 }

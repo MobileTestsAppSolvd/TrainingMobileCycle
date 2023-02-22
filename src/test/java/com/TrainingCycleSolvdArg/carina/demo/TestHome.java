@@ -13,6 +13,7 @@ public class TestHome extends BaseTests implements IAbstractTest {
         TestcaseID = "125";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         SalesScreenBase salesScreen = homeScreen.clickOnSales();
+
         Assert.assertTrue(salesScreen.isSalesScreenOpened(), "The sales Screen is not opened");
     }
 
@@ -20,17 +21,17 @@ public class TestHome extends BaseTests implements IAbstractTest {
     public void testSuperBtn() {
         TestcaseID = "126";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-
         SuperMarketBase superScreen = homeScreen.clickOnSuper();
+
         Assert.assertTrue(superScreen.isSuperCardPresent(), "The text doesn't match");
     }
-
 
     @Test(description = "[TC11]-testCelPhoneScreen")
     public void testCelPhoneScreen() {
         TestcaseID = "127";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         CellPhoneSalesBase cellScreen = homeScreen.clickOnCellPhoneSales();
+
         Assert.assertTrue(cellScreen.isCellPhoneScreenOpened(), "The cellphone screen was not opened");
     }
 
@@ -39,6 +40,7 @@ public class TestHome extends BaseTests implements IAbstractTest {
         TestcaseID = "128";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         FashionScreenBase fashionScreen = homeScreen.clickOnFashionSales();
+
         Assert.assertTrue(fashionScreen.isFashionScreenOpened(), "The cellphone screen was not opened");
     }
 
@@ -47,6 +49,7 @@ public class TestHome extends BaseTests implements IAbstractTest {
         TestcaseID = "128";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         VideosScreenBase videoScreen = homeScreen.tapOnVideoBtn();
+
         Assert.assertTrue(videoScreen.isVideosScreenOpened(), "The video screen was not opened");
     }
 
@@ -54,7 +57,6 @@ public class TestHome extends BaseTests implements IAbstractTest {
     public void testVehiclesScreen() {
         TestcaseID = "130";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-
         homeScreen.swipeLeftFashionBtn();
         VehiclesScreenBase vehicleScreen = homeScreen.clickOnVehiclesBtn();
 
@@ -65,7 +67,6 @@ public class TestHome extends BaseTests implements IAbstractTest {
     public void testMoreSoldScreen() {
         TestcaseID = "131";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-
         homeScreen.swipeLeftFashionBtn();
         MoreSoldScreenBase moreSoldScreen = homeScreen.clickOnMoreSoldBtn();
 
@@ -86,7 +87,5 @@ public class TestHome extends BaseTests implements IAbstractTest {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         Assert.assertTrue(homeScreen.areHomeElementPresent(), "The elements are not present.");
-
     }
-
 }

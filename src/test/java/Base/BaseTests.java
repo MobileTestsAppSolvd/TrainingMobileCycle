@@ -20,19 +20,21 @@ public class BaseTests implements IAbstractTest {
     protected String TestcaseID;
 
     @AfterMethod
-    public void recordFailure(ITestResult result){
-        if(ITestResult.FAILURE == result.getStatus()){
-            var camera = (TakesScreenshot)getDriver();
+    public void recordFailure(ITestResult result) {
+        if (ITestResult.FAILURE == result.getStatus()) {
+            var camera = (TakesScreenshot) getDriver();
             File screenshot = camera.getScreenshotAs(OutputType.FILE);
-            try{Files.move(screenshot, new File("resources/screenshots/"+result.getName()+".png"));}
-            catch (IOException e){
+            try {
+                Files.move(screenshot, new File("resources/screenshots/" + result.getName() + ".png"));
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
+
     @AfterMethod
-    public void tearDown(ITestResult result) throws Throwable{
-        if(result.getStatus() == ITestResult.SUCCESS){
+    public void tearDown(ITestResult result) throws Throwable {
+        if (result.getStatus() == ITestResult.SUCCESS) {
             TestRailManager.addResultForTestCase(TestcaseID, TestRailManager.TEST_CASE_PASSED_STATUS, "");
         } else if (result.getStatus() == ITestResult.FAILURE) {
             String error = String.valueOf(result.getThrowable());

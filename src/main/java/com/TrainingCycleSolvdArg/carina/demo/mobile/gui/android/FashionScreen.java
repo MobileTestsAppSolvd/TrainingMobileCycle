@@ -6,9 +6,8 @@ import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = FashionScreenBase.class)
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = FashionScreenBase.class)
 public class FashionScreen extends FashionScreenBase {
-
     @FindBy(id = "com.mercadolibre:id/landing_web_view")
     private ExtendedWebElement landingWebView;
 

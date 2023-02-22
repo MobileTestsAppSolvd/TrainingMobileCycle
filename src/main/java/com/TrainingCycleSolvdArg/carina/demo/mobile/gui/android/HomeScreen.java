@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static com.zebrunner.carina.utils.mobile.IMobileUtils.Direction.LEFT;
 
@@ -215,3 +216,6 @@ public class HomeScreen extends HomeScreenBase {
     }
 
 }
+// ArrayList<String> results = new ArrayList<>();
+// stream.filter(s -> pattern.matcher(s).matches())
+// .forEach(s -> results.add(s));

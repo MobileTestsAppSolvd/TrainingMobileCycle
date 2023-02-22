@@ -6,11 +6,10 @@ import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = VideosScreenBase.class)
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = VideosScreenBase.class)
 public class VideosScreen extends VideosScreenBase {
-
-   @ExtendedFindBy(text = "mute icon")
-   private ExtendedWebElement muteIcon;
+    @ExtendedFindBy(text = "mute icon")
+    private ExtendedWebElement muteIcon;
 
     public VideosScreen(WebDriver driver) {
         super(driver);

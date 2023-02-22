@@ -18,45 +18,30 @@ import static org.testng.Assert.fail;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ProductScreenBase.class)
 public class ProductScreen extends ProductScreenBase {
-
     @ExtendedFindBy(text = "Cartera shopper Kalton Bags 9025 diseño liso de cuero sintético  negra asas color negro")
     private ExtendedWebElement firstProduct;
-
     @ExtendedFindBy(text = "Agregar al carrito")
     private ExtendedWebElement addToCartButton;
-
     @ExtendedFindBy(text = "Comprar ahora")
     private ExtendedWebElement productColor;
-
     @ExtendedFindBy(text = "Comprar ahora")
     private ExtendedWebElement buyNowBtn;
-
     @FindBy(id = "com.mercadolibre:id/generic_summary_subtitle")
     private ExtendedWebElement KnowMoreButton;
-
     @ExtendedFindBy(text = "Conocer más")
     private ExtendedWebElement KnowMore;
-
     @FindBy(id = "com.mercadolibre:id/price_component_action")
-    //@ExtendedFindBy(text = "Ver los medios de pago")
-    //@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView")
     private ExtendedWebElement viewPaymentOptionsBtn;
-
     @ExtendedFindBy(text = "Ver más formas de entrega")
     private ExtendedWebElement viewShippingOptionsBtn;
-
     @FindBy(id = "com.mercadolibre:id/andes_button_text")
     private ExtendedWebElement buyNowButton;
-
     @FindBy(id = "com.mercadolibre:id/header_component_title")
     private ExtendedWebElement productTitle;
-
     @FindBy(id = "com.mercadolibre:id/gallery_image")
     private ExtendedWebElement productImage;
-
     @FindBy(id = "com.mercadolibre:id/andes_money_amount")
     private ExtendedWebElement productPrice;
-
 
     public ProductScreen(WebDriver driver) {
         super(driver);
