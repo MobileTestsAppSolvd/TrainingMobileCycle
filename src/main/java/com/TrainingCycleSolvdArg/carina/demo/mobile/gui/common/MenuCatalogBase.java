@@ -5,7 +5,6 @@ import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
 
 public abstract class MenuCatalogBase extends AbstractPage implements IMobileUtils {
-
     public MenuCatalogBase(WebDriver driver) {
         super(driver);
     }

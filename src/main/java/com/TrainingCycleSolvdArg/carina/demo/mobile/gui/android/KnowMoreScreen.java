@@ -6,9 +6,8 @@ import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = KnowMoreScreenBase.class)
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = KnowMoreScreenBase.class)
 public class KnowMoreScreen extends KnowMoreScreenBase {
-
     @ExtendedFindBy(accessibilityId = "políticas de devolución.")
     private ExtendedWebElement refundScreen;
 

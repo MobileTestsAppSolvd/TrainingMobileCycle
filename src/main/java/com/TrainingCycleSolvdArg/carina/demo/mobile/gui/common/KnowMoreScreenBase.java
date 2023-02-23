@@ -7,6 +7,5 @@ public abstract class KnowMoreScreenBase extends AbstractPage {
     public KnowMoreScreenBase(WebDriver driver) {
         super(driver);
     }
-
     public abstract boolean isRefundScreenOpened();
 }

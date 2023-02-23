@@ -6,12 +6,10 @@ import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = SalesScreenBase.class)
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = SalesScreenBase.class)
 public class SalesScreen extends SalesScreenBase {
-
     @FindBy(id = "com.mercadolibre:id/landing_swipe_refresh_layout")
     private ExtendedWebElement landingLayout;
-
 
     public SalesScreen(WebDriver driver) {
         super(driver);

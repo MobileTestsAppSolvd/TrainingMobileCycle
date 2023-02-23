@@ -5,11 +5,12 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
+
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = VehiclesScreenBase.class)
 public class VehiclesScreen extends VehiclesScreenBase {
-
     @ExtendedFindBy(text = "Vehículos")
     private ExtendedWebElement vehiclesTxt;
+
     public VehiclesScreen(WebDriver driver) {
         super(driver);
     }

@@ -4,24 +4,26 @@ import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
 
-public  abstract class ProductScreenBase extends AbstractPage implements IMobileUtils {
-
+public abstract class ProductScreenBase extends AbstractPage implements IMobileUtils {
     public ProductScreenBase(WebDriver driver) {
         super(driver);
     }
 
     public abstract void clickOnTheFirstProduct();
 
-   public abstract void swipeUp();
+    public abstract void swipeUp();
 
-   public abstract AddedProductScreenBase clickOnAgregarAlCarrito();
+    public abstract AddedProductScreenBase clickOnAgregarAlCarrito();
 
-   public abstract void clickOnBuyNow();
-   public abstract AddedProductScreenBase clickOnAddToCart();
+    public abstract void clickOnBuyNow();
 
-   public abstract boolean isKnowMoreButtonPresent();
+    public abstract AddedProductScreenBase clickOnAddToCart();
+
+    public abstract boolean isKnowMoreButtonPresent();
+
     public abstract boolean isKnowMoreButtonNOTPresent();
-   public abstract boolean isBuyNowButtonPresent();
+
+    public abstract boolean isBuyNowButtonPresent();
 
     public abstract KnowMoreScreenBase clickOnKnowMoreButton();
 

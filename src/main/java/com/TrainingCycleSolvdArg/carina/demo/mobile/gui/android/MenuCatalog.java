@@ -12,19 +12,15 @@ import java.util.List;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = MenuCatalogBase.class)
 public class MenuCatalog extends MenuCatalogBase {
-
     public MenuCatalog(WebDriver driver) {
         super(driver);
     }
 
     @FindBy(id = "com.mercadolibre:id/ui_components_action_bar_title_toolbar")
     private ExtendedWebElement barTitle;
-
     @ExtendedFindBy(text = "Inicio")
     private ExtendedWebElement homeIcon;
-
     @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/drawer_navigation_tag_text']")
-   // @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/drawer_navigation_tag_icon']")
     private ExtendedWebElement menuElements;
 
     @Override
@@ -39,10 +35,9 @@ public class MenuCatalog extends MenuCatalogBase {
     }
 
     @Override
-    public boolean areMenuElementsPresent(){
-        List<ExtendedWebElement> list=findExtendedWebElements(menuElements.getBy(),5000);
-
-        if (list.get(0).isElementPresent()&&list.get(1).isElementPresent()&&list.get(2).isElementPresent()){
+    public boolean areMenuElementsPresent() {
+        List<ExtendedWebElement> list = findExtendedWebElements(menuElements.getBy(), 5000);
+        if (list.get(0).isElementPresent() && list.get(1).isElementPresent() && list.get(2).isElementPresent()) {
             return true;
         }
         return false;

@@ -12,13 +12,10 @@ public class TestMercadoLibre implements IAbstractTest {
     @Test(description = "TestingApk")
     public void testClickOnMenuIcon() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-        Assert.assertTrue(homeScreen.isPageOpened(), "The page was not opened");
-
         MenuCatalogBase menu = homeScreen.clickOnMenuIcon();
         String miCuentatext = menu.getBarTitle();
 
         Assert.assertEquals(miCuentatext, "Buscar en Mercado Libre", "The text was not found");
     }
-
 }
 

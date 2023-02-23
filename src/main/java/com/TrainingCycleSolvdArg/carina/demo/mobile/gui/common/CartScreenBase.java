@@ -13,5 +13,4 @@ public abstract class CartScreenBase extends AbstractPage {
     public abstract boolean isEmptyCart();
 
     public abstract boolean areCartElementsPresent();
-
 }
