@@ -1,9 +1,9 @@
 package com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common;
 
-import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
 
-public abstract class CartScreenBase extends AbstractPage {
+public abstract class CartScreenBase extends MercadolibreBase implements IMobileUtils {
     public CartScreenBase(WebDriver driver) {
         super(driver);
     }
@@ -11,6 +11,4 @@ public abstract class CartScreenBase extends AbstractPage {
     public abstract void clickOnEleminate();
 
     public abstract boolean isEmptyCart();
-
-    public abstract boolean areCartElementsPresent();
 }

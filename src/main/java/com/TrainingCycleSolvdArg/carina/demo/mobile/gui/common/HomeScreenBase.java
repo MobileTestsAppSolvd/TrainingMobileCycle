@@ -1,7 +1,6 @@
 package com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +8,8 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public abstract class HomeScreenBase extends AbstractPage implements IMobileUtils {
+public abstract class HomeScreenBase extends MercadolibreBase implements IMobileUtils {
+
     public HomeScreenBase(WebDriver driver) {
         super(driver);
     }
@@ -53,6 +53,4 @@ public abstract class HomeScreenBase extends AbstractPage implements IMobileUtil
     public abstract MoreSoldScreenBase clickOnMoreSoldBtn();
 
     public abstract SalesScreenBase clickOnSales();
-
-    public abstract boolean areHomeElementPresent();
 }

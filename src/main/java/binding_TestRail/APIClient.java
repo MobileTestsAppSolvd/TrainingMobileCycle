@@ -14,7 +14,6 @@ package binding_TestRail;
 
 import java.net.URL;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

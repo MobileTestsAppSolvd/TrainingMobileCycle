@@ -11,9 +11,6 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
-
-import static com.zebrunner.carina.utils.mobile.IMobileUtils.Direction.LEFT;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = HomeScreenBase.class)
 public class HomeScreen extends HomeScreenBase {
@@ -45,9 +42,6 @@ public class HomeScreen extends HomeScreenBase {
     @ExtendedFindBy(accessibilityId = "Atrás")
     private ExtendedWebElement backArrowIcon;
 
-//    @FindBy(className = "androidx.recyclerview.widget.RecyclerView")
-//    private ExtendedWebElement lastVisitedProduct;
-
     @FindBy(xpath = "//*[@resource-id='com.mercadolibre:id/rcm_portrait_card_thumbnail']")
     private ExtendedWebElement lastVisitedProduct;
 
@@ -71,7 +65,6 @@ public class HomeScreen extends HomeScreenBase {
 
     @ExtendedFindBy(text = "Moda")
     private ExtendedWebElement fashionBtn;
-
 
     @ExtendedFindBy(text = "Ofertas")
     private ExtendedWebElement salesBtn;
@@ -156,7 +149,6 @@ public class HomeScreen extends HomeScreenBase {
         return initPage(getDriver(), CellPhoneSalesBase.class);
     }
 
-
     @Override
     public FashionScreenBase clickOnFashionSales() {
         fashionBtn.click();
@@ -176,8 +168,7 @@ public class HomeScreen extends HomeScreenBase {
 
     @Override
     public List<ExtendedWebElement> findExtendedWebElements(By by) {
-        List<ExtendedWebElement> extendedWebElements = findExtendedWebElements(linearLayout.getBy(), 5000);
-        return extendedWebElements;
+        return findExtendedWebElements(linearLayout.getBy(), 5000);
     }
 
     @Override
@@ -204,18 +195,11 @@ public class HomeScreen extends HomeScreenBase {
     }
 
     @Override
-    public boolean areHomeElementPresent() {
-        List<ExtendedWebElement> list = new ArrayList<>();
+    public boolean areMainElementsPresent() {
+        List<ExtendedWebElement> list=new ArrayList<>();
         list.add(menuIcon);
         list.add(cartIcon);
         list.add(searchBar);
-        if (list.get(0).isElementPresent() && list.get(1).isElementPresent() && list.get(2).isElementPresent()) {
-            return true;
-        }
-        return false;
+        return list.get(0).isElementPresent() && list.get(1).isElementPresent() && list.get(2).isElementPresent();
     }
-
 }
-// ArrayList<String> results = new ArrayList<>();
-// stream.filter(s -> pattern.matcher(s).matches())
-// .forEach(s -> results.add(s));

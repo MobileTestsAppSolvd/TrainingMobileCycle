@@ -3,16 +3,11 @@ package Base;
 import binding_TestRail.TestRailManager;
 import com.google.common.io.Files;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-
-import org.openqa.selenium.WebDriver;
-
 import org.testng.ITestResult;
+import org.testng.SkipException;
 import org.testng.annotations.*;
-
-
 import java.io.File;
 import java.io.IOException;
 
@@ -41,5 +36,9 @@ public class BaseTests implements IAbstractTest {
             System.out.println("error: " + error);
             TestRailManager.addResultForTestCase(TestcaseID, TestRailManager.TEST_CASE_FAILED_STATUS, error);
         }
+    }
+
+    public void skipTestException(String message){
+        throw new SkipException(message);
     }
 }

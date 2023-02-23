@@ -14,8 +14,6 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.testng.Assert.fail;
-
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ProductScreenBase.class)
 public class ProductScreen extends ProductScreenBase {
     @ExtendedFindBy(text = "Cartera shopper Kalton Bags 9025 diseño liso de cuero sintético  negra asas color negro")
@@ -23,13 +21,9 @@ public class ProductScreen extends ProductScreenBase {
     @ExtendedFindBy(text = "Agregar al carrito")
     private ExtendedWebElement addToCartButton;
     @ExtendedFindBy(text = "Comprar ahora")
-    private ExtendedWebElement productColor;
-    @ExtendedFindBy(text = "Comprar ahora")
     private ExtendedWebElement buyNowBtn;
-    @FindBy(id = "com.mercadolibre:id/generic_summary_subtitle")
-    private ExtendedWebElement KnowMoreButton;
     @ExtendedFindBy(text = "Conocer más")
-    private ExtendedWebElement KnowMore;
+    private ExtendedWebElement KnowMoreBtn;
     @FindBy(id = "com.mercadolibre:id/price_component_action")
     private ExtendedWebElement viewPaymentOptionsBtn;
     @ExtendedFindBy(text = "Ver más formas de entrega")
@@ -54,12 +48,7 @@ public class ProductScreen extends ProductScreenBase {
 
     @Override
     public void swipeUp() {
-        swipe(productColor, Direction.UP);
-    }
-
-    @Override
-    public AddedProductScreenBase clickOnAgregarAlCarrito() {
-        return null;
+        swipe(buyNowBtn, Direction.UP);
     }
 
     @Override
@@ -76,23 +65,12 @@ public class ProductScreen extends ProductScreenBase {
 
     @Override
     public boolean isKnowMoreButtonPresent() {
-        return KnowMoreButton.isElementPresent();
-    }
-
-    @Override
-    public boolean isKnowMoreButtonNOTPresent() {
-        KnowMoreButton.isElementNotPresent(5);
-        return true;
-    }
-
-    @Override
-    public boolean isBuyNowButtonPresent() {
-        return buyNowButton.isElementPresent();
+        return KnowMoreBtn.isElementPresent();
     }
 
     @Override
     public KnowMoreScreenBase clickOnKnowMoreButton() {
-        KnowMore.click();
+        KnowMoreBtn.click();
         return initPage(getDriver(), KnowMoreScreenBase.class);
     }
 
@@ -112,22 +90,12 @@ public class ProductScreen extends ProductScreenBase {
     }
 
     @Override
-    public void KnowMoreButtonError(String message) {
-        throw new AssertionError(message);
-    }
-
-    @Override
-    public boolean areElementsPresent() {
+    public boolean areMainElementsPresent() {
         List<ExtendedWebElement> list = new ArrayList<>();
         list.add(productImage);
         list.add(productTitle);
         list.add(productPrice);
 
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) == null) {
-                return false;
-            }
-        }
-        return true;
+        return list.get(0).isElementPresent() && list.get(1).isElementPresent() && list.get(2).isElementPresent();
     }
 }
