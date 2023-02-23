@@ -13,7 +13,7 @@ public class TestCart extends BaseTests implements IAbstractTest {
 
     @Test(description = "[TC02]-testAddProductToCartBtn")
     public void testAddProductToCartBtn() {
-        TestcaseID = "119";
+        TestcaseID = "1";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         ProductScreenBase productScreen = homeScreen.getLastVisitedProductAndClickOnIt();
@@ -23,7 +23,7 @@ public class TestCart extends BaseTests implements IAbstractTest {
 
     @Test(description = "[TC03]-testEliminateProductFromCart")
     public void testEliminateProductFromCart() {
-        TestcaseID = "120";
+        TestcaseID = "2";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         CartScreenBase cart = homeScreen.clickOnCartIcon();
@@ -35,6 +35,7 @@ public class TestCart extends BaseTests implements IAbstractTest {
 
     @Test(description = "smokeCartTest", priority = 0)
     public void smokeCartTest() {
+        TestcaseID = "21";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         CartScreenBase cartScreen= homeScreen.clickOnCartIcon();
 
