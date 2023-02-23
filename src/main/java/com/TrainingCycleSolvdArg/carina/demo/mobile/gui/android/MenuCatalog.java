@@ -35,13 +35,8 @@ public class MenuCatalog extends MenuCatalogBase {
     }
 
     @Override
-    public boolean areMenuElementsPresent() {
+    public boolean areMainElementsPresent() {
         List<ExtendedWebElement> list = findExtendedWebElements(menuElements.getBy(), 5000);
-        if (list.get(0).isElementPresent() && list.get(1).isElementPresent() && list.get(2).isElementPresent()) {
-            return true;
-        }
-        return false;
+        return list.get(0).isElementPresent() && list.get(1).isElementPresent() && list.get(2).isElementPresent();
     }
-
-
 }

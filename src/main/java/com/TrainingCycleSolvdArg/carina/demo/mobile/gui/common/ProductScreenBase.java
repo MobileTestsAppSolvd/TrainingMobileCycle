@@ -1,10 +1,9 @@
 package com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common;
 
-import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
 
-public abstract class ProductScreenBase extends AbstractPage implements IMobileUtils {
+public abstract class ProductScreenBase extends MercadolibreBase implements IMobileUtils {
     public ProductScreenBase(WebDriver driver) {
         super(driver);
     }
@@ -12,8 +11,6 @@ public abstract class ProductScreenBase extends AbstractPage implements IMobileU
     public abstract void clickOnTheFirstProduct();
 
     public abstract void swipeUp();
-
-    public abstract AddedProductScreenBase clickOnAgregarAlCarrito();
 
     public abstract void clickOnBuyNow();
 
@@ -32,6 +29,4 @@ public abstract class ProductScreenBase extends AbstractPage implements IMobileU
     public abstract ShippingOptionsScreenBase clickOnViewShippingOptionsBtn();
 
     public abstract void KnowMoreButtonError(String message);
-
-    public abstract boolean areElementsPresent();
 }

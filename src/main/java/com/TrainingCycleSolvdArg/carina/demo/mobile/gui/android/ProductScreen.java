@@ -14,8 +14,6 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.testng.Assert.fail;
-
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ProductScreenBase.class)
 public class ProductScreen extends ProductScreenBase {
     @ExtendedFindBy(text = "Cartera shopper Kalton Bags 9025 diseño liso de cuero sintético  negra asas color negro")
@@ -55,11 +53,6 @@ public class ProductScreen extends ProductScreenBase {
     @Override
     public void swipeUp() {
         swipe(productColor, Direction.UP);
-    }
-
-    @Override
-    public AddedProductScreenBase clickOnAgregarAlCarrito() {
-        return null;
     }
 
     @Override
@@ -117,17 +110,12 @@ public class ProductScreen extends ProductScreenBase {
     }
 
     @Override
-    public boolean areElementsPresent() {
+    public boolean areMainElementsPresent() {
         List<ExtendedWebElement> list = new ArrayList<>();
         list.add(productImage);
         list.add(productTitle);
         list.add(productPrice);
 
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) == null) {
-                return false;
-            }
-        }
-        return true;
+        return list.get(0).isElementPresent() && list.get(1).isElementPresent() && list.get(2).isElementPresent();
     }
 }
