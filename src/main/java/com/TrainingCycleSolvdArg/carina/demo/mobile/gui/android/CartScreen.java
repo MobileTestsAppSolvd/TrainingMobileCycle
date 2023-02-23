@@ -32,9 +32,8 @@ public class CartScreen extends CartScreenBase {
     }
 
     @Override
-    public boolean areCartElementsPresent() {
+    public boolean areMainElementsPresent() {
         List<ExtendedWebElement> list = findExtendedWebElements(cartElements.getBy(), 5000);
         return list.get(0).isElementPresent() && list.get(1).isElementPresent();
     }
-
 }

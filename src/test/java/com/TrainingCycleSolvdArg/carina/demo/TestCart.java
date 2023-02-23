@@ -38,6 +38,6 @@ public class TestCart extends BaseTests implements IAbstractTest {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         CartScreenBase cartScreen= homeScreen.clickOnCartIcon();
 
-        Assert.assertTrue(cartScreen.areCartElementsPresent(),"Cart elements are not present");
+        Assert.assertTrue(cartScreen.areMainElementsPresent(),"Cart elements are not present");
     }
 }

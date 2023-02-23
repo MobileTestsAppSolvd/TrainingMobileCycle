@@ -58,6 +58,6 @@ public class TestProducts extends BaseTests implements IAbstractTest {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
 
-        Assert.assertTrue(product.areElementsPresent(),"The product elements are not present");
+        Assert.assertTrue(product.areMainElementsPresent(),"The product elements are not present");
     }
 }
