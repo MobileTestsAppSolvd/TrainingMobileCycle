@@ -21,13 +21,9 @@ public class ProductScreen extends ProductScreenBase {
     @ExtendedFindBy(text = "Agregar al carrito")
     private ExtendedWebElement addToCartButton;
     @ExtendedFindBy(text = "Comprar ahora")
-    private ExtendedWebElement productColor;
-    @ExtendedFindBy(text = "Comprar ahora")
     private ExtendedWebElement buyNowBtn;
-    @FindBy(id = "com.mercadolibre:id/generic_summary_subtitle")
-    private ExtendedWebElement KnowMoreButton;
     @ExtendedFindBy(text = "Conocer más")
-    private ExtendedWebElement KnowMore;
+    private ExtendedWebElement KnowMoreBtn;
     @FindBy(id = "com.mercadolibre:id/price_component_action")
     private ExtendedWebElement viewPaymentOptionsBtn;
     @ExtendedFindBy(text = "Ver más formas de entrega")
@@ -52,7 +48,7 @@ public class ProductScreen extends ProductScreenBase {
 
     @Override
     public void swipeUp() {
-        swipe(productColor, Direction.UP);
+        swipe(buyNowBtn, Direction.UP);
     }
 
     @Override
@@ -69,23 +65,12 @@ public class ProductScreen extends ProductScreenBase {
 
     @Override
     public boolean isKnowMoreButtonPresent() {
-        return KnowMoreButton.isElementPresent();
-    }
-
-    @Override
-    public boolean isKnowMoreButtonNOTPresent() {
-        KnowMoreButton.isElementNotPresent(5);
-        return true;
-    }
-
-    @Override
-    public boolean isBuyNowButtonPresent() {
-        return buyNowButton.isElementPresent();
+        return KnowMoreBtn.isElementPresent();
     }
 
     @Override
     public KnowMoreScreenBase clickOnKnowMoreButton() {
-        KnowMore.click();
+        KnowMoreBtn.click();
         return initPage(getDriver(), KnowMoreScreenBase.class);
     }
 
@@ -102,11 +87,6 @@ public class ProductScreen extends ProductScreenBase {
         swipe(viewShippingOptionsBtn, Direction.UP);
         viewShippingOptionsBtn.click();
         return initPage(getDriver(), ShippingOptionsScreenBase.class);
-    }
-
-    @Override
-    public void KnowMoreButtonError(String message) {
-        throw new AssertionError(message);
     }
 
     @Override
