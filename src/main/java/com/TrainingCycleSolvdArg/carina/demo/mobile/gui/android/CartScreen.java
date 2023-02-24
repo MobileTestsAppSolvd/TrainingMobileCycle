@@ -27,6 +27,11 @@ public class CartScreen extends CartScreenBase {
     }
 
     @Override
+    public boolean isEliminateBtnPresent() {
+        return eliminateButton.isElementPresent();
+    }
+
+    @Override
     public boolean isEmptyCart() {
         return emptyCartTxt.isElementPresent();
     }

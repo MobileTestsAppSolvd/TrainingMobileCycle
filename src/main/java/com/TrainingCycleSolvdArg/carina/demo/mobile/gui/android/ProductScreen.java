@@ -58,6 +58,11 @@ public class ProductScreen extends ProductScreenBase {
     }
 
     @Override
+    public boolean isAddToCartBtnPresent() {
+        return addToCartButton.isElementPresent();
+    }
+
+    @Override
     public void clickOnBuyNow() {
         swipe(buyNowBtn, Direction.UP);
         buyNowBtn.click();

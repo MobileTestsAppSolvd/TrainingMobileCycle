@@ -10,5 +10,7 @@ public abstract class CartScreenBase extends MercadolibreBase implements IMobile
 
     public abstract void clickOnEleminate();
 
+    public abstract boolean isEliminateBtnPresent();
+
     public abstract boolean isEmptyCart();
 }
