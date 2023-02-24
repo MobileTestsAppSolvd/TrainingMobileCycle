@@ -8,7 +8,7 @@ public abstract class CartScreenBase extends MercadolibreBase implements IMobile
         super(driver);
     }
 
-    public abstract void clickOnEleminate();
+    public abstract void clickOnEliminate();
 
     public abstract boolean isEliminateBtnPresent();
 

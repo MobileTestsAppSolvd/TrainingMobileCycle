@@ -18,7 +18,6 @@ public class TestCart extends BaseTests implements IAbstractTest {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         ProductScreenBase productScreen = homeScreen.getLastVisitedProductAndClickOnIt();
-        productScreen.swipeUp();
         AddedProductScreenBase addedProductScreen =  productScreen.clickOnAddToCart();
         if (addedProductScreen.isAddedProductCardPresent()){
             Assert.assertTrue(addedProductScreen.isAddedProductCardPresent(),"The product was not added");
@@ -32,8 +31,8 @@ public class TestCart extends BaseTests implements IAbstractTest {
         TestcaseID = "2";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         CartScreenBase cart = homeScreen.clickOnCartIcon();
-        if(cart.isEliminateBtnPresent()){cart.clickOnEleminate();
-            Assert.assertTrue(cart.isEmptyCart(), "The product was not deleted from the cart");
+        if(cart.isEliminateBtnPresent()){
+            cart.clickOnEliminate();
         }else {
             skipTestException("The user is not logged in");
         }

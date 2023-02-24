@@ -53,6 +53,7 @@ public class ProductScreen extends ProductScreenBase {
 
     @Override
     public AddedProductScreenBase clickOnAddToCart() {
+        swipe(addToCartButton, Direction.UP);
         addToCartButton.click();
         return initPage(getDriver(), AddedProductScreenBase.class);
     }

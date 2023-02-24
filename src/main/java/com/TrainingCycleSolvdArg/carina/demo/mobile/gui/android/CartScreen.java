@@ -22,7 +22,7 @@ public class CartScreen extends CartScreenBase {
     }
 
     @Override
-    public void clickOnEleminate() {
+    public void clickOnEliminate() {
         eliminateButton.click();
     }
 
