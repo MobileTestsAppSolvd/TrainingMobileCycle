@@ -11,7 +11,7 @@ public class TestProducts extends BaseTests implements IAbstractTest {
 
     @Test(description = "[TC04]-testShowPaymentOptionsScreen")
     public void testShowPaymentOptionsScreen() {
-        TestcaseID = "121";
+        TestcaseID = "3";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
         PaymentOptionsScreenBase paymentOptions = product.clickOnViewPaymentOptionsBtn();
@@ -21,7 +21,7 @@ public class TestProducts extends BaseTests implements IAbstractTest {
 
     @Test(description = "[TC05]-testShippingOptionsScreen")
     public void testShippingOptionsScreen() {
-        TestcaseID = "122";
+        TestcaseID = "4";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
         ShippingOptionsScreenBase shippingOptions = product.clickOnViewShippingOptionsBtn();
@@ -31,7 +31,7 @@ public class TestProducts extends BaseTests implements IAbstractTest {
 
     @Test(description = "[TC06]-testKnowMoreScreenOnAProduct")
     public void testKnowMoreScreenOnAProduct() {
-        TestcaseID = "123";
+        TestcaseID = "5";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         homeScreen.getLastVisitedProductAndClickOnIt();
         ProductScreenBase productScreen = new ProductScreen(getDriver());
@@ -47,7 +47,7 @@ public class TestProducts extends BaseTests implements IAbstractTest {
 
     @Test(description = "[TC07]-testBuyNowBtn")
     public void testBuyNowBtn() {
-        TestcaseID = "124";
+        TestcaseID = "6";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
         product.clickOnBuyNow();
@@ -55,6 +55,7 @@ public class TestProducts extends BaseTests implements IAbstractTest {
 
     @Test(description = "createSmokeProductTest")
     public void createSmokeProductTest() {
+        TestcaseID = "41";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
 

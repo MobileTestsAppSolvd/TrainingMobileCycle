@@ -15,6 +15,7 @@ public abstract class ProductScreenBase extends MercadolibreBase implements IMob
     public abstract void clickOnBuyNow();
 
     public abstract AddedProductScreenBase clickOnAddToCart();
+    public abstract boolean isAddToCartBtnPresent();
 
     public abstract boolean isKnowMoreButtonPresent();
 

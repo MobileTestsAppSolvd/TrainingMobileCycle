@@ -35,9 +35,10 @@ public class BaseTests implements IAbstractTest {
             String error = String.valueOf(result.getThrowable());
             System.out.println("error: " + error);
             TestRailManager.addResultForTestCase(TestcaseID, TestRailManager.TEST_CASE_FAILED_STATUS, error);
+        } else if (result.getStatus()==ITestResult.SKIP) {
+            TestRailManager.addResultForTestCase(TestcaseID, TestRailManager.TEST_CASE_BLOCKED_STATUS, "");
         }
     }
-
     public void skipTestException(String message){
         throw new SkipException(message);
     }
