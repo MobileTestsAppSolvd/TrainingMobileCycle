@@ -22,8 +22,13 @@ public class CartScreen extends CartScreenBase {
     }
 
     @Override
-    public void clickOnEleminate() {
+    public void clickOnEliminate() {
         eliminateButton.click();
+    }
+
+    @Override
+    public boolean isEliminateBtnPresent() {
+        return eliminateButton.isElementPresent();
     }
 
     @Override

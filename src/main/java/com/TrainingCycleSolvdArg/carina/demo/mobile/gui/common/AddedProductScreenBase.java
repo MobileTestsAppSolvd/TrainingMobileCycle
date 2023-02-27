@@ -8,5 +8,5 @@ public abstract class AddedProductScreenBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract boolean isAddedProductCard();
+    public abstract boolean isAddedProductCardPresent();
 }
