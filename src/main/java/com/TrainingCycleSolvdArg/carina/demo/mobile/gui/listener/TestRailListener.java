@@ -1,13 +1,18 @@
 package com.TrainingCycleSolvdArg.carina.demo.mobile.gui.listener;
 
+import binding_TestRail.APIException;
+import binding_TestRail.TestRailCaseId;
 import binding_TestRail.TestRailManager;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import java.io.IOException;
+import java.lang.reflect.Method;
+
 public class TestRailListener implements ITestListener {
 
-    protected String TestcaseID;
+    public static String TestcaseID;
 
     @Override
     public void onTestStart(ITestResult result) {
@@ -18,20 +23,18 @@ public class TestRailListener implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        ITestListener.super.onTestSuccess(result);
-        result.getStatus() == ITestResult.SUCCESS)
-        TestRailManager.addResultForTestCase(TestcaseID, TestRailManager.TEST_CASE_PASSED_STATUS, "");
-
+       // ITestListener.super.onTestSuccess(result);
+       testRailResultUpdate(result,TestRailManager.TEST_CASE_PASSED_STATUS);
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        ITestListener.super.onTestFailure(result);
+        testRailResultUpdate(result,TestRailManager.TEST_CASE_FAILED_STATUS);
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        ITestListener.super.onTestSkipped(result);
+        testRailResultUpdate(result,TestRailManager.TEST_CASE_BLOCKED_STATUS);
     }
 
     @Override
