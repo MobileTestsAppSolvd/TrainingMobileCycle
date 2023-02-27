@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TestRailManager {
-    public static String TEST_RUN_ID = "1";
+//    public static String TEST_RUN_ID = "3";
     public static String TESTRAIL_USERNAME = "erika.rodriguez@alumnos.frm.utn.edu.ar";
     public static String TESTRAIL_PASSWORD = "Bruno2022!";
     public static String RAILS_ENGINE_URL = "https://mobiletraining.testrail.io/";
