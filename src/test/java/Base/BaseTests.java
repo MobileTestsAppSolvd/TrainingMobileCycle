@@ -1,21 +1,24 @@
 package Base;
 
+import binding_TestRail.APIClient;
+import binding_TestRail.APIException;
+import binding_TestRail.TestRailCaseId;
 import binding_TestRail.*;
-import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.listener.TestRailListener;
 import com.google.common.io.Files;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import com.zebrunner.carina.utils.R;
+import net.minidev.json.JSONObject;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.*;
 import org.testng.annotations.*;
 import java.io.File;
 import java.io.IOException;
-import java.lang.annotation.Inherited;
 import java.lang.reflect.Method;
 import java.rmi.AccessException;
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class BaseTests implements IAbstractTest, ITestListener {
     protected String TestcaseID;

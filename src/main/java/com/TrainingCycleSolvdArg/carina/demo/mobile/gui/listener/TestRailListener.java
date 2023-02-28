@@ -56,4 +56,25 @@ public class TestRailListener implements ITestListener {
     public void onFinish(ITestContext context){
 
     }
+
+    public static void testRailResultUpdate (ITestResult result, int status){
+        String testCaseID = null;
+        Method testMethod;
+        ITestContext context = result.getTestContext();
+        Long testRunId = (Long) context.getAttribute("suiteId");
+        try {
+            testMethod = result.getMethod().getRealClass().getMethod(result.getMethod().getMethodName());
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
+        if (testMethod.isAnnotationPresent(TestRailCaseId.class)){
+            testCaseID = testMethod.getAnnotation(TestRailCaseId.class).id();
+        }
+        String error = result.getThrowable() == null? "" : String.valueOf(result.getThrowable());
+        try {
+            TestRailManager.addResultForTestCase(testRunId,testCaseID, status, error);
+        } catch (IOException | APIException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

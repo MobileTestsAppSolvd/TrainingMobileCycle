@@ -4,7 +4,6 @@ import Base.BaseTests;
 import binding_TestRail.TestRailCaseId;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.listener.TestRailListener;
-import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
