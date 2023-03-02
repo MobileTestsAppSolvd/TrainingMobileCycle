@@ -1,5 +1,6 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
+import binding_TestRail.TestRailCaseId;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
@@ -8,30 +9,27 @@ import org.testng.annotations.Test;
 import Base.BaseTests;
 
 public class TestProducts extends BaseTests implements IAbstractTest {
-
+    @TestRailCaseId(id = "3")
     @Test(description = "[TC04]-testShowPaymentOptionsScreen")
     public void testShowPaymentOptionsScreen() {
-        TestcaseID = "3";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
         PaymentOptionsScreenBase paymentOptions = product.clickOnViewPaymentOptionsBtn();
 
         Assert.assertTrue(paymentOptions.isPaymentOptionScreenShown(), "Payment Options did not open");
     }
-
+    @TestRailCaseId(id = "4")
     @Test(description = "[TC05]-testShippingOptionsScreen")
     public void testShippingOptionsScreen() {
-        TestcaseID = "4";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
         ShippingOptionsScreenBase shippingOptions = product.clickOnViewShippingOptionsBtn();
 
         Assert.assertTrue(shippingOptions.isShippingOptionsShown(), "Shipping Options is not displayed");
     }
-
+    @TestRailCaseId(id = "5")
     @Test(description = "[TC06]-testKnowMoreScreenOnAProduct")
     public void testKnowMoreScreenOnAProduct() {
-        TestcaseID = "5";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         homeScreen.getLastVisitedProductAndClickOnIt();
         ProductScreenBase productScreen = new ProductScreen(getDriver());
@@ -44,18 +42,16 @@ public class TestProducts extends BaseTests implements IAbstractTest {
             skipTestException("This Product has no KnowMoreButton");
         }
     }
-
+    @TestRailCaseId(id = "6")
     @Test(description = "[TC07]-testBuyNowBtn")
     public void testBuyNowBtn() {
-        TestcaseID = "6";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
         product.clickOnBuyNow();
     }
-
+    @TestRailCaseId(id = "41")
     @Test(description = "createSmokeProductTest")
     public void createSmokeProductTest() {
-        TestcaseID = "41";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
 
