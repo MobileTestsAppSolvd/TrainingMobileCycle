@@ -12,18 +12,13 @@ import java.lang.reflect.Method;
 
 public class TestRailListener implements ITestListener {
 
-    public static String TestcaseID;
-
     @Override
     public void onTestStart(ITestResult result) {
         ITestListener.super.onTestStart(result);
-
-
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-       // ITestListener.super.onTestSuccess(result);
        testRailResultUpdate(result,TestRailManager.TEST_CASE_PASSED_STATUS);
     }
 

@@ -1,6 +1,7 @@
 package com.TrainingCycleSolvdArg.carina.demo;
 
 
+import binding_TestRail.TestRailCaseId;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.AddedProductScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.CartScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.HomeScreenBase;
@@ -11,10 +12,9 @@ import org.testng.annotations.Test;
 import Base.BaseTests;
 
 public class TestCart extends BaseTests implements IAbstractTest {
-
+    @TestRailCaseId(id = "42")
     @Test(description = "[TC02]-testAddProductToCartBtn")
     public void testAddProductToCartBtn() {
-        TestcaseID = "42";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         ProductScreenBase productScreen = homeScreen.getLastVisitedProductAndClickOnIt();
@@ -26,9 +26,9 @@ public class TestCart extends BaseTests implements IAbstractTest {
         }
     }
 
+    @TestRailCaseId(id = "2")
     @Test(description = "[TC03]-testEliminateProductFromCart")
     public void testEliminateProductFromCart() {
-        TestcaseID = "2";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         CartScreenBase cart = homeScreen.clickOnCartIcon();
         if(cart.isEliminateBtnPresent()){
@@ -38,9 +38,9 @@ public class TestCart extends BaseTests implements IAbstractTest {
         }
     }
 
+    @TestRailCaseId(id = "21")
     @Test(description = "smokeCartTest", priority = 0)
     public void smokeCartTest() {
-        TestcaseID = "21";
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         CartScreenBase cartScreen= homeScreen.clickOnCartIcon();
 

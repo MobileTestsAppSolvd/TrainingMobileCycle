@@ -1,15 +1,13 @@
 package binding_TestRail;
 
 
+import com.zebrunner.carina.utils.R;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TestRailManager {
-//    public static String TEST_RUN_ID = "3";
-    public static String TESTRAIL_USERNAME = "erika.rodriguez@alumnos.frm.utn.edu.ar";
-    public static String TESTRAIL_PASSWORD = "Bruno2022!";
-    public static String RAILS_ENGINE_URL = "https://mobiletraining.testrail.io/";
     public static String PROJECT_ID = "1";
 
     //TestRail status codes: 1=Passed, 2=Blocked, 3=Untested, 4=Retest, 5=Failed
@@ -19,11 +17,9 @@ public class TestRailManager {
     public static final int TEST_CASE_FAILED_STATUS = 5;
 
     public static void addResultForTestCase(Long testRunId,String testCaseId, int status, String error) throws IOException, APIException {
-
-
-        APIClient client = new APIClient(RAILS_ENGINE_URL);
-        client.setUser(TESTRAIL_USERNAME);
-        client.setPassword(TESTRAIL_PASSWORD);
+        APIClient client = new APIClient(R.TESTDATA.get("testRailURL"));
+        client.setUser(R.TESTDATA.get("testRailUsername"));
+        client.setPassword(R.TESTDATA.get("testRailPassword"));
         Map data = new HashMap();
         data.put("status_id", status);
         if (status == 1) {
