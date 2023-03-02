@@ -40,22 +40,18 @@ The project focuses on testing the MercadoLibre mobile app using core testing to
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Install the apk in the device
 
 ### Prerequisites
 
 - [ ] Install Java +11
-- [ ] Install apk of the mobile app being tested
 - [ ] Install Appium Server
 - [ ] Install Appium Inspector
 - [ ] Install AndroidStudio
 - [ ] Install Jenkins
 
 ### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+- [ ] Install mercadolibre apk in the device.
 - [ ] Clone the repo.
-
 - [ ] Add a _testdata.properties file with TestRail's credentials data (testRailUrl, testRailUsername, testRailPassword).
 
 <!-- USAGE EXAMPLES -->
@@ -78,3 +74,4 @@ _Below is an example of how you can instruct your audience on installing and set
 
 * [Carina Framework](https://zebrunner.github.io/carina/)
 * [TestRail](https://support.gurock.com/hc/en-us)
+* [Mercadolibre apk](https://mercadolibre.uptodown.com/android)
