@@ -75,3 +75,5 @@ The project focuses on testing the MercadoLibre mobile app using core testing to
 * [Carina Framework](https://zebrunner.github.io/carina/)
 * [TestRail](https://support.gurock.com/hc/en-us)
 * [Mercadolibre apk](https://mercadolibre.uptodown.com/android)
+* [TestNG](https://testng.org/doc/documentation-main.html)
+* [Appium](https://appium.io/docs/en/writing-running-appium/caps/)
