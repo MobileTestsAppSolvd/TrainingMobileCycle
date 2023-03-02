@@ -5,6 +5,7 @@ import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.Test;
 import Base.BaseTests;
 
@@ -23,9 +24,14 @@ public class TestProducts extends BaseTests implements IAbstractTest {
     public void testShippingOptionsScreen() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         ProductScreenBase product = homeScreen.clickOnLastSeenProduct();
-        ShippingOptionsScreenBase shippingOptions = product.clickOnViewShippingOptionsBtn();
 
-        Assert.assertTrue(shippingOptions.isShippingOptionsShown(), "Shipping Options is not displayed");
+        if (product.isShippingOptionsBtnPresent()){
+            ShippingOptionsScreenBase shippingOptions = product.clickOnViewShippingOptionsBtn();
+            Assert.assertTrue(shippingOptions.isShippingOptionsShown(), "Shipping Options is not displayed");
+        }
+        else {
+            skipTestException("This product has no Shipping Options Button");
+        }
     }
     @TestRailCaseId(id = "5")
     @Test(description = "[TC06]-testKnowMoreScreenOnAProduct")

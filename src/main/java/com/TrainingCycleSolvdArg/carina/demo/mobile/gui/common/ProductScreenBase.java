@@ -24,4 +24,6 @@ public abstract class ProductScreenBase extends MercadolibreBase implements IMob
     public abstract PaymentOptionsScreenBase clickOnViewPaymentOptionsBtn();
 
     public abstract ShippingOptionsScreenBase clickOnViewShippingOptionsBtn();
+
+    public abstract boolean isShippingOptionsBtnPresent();
 }

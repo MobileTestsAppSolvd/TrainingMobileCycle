@@ -96,6 +96,11 @@ public class ProductScreen extends ProductScreenBase {
     }
 
     @Override
+    public boolean isShippingOptionsBtnPresent() {
+        return viewShippingOptionsBtn.isElementPresent();
+    }
+
+    @Override
     public boolean areMainElementsPresent() {
         List<ExtendedWebElement> list = new ArrayList<>();
         list.add(productImage);
