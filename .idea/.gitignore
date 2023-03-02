@@ -3,6 +3,7 @@
 /workspace.xml
 /resources/
 _config.properties
+_testdata.properties
 .idea
 /target/
 /reports/
