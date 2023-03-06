@@ -31,7 +31,7 @@ public class BaseTests implements IAbstractTest, ITestListener {
             }
         }
     }
-    @BeforeClass
+   /* @BeforeClass
     public void createTestRailRun(ITestContext context) throws IOException, AccessException, APIException {
         APIClient client = new APIClient(R.TESTDATA.get("testRailURL"));
         client.setUser(R.TESTDATA.get("testRailUsername"));
@@ -56,7 +56,7 @@ public class BaseTests implements IAbstractTest, ITestListener {
         c = (JSONObject) client.sendPost("add_run/" + TestRailManager.PROJECT_ID, data);
         Long suite_id = Long.parseLong(c.get("id").toString());
         context.setAttribute("suiteId",suite_id);
-    }
+    }*/
 
     public void skipTestException(String message){
         throw new SkipException(message);

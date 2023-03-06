@@ -4,9 +4,14 @@ import Base.BaseTests;
 import binding_TestRail.TestRailCaseId;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.listener.TestRailListener;
+import com.qaprosoft.carina.core.foundation.dataprovider.annotations.CsvDataSourceParameters;
+import com.qaprosoft.carina.core.foundation.dataprovider.annotations.XlsDataSourceParameters;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import java.util.HashMap;
+
 @Listeners(TestRailListener.class)
 public class TestHome extends BaseTests {
     @TestRailCaseId(id = "7")
@@ -85,5 +90,19 @@ public class TestHome extends BaseTests {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         Assert.assertTrue(homeScreen.areMainElementsPresent(), "The elements are not present.");
+    }
+    @TestRailCaseId(id = "")
+    @Test(description = "[TC]-testSearchbarWithDataprovider", dataProvider = "DataProvider")
+    //@CsvDataSourceParameters(path = "searchbarDataProvider.csv", dsUid ="TUID")
+    @XlsDataSourceParameters(path = "dataProviderFile.xlsx", sheet = "Mobile-DataProvider",dsUid = "TUID")
+    //public void testSearchbar(String data){
+    public void testSearchbar(HashMap<String, String> data){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        SearchResultsScreenBase results = homeScreen.inputSearch(data.get("Search"));
+        Assert.assertTrue(results.isFilterBtnPresent());
+/*        while(!data.get("Search").isBlank()){
+            SearchResultsScreenBase results1 = homeScreen.inputSearch(data.get("Search"));
+            break;
+        }*/
     }
 }
