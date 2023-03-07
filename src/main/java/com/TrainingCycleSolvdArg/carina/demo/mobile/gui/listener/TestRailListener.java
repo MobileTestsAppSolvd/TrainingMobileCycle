@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 
 public class TestRailListener implements ITestListener {
 
-    @Override
+   /* @Override
     public void onTestStart(ITestResult result) {
         ITestListener.super.onTestStart(result);
     }
@@ -31,7 +31,7 @@ public class TestRailListener implements ITestListener {
     public void onTestSkipped(ITestResult result) {
         testRailResultUpdate(result,TestRailManager.TEST_CASE_BLOCKED_STATUS);
     }
-
+*/
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
         ITestListener.super.onTestFailedButWithinSuccessPercentage(result);
@@ -52,7 +52,7 @@ public class TestRailListener implements ITestListener {
 
     }
 
-    public static void testRailResultUpdate (ITestResult result, int status){
+/*    public static void testRailResultUpdate (ITestResult result, int status){
         String testCaseID = null;
         Method testMethod;
         ITestContext context = result.getTestContext();
@@ -71,5 +71,5 @@ public class TestRailListener implements ITestListener {
         } catch (IOException | APIException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
 }

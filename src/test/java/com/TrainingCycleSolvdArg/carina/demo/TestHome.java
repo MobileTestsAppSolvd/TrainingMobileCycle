@@ -92,7 +92,7 @@ public class TestHome extends BaseTests {
         Assert.assertTrue(homeScreen.areMainElementsPresent(), "The elements are not present.");
     }
 
-    //csv con DataProvider se usa map y data.get("Search"), se quita el dsArgs, se quita el sheet
+    //FUNCIONA CON TESRAIL COMENTADO. csv con DataProvider se usa map y data.get("Search"), se quita el dsArgs, se quita el sheet
     @Test(description = "[TC]-testSearchbarWithCSVDataprovider", dataProvider = "DataProvider")
     @CsvDataSourceParameters(path = "searchbarDataProvider.csv", dsUid ="TUID")
     public void testSearchbarCSV(HashMap<String, String> data){
@@ -101,7 +101,7 @@ public class TestHome extends BaseTests {
         Assert.assertTrue(results.isFilterBtnPresent());
     }
 
-    //xls con DataProvider, se usa map y data.get("Search"), se quita el dsArgs
+    //FUNCIONA CON TESRAIL COMENTADO.xls con DataProvider, se usa map y data.get("Search"), se quita el dsArgs
     @Test(description = "[TC]-testSearchbarWithXLSDataprovider", dataProvider = "DataProvider")
     @XlsDataSourceParameters(path = "dataProviderFile.xlsx", sheet = "Mobile-DataProvider",dsUid = "TUID")
     public void testSearchbarXLS(HashMap<String, String> data){
@@ -110,16 +110,16 @@ public class TestHome extends BaseTests {
         Assert.assertTrue(results.isFilterBtnPresent());
     }
 
-    //csv con SingleDataProvider, se agrega dsArgs = "Search"
+    //FUNCIONA CON TESRAIL COMENTADO.csv con SingleDataProvider, se agrega dsArgs = "Search"
     @Test(description = "[TC]-testSearchbarWithCSVSingleDataprovider", dataProvider = "SingleDataProvider")
-    @CsvDataSourceParameters(path = "searchbarDataProvider.csv", dsUid ="TUID", dsArgs = "Search")
-    public void testSearchbarCSVsingle(String data){
+    @CsvDataSourceParameters(path = "searchbarDataProvider.csv", dsUid ="TUID")
+    public void testSearchbarCSVsingle(HashMap<String, String> data){
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
-        SearchResultsScreenBase results = homeScreen.inputSearch(data);
+        SearchResultsScreenBase results = homeScreen.inputSearch(data.get("Search"));
         Assert.assertTrue(results.isFilterBtnPresent());
     }
 
-    //xls con SingleDataProvider, se agrega dsArgs = "Search"
+    //FUNCIONA CON TESRAIL COMENTADO.xls con SingleDataProvider, se agrega dsArgs = "Search"
     @Test(description = "[TC]-testSearchbarWithXLSSingleDataprovider", dataProvider = "SingleDataProvider")
     @XlsDataSourceParameters(path = "dataProviderFile.xlsx", sheet = "Mobile-DataProvider",dsUid = "TUID", dsArgs = "Search")
     public void testSearchbarXLSsingle(String data){
@@ -127,4 +127,11 @@ public class TestHome extends BaseTests {
         SearchResultsScreenBase results = homeScreen.inputSearch(data);
         Assert.assertTrue(results.isFilterBtnPresent());
     }
+
+    /*CONCLUSIONES:
+    CSV funciona siempre con map. puede usarse singleDataProvider(solo lleva path y dsuid) o DataProvider(solo lleva path y dsuid)
+    XLS puede funcionar con singleDataProvider(con path, sheet, dsuid, dsargs y aplicando string como parametro) o con DataProvider(con path, sheet, dsuid y aplicando hashmap como parametro)
+
+    TODO: ver como se implementa cuando descomento testrail :(
+    * */
 }
