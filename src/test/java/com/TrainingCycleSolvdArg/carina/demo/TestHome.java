@@ -91,18 +91,40 @@ public class TestHome extends BaseTests {
 
         Assert.assertTrue(homeScreen.areMainElementsPresent(), "The elements are not present.");
     }
-    @TestRailCaseId(id = "")
-    @Test(description = "[TC]-testSearchbarWithDataprovider", dataProvider = "DataProvider")
-    //@CsvDataSourceParameters(path = "searchbarDataProvider.csv", dsUid ="TUID")
-    @XlsDataSourceParameters(path = "dataProviderFile.xlsx", sheet = "Mobile-DataProvider",dsUid = "TUID")
-    //public void testSearchbar(String data){
-    public void testSearchbar(HashMap<String, String> data){
+
+    //csv con DataProvider se usa map y data.get("Search"), se quita el dsArgs, se quita el sheet
+    @Test(description = "[TC]-testSearchbarWithCSVDataprovider", dataProvider = "DataProvider")
+    @CsvDataSourceParameters(path = "searchbarDataProvider.csv", dsUid ="TUID")
+    public void testSearchbarCSV(HashMap<String, String> data){
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         SearchResultsScreenBase results = homeScreen.inputSearch(data.get("Search"));
         Assert.assertTrue(results.isFilterBtnPresent());
-/*        while(!data.get("Search").isBlank()){
-            SearchResultsScreenBase results1 = homeScreen.inputSearch(data.get("Search"));
-            break;
-        }*/
+    }
+
+    //xls con DataProvider, se usa map y data.get("Search"), se quita el dsArgs
+    @Test(description = "[TC]-testSearchbarWithXLSDataprovider", dataProvider = "DataProvider")
+    @XlsDataSourceParameters(path = "dataProviderFile.xlsx", sheet = "Mobile-DataProvider",dsUid = "TUID")
+    public void testSearchbarXLS(HashMap<String, String> data){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        SearchResultsScreenBase results = homeScreen.inputSearch(data.get("Search"));
+        Assert.assertTrue(results.isFilterBtnPresent());
+    }
+
+    //csv con SingleDataProvider, se agrega dsArgs = "Search"
+    @Test(description = "[TC]-testSearchbarWithCSVSingleDataprovider", dataProvider = "SingleDataProvider")
+    @CsvDataSourceParameters(path = "searchbarDataProvider.csv", dsUid ="TUID", dsArgs = "Search")
+    public void testSearchbarCSVsingle(String data){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        SearchResultsScreenBase results = homeScreen.inputSearch(data);
+        Assert.assertTrue(results.isFilterBtnPresent());
+    }
+
+    //xls con SingleDataProvider, se agrega dsArgs = "Search"
+    @Test(description = "[TC]-testSearchbarWithXLSSingleDataprovider", dataProvider = "SingleDataProvider")
+    @XlsDataSourceParameters(path = "dataProviderFile.xlsx", sheet = "Mobile-DataProvider",dsUid = "TUID", dsArgs = "Search")
+    public void testSearchbarXLSsingle(String data){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        SearchResultsScreenBase results = homeScreen.inputSearch(data);
+        Assert.assertTrue(results.isFilterBtnPresent());
     }
 }

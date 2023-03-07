@@ -6,7 +6,12 @@
     </listeners>
     <test name="Home">
         <classes>
-            <class name="com.TrainingCycleSolvdArg.carina.demo.TestHome" />
+            <class name="com.TrainingCycleSolvdArg.carina.demo.TestHome">
+                <methods>
+                    <include name="testSearchbar" />
+                </methods>
+            </class>
         </classes>
     </test>
+
 </suite>

@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class BaseTests implements IAbstractTest, ITestListener {
 
-    @AfterMethod
+/*    @AfterMethod
     public void recordFailure(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {
             var camera = (TakesScreenshot) getDriver();
@@ -30,7 +30,7 @@ public class BaseTests implements IAbstractTest, ITestListener {
                 e.printStackTrace();
             }
         }
-    }
+    }*/
    /* @BeforeClass
     public void createTestRailRun(ITestContext context) throws IOException, AccessException, APIException {
         APIClient client = new APIClient(R.TESTDATA.get("testRailURL"));
