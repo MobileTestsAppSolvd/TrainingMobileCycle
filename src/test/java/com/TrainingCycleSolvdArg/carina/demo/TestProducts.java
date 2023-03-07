@@ -4,12 +4,14 @@ import binding_TestRail.TestRailCaseId;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.android.ProductScreen;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
 import Base.BaseTests;
 
 public class TestProducts extends BaseTests implements IAbstractTest {
+
     @TestRailCaseId(id = "3")
     @Test(description = "[TC04]-testShowPaymentOptionsScreen")
     public void testShowPaymentOptionsScreen() {

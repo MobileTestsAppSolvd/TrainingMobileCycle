@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class BaseTests implements IAbstractTest, ITestListener {
+public class BaseTests implements IAbstractTest {
 
     @AfterMethod
     public void recordFailure(ITestResult result) {

@@ -7,11 +7,13 @@ import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.CartScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.HomeScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.ProductScreenBase;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import Base.BaseTests;
 
 public class TestCart extends BaseTests implements IAbstractTest {
+
     @TestRailCaseId(id = "42")
     @Test(description = "[TC02]-testAddProductToCartBtn")
     public void testAddProductToCartBtn() {
