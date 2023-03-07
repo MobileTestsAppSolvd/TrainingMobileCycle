@@ -4,19 +4,51 @@ import Base.BaseTests;
 import binding_TestRail.TestRailCaseId;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.listener.TestRailListener;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.recorder.RecordingPage;
+import io.appium.java_client.AppiumDriver;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Base64;
+
 @Listeners(TestRailListener.class)
 public class TestHome extends BaseTests {
+
+
     @TestRailCaseId(id = "7")
     @Test(description = "[TC09]-testSalesScreen")
-    public void testSalesScreen() {
+    public void testSalesScreen() throws Exception {
+
+        RecordingPage recordingPage = new RecordingPage(getDriver());
+
+        recordingPage.startRecordingScreen();
+
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         SalesScreenBase salesScreen = homeScreen.clickOnSales();
-
         Assert.assertTrue(salesScreen.isSalesScreenOpened(), "The sales Screen is not opened");
+
+
+        String video = recordingPage.stopRecordingScreen();
+
+        //Let's save the recorded video in a specific place
+        byte[] decodedVideo = Base64.getMimeDecoder().decode(video);
+        try {
+            Path testVideoDir = Paths.get(System.getProperty("user.dir") + "/videos");
+            Files.createDirectories(testVideoDir);
+            Path testVideoFileLocation = Paths.get(testVideoDir.toString()
+                    , String.format("%s-%d.%s", "test"
+                            , System.currentTimeMillis(), "mp4"));
+            Files.write(testVideoFileLocation, decodedVideo);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
     @TestRailCaseId(id = "8")
     @Test(description = "[TC12]-testSuperBtn")
     public void testSuperBtn() {
@@ -25,6 +57,7 @@ public class TestHome extends BaseTests {
 
         Assert.assertTrue(superScreen.isSuperCardPresent(), "The text doesn't match");
     }
+
     @TestRailCaseId(id = "9")
     @Test(description = "[TC11]-testCelPhoneScreen")
     public void testCelPhoneScreen() {
@@ -33,6 +66,7 @@ public class TestHome extends BaseTests {
 
         Assert.assertTrue(cellScreen.isCellPhoneScreenOpened(), "The cellphone screen was not opened");
     }
+
     @TestRailCaseId(id = "10")
     @Test(description = "[TC12]-testFashionScreen")
     public void testFashionScreen() {
@@ -41,6 +75,7 @@ public class TestHome extends BaseTests {
 
         Assert.assertTrue(fashionScreen.isFashionScreenOpened(), "The cellphone screen was not opened");
     }
+
     @TestRailCaseId(id = "11")
     @Test(description = "[TC13]-testVideosScreen")
     public void testVideosScreen() {
