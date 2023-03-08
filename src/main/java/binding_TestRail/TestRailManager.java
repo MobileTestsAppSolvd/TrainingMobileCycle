@@ -1,13 +1,14 @@
 package binding_TestRail;
 
 
+import com.qaprosoft.carina.core.foundation.report.testrail.ITestRailManager;
 import com.zebrunner.carina.utils.R;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TestRailManager {
+public class TestRailManager implements ITestRailManager {
     public static String PROJECT_ID = "1";
 
     //TestRail status codes: 1=Passed, 2=Blocked, 3=Untested, 4=Retest, 5=Failed
@@ -15,6 +16,8 @@ public class TestRailManager {
     public static final int TEST_CASE_BLOCKED_STATUS = 2;
     public static final int TEST_CASE_RETEST_STATUS = 4;
     public static final int TEST_CASE_FAILED_STATUS = 5;
+
+
 
     public static void addResultForTestCase(Long testRunId,String testCaseId, int status, String error) throws IOException, APIException {
         APIClient client = new APIClient(R.TESTDATA.get("testRailURL"));

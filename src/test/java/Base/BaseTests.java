@@ -13,13 +13,14 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.rmi.AccessException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class BaseTests implements IAbstractTest, ITestListener {
 
-/*    @AfterMethod
+    @AfterMethod
     public void recordFailure(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {
             var camera = (TakesScreenshot) getDriver();
@@ -30,8 +31,8 @@ public class BaseTests implements IAbstractTest, ITestListener {
                 e.printStackTrace();
             }
         }
-    }*/
-   /* @BeforeClass
+    }
+    @BeforeClass
     public void createTestRailRun(ITestContext context) throws IOException, AccessException, APIException {
         APIClient client = new APIClient(R.TESTDATA.get("testRailURL"));
         client.setUser(R.TESTDATA.get("testRailUsername"));
@@ -56,7 +57,7 @@ public class BaseTests implements IAbstractTest, ITestListener {
         c = (JSONObject) client.sendPost("add_run/" + TestRailManager.PROJECT_ID, data);
         Long suite_id = Long.parseLong(c.get("id").toString());
         context.setAttribute("suiteId",suite_id);
-    }*/
+    }
 
     public void skipTestException(String message){
         throw new SkipException(message);
