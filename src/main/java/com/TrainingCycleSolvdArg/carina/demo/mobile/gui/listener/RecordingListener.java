@@ -6,7 +6,6 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 public class RecordingListener extends RecordingPage implements ITestListener {
-
     @Override
     public void onTestStart(ITestResult result) {
         startRecordingScreen();
@@ -18,6 +17,10 @@ public class RecordingListener extends RecordingPage implements ITestListener {
         byte[] decodedVideo = DecodeVideo(video);
         CreateVideoInDirectory(decodedVideo);
     }
-
-
+    @Override
+    public void onTestSkipped(ITestResult result) {
+        String video = stopRecordingScreen();
+        byte[] decodedVideo = DecodeVideo(video);
+        CreateVideoInDirectory(decodedVideo);
+    }
 }

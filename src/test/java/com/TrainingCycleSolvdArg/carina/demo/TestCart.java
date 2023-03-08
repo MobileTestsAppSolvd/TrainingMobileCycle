@@ -6,12 +6,14 @@ import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.AddedProductScree
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.CartScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.HomeScreenBase;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.ProductScreenBase;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.listener.RecordingListener;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.listener.TestRailListener;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import Base.BaseTests;
-
+@Listeners({TestRailListener.class, RecordingListener.class})
 public class TestCart extends BaseTests implements IAbstractTest {
 
     @TestRailCaseId(id = "42")

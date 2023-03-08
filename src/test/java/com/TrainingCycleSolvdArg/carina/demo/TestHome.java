@@ -10,22 +10,14 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Base64;
-
 @Listeners({TestRailListener.class, RecordingListener.class})
 public class TestHome extends BaseTests implements IAbstractTest {
     @TestRailCaseId(id = "7")
     @Test(description = "[TC09]-testSalesScreen")
     public void testSalesScreen(){
-        //this test is meant to fail for recording videos purposes
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         SalesScreenBase salesScreen = homeScreen.clickOnSales();
-        Assert.assertTrue(homeScreen.areMainElementsPresent(), "The sales Screen is not opened");
-
-
+        Assert.assertTrue(salesScreen.isSalesScreenOpened(), "The sales Screen is not opened");
     }
     @TestRailCaseId(id = "8")
     @Test(description = "[TC12]-testSuperBtn")
