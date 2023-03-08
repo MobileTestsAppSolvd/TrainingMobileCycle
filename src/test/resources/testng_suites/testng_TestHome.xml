@@ -4,7 +4,7 @@
     <listeners>
         <listener class-name="com.TrainingCycleSolvdArg.carina.demo.mobile.gui.listener.TestRailListener"></listener>
     </listeners>
-    <test name="Home">
+    <test name="testSalesScreen">
         <classes>
             <class name="com.TrainingCycleSolvdArg.carina.demo.TestHome" />
         </classes>

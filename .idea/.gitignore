@@ -8,3 +8,4 @@ _testdata.properties
 /target/
 /reports/
 src/main/resources/_config.properties
+/videos/

@@ -3,18 +3,20 @@ package com.TrainingCycleSolvdArg.carina.demo;
 import Base.BaseTests;
 import binding_TestRail.TestRailCaseId;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
+import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.listener.RecordingListener;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.listener.TestRailListener;
+import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-@Listeners(TestRailListener.class)
-public class TestHome extends BaseTests {
+
+@Listeners({TestRailListener.class, RecordingListener.class})
+public class TestHome extends BaseTests implements IAbstractTest {
     @TestRailCaseId(id = "7")
     @Test(description = "[TC09]-testSalesScreen")
-    public void testSalesScreen() {
+    public void testSalesScreen(){
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         SalesScreenBase salesScreen = homeScreen.clickOnSales();
-
         Assert.assertTrue(salesScreen.isSalesScreenOpened(), "The sales Screen is not opened");
     }
     @TestRailCaseId(id = "8")
@@ -25,6 +27,7 @@ public class TestHome extends BaseTests {
 
         Assert.assertTrue(superScreen.isSuperCardPresent(), "The text doesn't match");
     }
+
     @TestRailCaseId(id = "9")
     @Test(description = "[TC11]-testCelPhoneScreen")
     public void testCelPhoneScreen() {
@@ -33,6 +36,7 @@ public class TestHome extends BaseTests {
 
         Assert.assertTrue(cellScreen.isCellPhoneScreenOpened(), "The cellphone screen was not opened");
     }
+
     @TestRailCaseId(id = "10")
     @Test(description = "[TC12]-testFashionScreen")
     public void testFashionScreen() {
@@ -41,6 +45,7 @@ public class TestHome extends BaseTests {
 
         Assert.assertTrue(fashionScreen.isFashionScreenOpened(), "The cellphone screen was not opened");
     }
+
     @TestRailCaseId(id = "11")
     @Test(description = "[TC13]-testVideosScreen")
     public void testVideosScreen() {
