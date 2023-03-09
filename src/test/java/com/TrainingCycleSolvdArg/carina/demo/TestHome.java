@@ -95,9 +95,9 @@ public class TestHome extends BaseTests {
 
     //FUNCIONA CON TESRAIL COMENTADO. csv con DataProvider se usa map y data.get("Search"), se quita el dsArgs, se quita el sheet
     //@TestRailCaseId(id = "43")
-    //@TestRailCases(testCasesId = "43")
+    @TestRailCases(testCasesId = "19")
     @Test(description = "[TC]-testSearchbarWithCSVDataprovider", dataProvider = "DataProvider")
-    @CsvDataSourceParameters(path = "searchbarDataProvider.csv", dsUid ="TUID",testRailColumn = "a")
+    @CsvDataSourceParameters(path = "dataProviderFiles/searchbarDataProvider.csv", dsUid ="TUID")
     public void testSearchbarCSV(HashMap<String, String> data){
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         SearchResultsScreenBase results = homeScreen.inputSearch(data.get("Search"));
@@ -105,9 +105,10 @@ public class TestHome extends BaseTests {
     }
 
     //FUNCIONA CON TESRAIL COMENTADO.xls con DataProvider, se usa map y data.get("Search"), se quita el dsArgs
-    @TestRailCaseId(id = "44")
+    //@TestRailCaseId(id = "44")
+    @TestRailCases(testCasesId = "20")
     @Test(description = "[TC]-testSearchbarWithXLSDataprovider", dataProvider = "DataProvider")
-    @XlsDataSourceParameters(path = "dataProviderFile.xlsx", sheet = "Mobile-DataProvider",dsUid = "TUID",testRailColumn = "a")
+    @XlsDataSourceParameters(path = "dataProviderFiles/dataProviderXLSFile.xlsx", sheet = "Mobile-DataProvider",dsUid = "TUID")
     public void testSearchbarXLS(HashMap<String, String> data){
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         SearchResultsScreenBase results = homeScreen.inputSearch(data.get("Search"));
@@ -117,7 +118,7 @@ public class TestHome extends BaseTests {
     //FUNCIONA CON TESRAIL COMENTADO.csv con SingleDataProvider, se agrega dsArgs = "Search"
     @Test(description = "[TC]-testSearchbarWithCSVSingleDataprovider", dataProvider = "SingleDataProvider")
     @TestRailCaseId(id = "45")
-    @CsvDataSourceParameters(path = "searchbarDataProvider.csv", dsUid ="TUID")
+    @CsvDataSourceParameters(path = "dataProviderFiles/searchbarDataProvider.csv", dsUid ="TUID")
     public void testSearchbarCSVsingle(HashMap<String, String> data){
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         SearchResultsScreenBase results = homeScreen.inputSearch(data.get("Search"));
@@ -127,7 +128,7 @@ public class TestHome extends BaseTests {
     //FUNCIONA CON TESRAIL COMENTADO.xls con SingleDataProvider, se agrega dsArgs = "Search"
     @TestRailCaseId(id = "46")
     @Test(description = "[TC]-testSearchbarWithXLSSingleDataprovider", dataProvider = "SingleDataProvider")
-    @XlsDataSourceParameters(path = "dataProviderFile.xlsx", sheet = "Mobile-DataProvider",dsUid = "TUID", dsArgs = "Search")
+    @XlsDataSourceParameters(path = "dataProviderFiles/dataProviderXLSFile.xlsx", sheet = "Mobile-DataProvider",dsUid = "TUID", dsArgs = "Search")
     public void testSearchbarXLSsingle(String data){
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         SearchResultsScreenBase results = homeScreen.inputSearch(data);
