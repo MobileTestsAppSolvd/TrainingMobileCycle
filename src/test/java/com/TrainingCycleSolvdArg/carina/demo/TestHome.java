@@ -93,7 +93,7 @@ public class TestHome extends BaseTests {
         Assert.assertTrue(homeScreen.areMainElementsPresent(), "The elements are not present.");
     }
 
-    //FUNCIONA CON TESRAIL COMENTADO. csv con DataProvider se usa map y data.get("Search"), se quita el dsArgs, se quita el sheet
+    //FUNCIONA. csv con DataProvider se usa map y data.get("Search"), se quita el dsArgs, se quita el sheet
     //@TestRailCaseId(id = "43")
     @TestRailCases(testCasesId = "19")
     @Test(description = "[TC]-testSearchbarWithCSVDataprovider", dataProvider = "DataProvider")
@@ -104,7 +104,7 @@ public class TestHome extends BaseTests {
         Assert.assertTrue(results.isFilterBtnPresent());
     }
 
-    //FUNCIONA CON TESRAIL COMENTADO.xls con DataProvider, se usa map y data.get("Search"), se quita el dsArgs
+    //FUNCIONA.xls con DataProvider, se usa map y data.get("Search"), se quita el dsArgs
     //@TestRailCaseId(id = "44")
     @TestRailCases(testCasesId = "20")
     @Test(description = "[TC]-testSearchbarWithXLSDataprovider", dataProvider = "DataProvider")
@@ -115,7 +115,7 @@ public class TestHome extends BaseTests {
         Assert.assertTrue(results.isFilterBtnPresent());
     }
 
-    //FUNCIONA CON TESRAIL COMENTADO.csv con SingleDataProvider, se agrega dsArgs = "Search"
+    //FUNCIONA.csv con SingleDataProvider, se agrega dsArgs = "Search"
     @Test(description = "[TC]-testSearchbarWithCSVSingleDataprovider", dataProvider = "SingleDataProvider")
     @TestRailCaseId(id = "45")
     @CsvDataSourceParameters(path = "dataProviderFiles/searchbarDataProvider.csv", dsUid ="TUID")
@@ -125,7 +125,7 @@ public class TestHome extends BaseTests {
         Assert.assertTrue(results.isFilterBtnPresent());
     }
 
-    //FUNCIONA CON TESRAIL COMENTADO.xls con SingleDataProvider, se agrega dsArgs = "Search"
+    //FUNCIONA.xls con SingleDataProvider, se agrega dsArgs = "Search"
     @TestRailCaseId(id = "46")
     @Test(description = "[TC]-testSearchbarWithXLSSingleDataprovider", dataProvider = "SingleDataProvider")
     @XlsDataSourceParameters(path = "dataProviderFiles/dataProviderXLSFile.xlsx", sheet = "Mobile-DataProvider",dsUid = "TUID", dsArgs = "Search")

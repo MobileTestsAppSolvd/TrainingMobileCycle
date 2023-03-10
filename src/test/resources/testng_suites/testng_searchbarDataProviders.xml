@@ -9,7 +9,6 @@
             <class name="com.TrainingCycleSolvdArg.carina.demo.TestHome">
                 <methods>
                     <include name="testSearchbarCSV" />
-                    <include name="testSearchbarXLS" />
                 </methods>
             </class>
         </classes>
