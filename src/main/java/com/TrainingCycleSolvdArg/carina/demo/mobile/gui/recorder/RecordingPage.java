@@ -50,11 +50,11 @@ public class RecordingPage  implements CanRecordScreen, IAbstractTest{
         return null;
     }
 
-    public byte[] DecodeVideo(String video) {
+    public byte[] decodeVideo(String video) {
         return Base64.getMimeDecoder().decode(video);
     }
 
-    public void CreateVideoInDirectory(byte[] alreadyDecodedVideo) {
+    public void createVideoInDirectory(byte[] alreadyDecodedVideo) {
         try {
             Path testVideoDir = Paths.get(System.getProperty("user.dir") + "/videos");
             Files.createDirectories(testVideoDir);
