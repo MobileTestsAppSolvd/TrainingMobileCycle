@@ -14,13 +14,13 @@ public class RecordingListener extends RecordingPage implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         String video = stopRecordingScreen();
-        byte[] decodedVideo = DecodeVideo(video);
-        CreateVideoInDirectory(decodedVideo);
+        byte[] decodedVideo = decodeVideo(video);
+        createVideoInDirectory(decodedVideo);
     }
     @Override
     public void onTestSkipped(ITestResult result) {
         String video = stopRecordingScreen();
-        byte[] decodedVideo = DecodeVideo(video);
-        CreateVideoInDirectory(decodedVideo);
+        byte[] decodedVideo = decodeVideo(video);
+        createVideoInDirectory(decodedVideo);
     }
 }
