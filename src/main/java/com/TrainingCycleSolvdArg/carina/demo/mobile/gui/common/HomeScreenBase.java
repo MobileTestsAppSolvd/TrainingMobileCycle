@@ -53,4 +53,6 @@ public abstract class HomeScreenBase extends MercadolibreBase implements IMobile
     public abstract MoreSoldScreenBase clickOnMoreSoldBtn();
 
     public abstract SalesScreenBase clickOnSales();
+
+    public abstract SearchResultsScreenBase inputSearch(String search);
 }

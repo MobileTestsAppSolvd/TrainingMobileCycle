@@ -5,6 +5,7 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,6 +30,8 @@ public class HomeScreen extends HomeScreenBase {
 
     @FindBy(id = "com.mercadolibre:id/ui_components_action_bar_title_toolbar")
     private ExtendedWebElement searchBar;
+    @FindBy(id = "com.mercadolibre:id/search_input_edittext")
+    private ExtendedWebElement searchInputText;
 
     @FindBy(id = "com.mercadolibre:id/vpp_action_bar_bookmark")
     private ExtendedWebElement bookMark;
@@ -201,5 +204,12 @@ public class HomeScreen extends HomeScreenBase {
         list.add(cartIcon);
         list.add(searchBar);
         return list.get(0).isElementPresent() && list.get(1).isElementPresent() && list.get(2).isElementPresent();
+    }
+    @Override
+    public SearchResultsScreenBase inputSearch(String search){
+        searchBar.click();
+        searchInputText.type(search);
+        pressBottomRightKey();
+    return initPage(getDriver(), SearchResultsScreenBase.class);
     }
 }

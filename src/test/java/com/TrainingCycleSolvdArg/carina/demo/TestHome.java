@@ -5,18 +5,24 @@ import binding_TestRail.TestRailCaseId;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.common.*;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.listener.RecordingListener;
 import com.TrainingCycleSolvdArg.carina.demo.mobile.gui.listener.TestRailListener;
+import com.qaprosoft.carina.core.foundation.dataprovider.annotations.CsvDataSourceParameters;
+import com.qaprosoft.carina.core.foundation.dataprovider.annotations.XlsDataSourceParameters;
+import com.qaprosoft.carina.core.foundation.report.testrail.TestRailCases;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Listeners({TestRailListener.class, RecordingListener.class})
-public class TestHome extends BaseTests implements IAbstractTest {
+import java.util.HashMap;
+
+@Listeners(TestRailListener.class)
+public class TestHome extends BaseTests {
     @TestRailCaseId(id = "7")
     @Test(description = "[TC09]-testSalesScreen")
     public void testSalesScreen(){
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
         SalesScreenBase salesScreen = homeScreen.clickOnSales();
+
         Assert.assertTrue(salesScreen.isSalesScreenOpened(), "The sales Screen is not opened");
     }
     @TestRailCaseId(id = "8")
@@ -45,7 +51,6 @@ public class TestHome extends BaseTests implements IAbstractTest {
 
         Assert.assertTrue(fashionScreen.isFashionScreenOpened(), "The cellphone screen was not opened");
     }
-
     @TestRailCaseId(id = "11")
     @Test(description = "[TC13]-testVideosScreen")
     public void testVideosScreen() {
@@ -75,7 +80,7 @@ public class TestHome extends BaseTests implements IAbstractTest {
         Assert.assertTrue(moreSoldScreen.isMoreSoldScreenShown(), "More sold screen is not open");
     }
 
-    @TestRailCaseId(id = "19")
+    @TestRailCases(testCasesId = "19")
     @Test(description = "smokeMenuTest", priority = 0)
     public void smokeMenuTest() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
@@ -84,11 +89,60 @@ public class TestHome extends BaseTests implements IAbstractTest {
         Assert.assertTrue(menu.areMainElementsPresent(), "Menu elements are not present");
     }
 
-    @TestRailCaseId(id = "20")
-    @Test(description = "SmokeHomeTest", priority = 0)
+    @TestRailCases(testCasesId = "21")
+    @Test(description = "smokeHomeTest", priority = 0)
     public void smokeHomeTest() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 
         Assert.assertTrue(homeScreen.areMainElementsPresent(), "The elements are not present.");
     }
+
+    //FUNCIONA. csv con DataProvider se usa map y data.get("Search"), se quita el dsArgs, se quita el sheet
+    //@TestRailCaseId(id = "43")
+    @TestRailCases(testCasesId = "19")
+    @Test(description = "[TC]-testSearchbarWithCSVDataprovider", dataProvider = "DataProvider")
+    @CsvDataSourceParameters(path = "dataProviderFiles/searchbarDataProvider.csv", dsUid ="TUID")
+    public void testSearchbarCSV(HashMap<String, String> data){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        SearchResultsScreenBase results = homeScreen.inputSearch(data.get("Search"));
+        Assert.assertTrue(results.isFilterBtnPresent());
+    }
+
+    //FUNCIONA.xls con DataProvider, se usa map y data.get("Search"), se quita el dsArgs
+    //@TestRailCaseId(id = "44")
+    @TestRailCases(testCasesId = "20")
+    @Test(description = "[TC]-testSearchbarWithXLSDataprovider", dataProvider = "DataProvider")
+    @XlsDataSourceParameters(path = "dataProviderFiles/dataProviderXLSFile.xlsx", sheet = "Mobile-DataProvider",dsUid = "TUID")
+    public void testSearchbarXLS(HashMap<String, String> data){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        SearchResultsScreenBase results = homeScreen.inputSearch(data.get("Search"));
+        Assert.assertTrue(results.isFilterBtnPresent());
+    }
+
+    //FUNCIONA.csv con SingleDataProvider, se agrega dsArgs = "Search"
+    @Test(description = "[TC]-testSearchbarWithCSVSingleDataprovider", dataProvider = "SingleDataProvider")
+    @TestRailCaseId(id = "45")
+    @CsvDataSourceParameters(path = "dataProviderFiles/searchbarDataProvider.csv", dsUid ="TUID")
+    public void testSearchbarCSVsingle(HashMap<String, String> data){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        SearchResultsScreenBase results = homeScreen.inputSearch(data.get("Search"));
+        Assert.assertTrue(results.isFilterBtnPresent());
+    }
+
+    //FUNCIONA.xls con SingleDataProvider, se agrega dsArgs = "Search"
+    @TestRailCaseId(id = "46")
+    @Test(description = "[TC]-testSearchbarWithXLSSingleDataprovider", dataProvider = "SingleDataProvider")
+    @XlsDataSourceParameters(path = "dataProviderFiles/dataProviderXLSFile.xlsx", sheet = "Mobile-DataProvider",dsUid = "TUID", dsArgs = "Search")
+    public void testSearchbarXLSsingle(String data){
+        HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
+        SearchResultsScreenBase results = homeScreen.inputSearch(data);
+        Assert.assertTrue(results.isFilterBtnPresent());
+    }
+
+    /*CONCLUSIONES:
+    CSV funciona siempre con map. puede usarse singleDataProvider(solo lleva path y dsuid) o DataProvider(solo lleva path y dsuid)
+    XLS puede funcionar con singleDataProvider(con path, sheet, dsuid, dsargs y aplicando string como parametro) o con DataProvider(con path, sheet, dsuid y aplicando hashmap como parametro)
+
+    TODO: ver como se implementa cuando descomento testrail :(
+    * */
 }
