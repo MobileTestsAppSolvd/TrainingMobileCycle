@@ -76,7 +76,7 @@ public class TestHome extends BaseTests {
         Assert.assertTrue(moreSoldScreen.isMoreSoldScreenShown(), "More sold screen is not open");
     }
 
-    @TestRailCaseId(id = "19")
+    @TestRailCases(testCasesId = "19")
     @Test(description = "smokeMenuTest", priority = 0)
     public void smokeMenuTest() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
@@ -85,8 +85,8 @@ public class TestHome extends BaseTests {
         Assert.assertTrue(menu.areMainElementsPresent(), "Menu elements are not present");
     }
 
-    @TestRailCaseId(id = "20")
-    @Test(description = "SmokeHomeTest", priority = 0)
+    @TestRailCases(testCasesId = "21")
+    @Test(description = "smokeHomeTest", priority = 0)
     public void smokeHomeTest() {
         HomeScreenBase homeScreen = initPage(getDriver(), HomeScreenBase.class);
 

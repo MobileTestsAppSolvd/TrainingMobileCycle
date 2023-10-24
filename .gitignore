@@ -1,10 +1,11 @@
 # Default ignored files
 /shelf/
-/workspace.xml
+/.idea/workspace.xml
 /resources/
 _config.properties
 _testdata.properties
 .idea
 /target/
 /reports/
+/videos/
 src/main/resources/_config.properties
